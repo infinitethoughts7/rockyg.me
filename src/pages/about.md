@@ -3,26 +3,16 @@ layout: ../layouts/AboutLayout.astro
 title: "About"
 ---
 
-<div style="display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap; margin-bottom: 1.5rem;">
-  <img src="/rockyg.jpeg" alt="Rocky G" style="width: 120px; height: 120px; border-radius: 50%; object-fit: cover; flex-shrink: 0;" />
-  <div>
-    <p style="margin: 0;">Hey, I'm <strong>Rocky G</strong> — a developer who loves building things with code.</p>
-    <p style="margin: 0.5rem 0 0;">I write about code, tools, and ideas on this blog. I enjoy exploring new technologies, sharing what I learn, and building useful things along the way.</p>
+<div style="display: flex; gap: 2rem; flex-wrap: wrap; margin-bottom: 2rem;">
+  <img src="/desktop-setup.jpeg" alt="Rocky G's workspace" style="width: 320px; height: auto; border-radius: 12px; object-fit: cover; flex-shrink: 0;" />
+  <div style="flex: 1; min-width: 240px;">
+    <p style="margin: 0;">Developer who builds things and writes about them.</p>
+    <p style="margin: 1rem 0;">Led the AI Literacy Training Program across 40 minority schools in Telangana — taught 2,051 students computer basics and AI in Phase 1.</p>
+    <p style="margin: 1rem 0;">I work on a lot of projects, face a lot of challenges, and write about all of it here.</p>
+    <p style="margin: 1rem 0;">Looking for opportunities to build, teach, and make an impact.</p>
   </div>
 </div>
 
-## What I do
-
-- Build web applications and developer tools
-- Write about software engineering, workflows, and productivity
-- Explore and learn new technologies
-
-## About this site
-
-This blog is built with [Astro](https://astro.build/) and the [AstroPaper](https://github.com/satnaing/astro-paper) theme, deployed on [Vercel](https://vercel.com/).
-
 ## Get in touch
-
-Feel free to reach out — I'm always happy to connect with fellow developers.
 
 Find me at [rockyg.me](https://rockyg.me).
