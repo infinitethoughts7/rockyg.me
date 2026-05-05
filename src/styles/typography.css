@@ -47,6 +47,40 @@
       @apply mx-auto border border-border;
     }
 
+    .post-aside {
+      border: 1px solid var(--color-border);
+      border-radius: 14px;
+      height: auto;
+      margin-top: 0.25rem;
+      width: min(21rem, 45%);
+    }
+
+    .post-aside-right {
+      float: right;
+      margin: 0.25rem 0 1rem 1.5rem;
+    }
+
+    .post-aside-left {
+      float: left;
+      margin: 0.25rem 1.5rem 1rem 0;
+    }
+
+    .post-aside-clear {
+      clear: both;
+      height: 0;
+    }
+
+    @media (max-width: 640px) {
+      .post-aside,
+      .post-aside-right,
+      .post-aside-left {
+        display: block;
+        float: none;
+        margin: 1rem auto;
+        width: 100%;
+      }
+    }
+
     figcaption {
       @apply opacity-75;
     }
