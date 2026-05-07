@@ -69,28 +69,22 @@ We hired IT professionals, data analysts, developers, people already working in 
 
 ## The Curriculum
 
-<img
-  src="/images/posts/2026-03/ai-literacy-walking-among-students.jpg"
-  alt="Walking among students during a session"
-  class="post-aside post-aside-right"
-/>
-
 We had four days. Twelve hours. That was it.
 
-Day one was the foundation. Most of these girls were first generation learners who had never touched a computer before. So we started from zero, computer parts, the internet, how it all connects. By the end of day one they understood what artificial intelligence means. Not a textbook definition. A real one.
+1. Day one focused on the foundation.
 
-Day two was about talking to AI. Prompting, how to communicate with AI through text, images, audio and video. We introduced tools. And we discovered something that surprised us, these girls were good at English. Better than we expected. That made everything easier.
+   We started from zero: computer parts, the internet, and how digital systems connect. By the end of the day, the students had a clear, practical understanding of what artificial intelligence means.
 
-That evening I gave my team a demo of what day three would look like. Because there were doubts. Can 9th standard girls really build apps? Will they understand it?
+2. Day two was about communicating with AI.
 
-I believed they could. Because we were not teaching them technology. We are teaching them what technology can achieve. No programming. No code. Just tools, imagination and hands.
+   We taught prompting through text, images, audio, and video, and introduced the first set of tools. This was also the day we realized how quickly the students could adapt once the interface felt natural to them.
 
-Day three we introduced Lovable, Canva and other tools that let you build applications, websites and games without writing a single line of code. We built together, live in the classroom.
+3. Day three focused on creation.
 
-Day four was two things, AI ethics, because using technology responsibly matters as much as using it powerfully, and then the projects. Students built their own and submitted them to us.
+   We introduced Lovable, Canva, and other no-code tools that let students build websites, apps, and games. The goal was simple: show them that technology is not just something to consume, but something they can use to make things.
 
-Our philosophy throughout all four days was simple. Learn by doing. Theory and practice always moved together.
+4. Day four brought responsibility and application together.
 
-The projects they submitted were the most exciting thing I have seen in a long time.
+   We covered AI ethics and then moved into student projects. They built their own work, submitted it to us, and showed us that learning by doing was the right approach from the beginning.
 
-<div class="post-aside-clear"></div>
+That was the entire curriculum: simple, practical, and built for students who were meeting AI for the first time.
