@@ -41,50 +41,19 @@ That is when I knew this program was working.
 
 ## How the Program Started
 
-<img
-  src="/images/posts/2026-03/ai-literacy-rocky-presenting.jpg"
-  alt="Presenting to students during the AI literacy program"
-  class="post-aside post-aside-left"
-/>
+This started with a phone call from Sathish sir, my mentor — someone who has trained thousands of IT professionals and watched technology access change lives.
 
-This started with a phone call from Sathish sir.
+His belief was simple: AI is not the future. It is already here. If we wait until college to teach it, we lose a generation.
 
-Sathish sir is my mentor. He has trained thousands of IT professionals across his career and placed them into the industry. He knows exactly what technology access does to a person's life because he has seen it happen thousands of times.
-
-He believes AI is not coming. It is already here. And if we wait until college to teach it, we have already lost a generation.
-
-So we decided to start from the root. The schools.
-
-We chose TMREIS, Telangana Minorities Residential Educational Institutions Society, for our first pilot. 40 schools. 9th class girls. Residential schools run by the government for minority communities, providing free food and free education to students from poor families. These were not students who had everything. These were students who had hunger.
-
-He asked me to come up with a 4 day plan. Cover the most important concepts. Teach the most useful AI tools. In the most fundamental way possible, with the right examples for students who had never touched AI before.
-
-We took it seriously. We researched, built the curriculum, prepared the slides, and tested everything on 5th class students just to make sure anyone could understand it. That was our benchmark.
-
-Then I came back to him with a full plan. A team of three, Suma on operations, Sangeetha on reporting, Shiva on trainer support. And a website, ailiteracy.co.in, to run the entire program. Trainer profiles, school assignments, live updates from every school, a reporting dashboard for our sponsors. Every communication went through one platform.
-
-We hired IT professionals, data analysts, developers, people already working in tech, trained them on our curriculum, and started.
-
-<div class="post-aside-clear"></div>
+So we chose TMREIS — 40 government residential schools for minority communities in Telangana. 9th class girls who had never touched a laptop. We built a 4-day curriculum, tested it until anyone could follow it, trained a team of IT professionals to deliver it, and launched.
 
 ## The Curriculum
 
-We had four days. Twelve hours. That was it.
+Four days. Twelve hours.
 
-1. Day one focused on the foundation.
+- **Day 1** — The foundation. Computer basics, the internet, and what AI actually is.
+- **Day 2** — Prompting across text, images, audio, and video.
+- **Day 3** — Creation. Students built websites, apps, and games using tools like Lovable and Canva.
+- **Day 4** — AI ethics and a final student project.
 
-   We started from zero: computer parts, the internet, and how digital systems connect. By the end of the day, the students had a clear, practical understanding of what artificial intelligence means.
-
-2. Day two was about communicating with AI.
-
-   We taught prompting through text, images, audio, and video, and introduced the first set of tools. This was also the day we realized how quickly the students could adapt once the interface felt natural to them.
-
-3. Day three focused on creation.
-
-   We introduced Lovable, Canva, and other no-code tools that let students build websites, apps, and games. The goal was simple: show them that technology is not just something to consume, but something they can use to make things.
-
-4. Day four brought responsibility and application together.
-
-   We covered AI ethics and then moved into student projects. They built their own work, submitted it to us, and showed us that learning by doing was the right approach from the beginning.
-
-That was the entire curriculum: simple, practical, and built for students who were meeting AI for the first time.
+Simple, practical, and built for students meeting AI for the first time.
