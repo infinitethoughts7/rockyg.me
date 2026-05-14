@@ -1,0 +1,86 @@
+---
+interface Heading {
+  depth: number;
+  slug: string;
+  text: string;
+}
+interface Props {
+  headings: Heading[];
+}
+
+const { headings } = Astro.props;
+const sections = headings.filter(
+  h => h.depth === 2 && h.text.toLowerCase() !== "table of contents"
+);
+---
+
+{
+  sections.length > 1 && (
+    <nav
+      id="toc-sidebar"
+      aria-label="On this page"
+      class="fixed top-28 hidden flex-col xl:flex"
+      style="left: max(1rem, calc(50vw - 24rem - 13rem)); width: 11rem;"
+    >
+      <p class="mb-3 text-xs font-semibold tracking-widest uppercase text-foreground/40">
+        On this page
+      </p>
+      <ul class="flex flex-col">
+        {sections.map(heading => (
+          <li>
+            <a
+              href={`#${heading.slug}`}
+              data-toc-link={heading.slug}
+              class="toc-link block border-l-2 border-transparent py-1.5 pl-3 text-sm leading-snug text-foreground/50 transition-all duration-150 hover:text-foreground"
+            >
+              {heading.text}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  )
+}
+
+<script is:inline data-astro-rerun>
+  function initTOC() {
+    const links = Array.from(document.querySelectorAll("[data-toc-link]"));
+    if (!links.length) return;
+
+    const headingEls = links
+      .map(link => document.getElementById(link.getAttribute("data-toc-link")))
+      .filter(Boolean);
+
+    function setActive(id) {
+      links.forEach(link => {
+        const active = link.getAttribute("data-toc-link") === id;
+        link.classList.toggle("border-accent", active);
+        link.classList.toggle("text-accent", active);
+        link.classList.toggle("font-medium", active);
+        link.classList.toggle("border-transparent", !active);
+        link.classList.toggle("text-foreground/50", !active);
+        link.classList.toggle("font-medium", active);
+      });
+    }
+
+    // Set first item active initially
+    if (headingEls[0]) setActive(headingEls[0].id);
+
+    const observer = new IntersectionObserver(
+      entries => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            setActive(entry.target.id);
+            break;
+          }
+        }
+      },
+      { rootMargin: "-80px 0px -55% 0px", threshold: 0 }
+    );
+
+    headingEls.forEach(el => observer.observe(el));
+  }
+
+  initTOC();
+  document.addEventListener("astro:after-swap", initTOC);
+</script>
