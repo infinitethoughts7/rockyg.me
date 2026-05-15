@@ -59,26 +59,20 @@ const sections = headings.filter(
         link.classList.toggle("font-medium", active);
         link.classList.toggle("border-transparent", !active);
         link.classList.toggle("text-foreground/50", !active);
-        link.classList.toggle("font-medium", active);
       });
     }
 
-    // Set first item active initially
-    if (headingEls[0]) setActive(headingEls[0].id);
+    function update() {
+      const scrollY = window.scrollY + 120;
+      let activeId = headingEls[0]?.id;
+      for (const el of headingEls) {
+        if (el.offsetTop <= scrollY) activeId = el.id;
+      }
+      if (activeId) setActive(activeId);
+    }
 
-    const observer = new IntersectionObserver(
-      entries => {
-        for (const entry of entries) {
-          if (entry.isIntersecting) {
-            setActive(entry.target.id);
-            break;
-          }
-        }
-      },
-      { rootMargin: "-80px 0px -55% 0px", threshold: 0 }
-    );
-
-    headingEls.forEach(el => observer.observe(el));
+    update();
+    window.addEventListener("scroll", update, { passive: true });
   }
 
   initTOC();
