@@ -11,7 +11,7 @@ tags:
   - ai-literacy
 ---
 
-## Her Name Was Ameena
+## The Question That Stopped Me
 
 <img
   src="/images/blog/ai-literacy-yakatpura-teaching.jpeg"
@@ -47,11 +47,11 @@ That is when I knew this program was working.
   class="post-aside post-aside-right"
 />
 
-This started with a phone call from Sathish sir, my mentor — someone who has trained thousands of IT professionals and watched technology access change lives.
+This started with a phone call from Sathish sir, my mentor. He has trained thousands of IT professionals and watched technology access change lives.
 
 His belief was simple: AI is not the future. It is already here. If we wait until college to teach it, we lose a generation.
 
-So we chose TMREIS — 40 government residential schools for minority communities in Telangana. 9th class girls who had never touched a laptop. We built a 4-day curriculum, tested it until anyone could follow it, trained a team of IT professionals to deliver it, and launched.
+So we chose TMREIS, 40 government residential schools for minority communities in Telangana. 9th class girls who had never touched a laptop. We built a 4-day curriculum, tested it until anyone could follow it, trained a team of IT professionals to deliver it, and launched.
 
 <div class="post-aside-clear"></div>
 
@@ -59,16 +59,16 @@ So we chose TMREIS — 40 government residential schools for minority communitie
 
 Four days. Twelve hours.
 
-- **Day 1** — The foundation. Computer basics, the internet, and what AI actually is.
-- **Day 2** — Prompting across text, images, audio, and video.
-- **Day 3** — Creation. Students built websites, apps, and games using tools like Lovable and Canva.
-- **Day 4** — AI ethics and a final student project.
+- **Day 1:** The foundation. Computer basics, the internet, and what AI actually is.
+- **Day 2:** Prompting across text, images, audio, and video.
+- **Day 3:** Creation. Students built websites, apps, and games using tools like Lovable and Canva.
+- **Day 4:** AI ethics and a final student project.
 
 Simple, practical, and built for students meeting AI for the first time.
 
 ## The Classrooms
 
-I personally taught at two schools — Khairatabad G1 and Yakhuthpura G1. And I visited Asifnagar as Head of the program to check on my trainers.
+I personally taught at two schools: Khairatabad G1 and Yakhuthpura G1. And I visited Asifnagar as Head of the program to check on my trainers.
 
 Every school had the same thing nobody expected. Pure energy.
 
@@ -150,9 +150,35 @@ Twelve hours. That is what access does.
   <img src="/images/blog/yakatpura1.jpg"        alt="Group selfie with students at Yakatpura after the session"          style="width:100%;height:auto;display:block;margin-bottom:8px;border-radius:6px;">
   <img src="/images/blog/classroom1.jpeg"       alt="Students sitting on the floor, looking up with notebooks in hand"   style="width:100%;height:auto;display:block;margin-bottom:8px;border-radius:6px;">
   <img src="/images/blog/with-students.jpg"     alt="Rocky sitting on the floor with students during a hands-on session" style="width:100%;height:auto;display:block;margin-bottom:8px;border-radius:6px;">
-  <img src="/images/blog/yakatpura2.jpg"        alt="Teaching session — screen reads 'AI is a software that mimics human intelligence'" style="width:100%;height:auto;display:block;margin-bottom:8px;border-radius:6px;">
+  <img src="/images/blog/yakatpura2.jpg"        alt="Teaching session, screen reads 'AI is a software that mimics human intelligence'" style="width:100%;height:auto;display:block;margin-bottom:8px;border-radius:6px;">
   <img src="/images/blog/ail-smile.jpg"         alt="Rocky walking among students during the assessment session"         style="width:100%;height:auto;display:block;margin-bottom:8px;border-radius:6px;">
   <img src="/images/blog/chocolates-giving.jpg" alt="Giving chocolates to a student at the end of the session"          style="width:100%;height:auto;display:block;margin-bottom:8px;border-radius:6px;">
   <img src="/images/blog/rocky.jpg"             alt="Rocky presenting at a podium with MacBook"                         style="width:100%;height:auto;display:block;margin-bottom:8px;border-radius:6px;">
   <img src="/images/blog/desktop.jpeg"          alt="Rocky's desk setup while building the program"                     style="width:100%;height:auto;display:block;margin-bottom:8px;border-radius:6px;">
 </div>
+
+## What This Taught Me
+
+Walking into those classrooms took me back to where I started.
+
+I sat on the floor in a government school until 10th class. No computers. No internet. No access to any of it. I know exactly what it means to have talent and no tools.
+
+These girls are me. Ten years earlier.
+
+What I did not expect was how much they would inspire me. Their energy, their ideas, their instinct to build something for others despite having so little themselves. I left those classrooms wanting to work harder, not the other way around.
+
+This year our goal is to expand this program to every school in Telangana. And we will not stop there.
+
+Because here is what I believe.
+
+When the internet arrived, the people who understood its trajectory early went and built Google, Facebook, Amazon. They saw what was coming before everyone else and they moved.
+
+We are in that same moment right now. With AI.
+
+The students who get access to it today, who learn to think with it, build with it, use it responsibly. They are the ones who will become the next founders and leaders of this country.
+
+I want to be part of making that happen.
+
+Talent was never India's problem. It never was.
+
+We just have to get out of the way and give it access.
