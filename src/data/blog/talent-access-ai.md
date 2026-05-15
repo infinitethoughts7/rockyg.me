@@ -5,7 +5,7 @@ pubDatetime: 2026-05-05T00:00:00Z
 description: "How I led an AI literacy program across 40 minority schools in Telangana, trained 60 trainers, reached 2051 students, and what a 9th standard girl named Ameena taught me about the future."
 featured: true
 draft: false
-ogImage: ../../assets/images/posts/2026-03/ai-literacy-yakatpura-selfie.jpeg
+ogImage: ./images/ai-literacy-yakatpura-selfie.jpeg
 tags:
   - technical
   - ai-literacy
@@ -14,7 +14,7 @@ tags:
 ## Her Name Was Ameena
 
 <img
-  src="/images/posts/2026-03/ai-literacy-yakatpura-teaching.jpeg"
+  src="/images/blog/ai-literacy-yakatpura-teaching.jpeg"
   alt="Teaching AI concepts at Yakatpura"
   class="post-aside post-aside-right"
 />
@@ -41,11 +41,19 @@ That is when I knew this program was working.
 
 ## How the Program Started
 
+<img
+  src="/images/blog/how-it-started.jpeg"
+  alt="How the AI literacy program started"
+  class="post-aside post-aside-right"
+/>
+
 This started with a phone call from Sathish sir, my mentor — someone who has trained thousands of IT professionals and watched technology access change lives.
 
 His belief was simple: AI is not the future. It is already here. If we wait until college to teach it, we lose a generation.
 
 So we chose TMREIS — 40 government residential schools for minority communities in Telangana. 9th class girls who had never touched a laptop. We built a 4-day curriculum, tested it until anyone could follow it, trained a team of IT professionals to deliver it, and launched.
+
+<div class="post-aside-clear"></div>
 
 ## The Curriculum
 
@@ -57,3 +65,94 @@ Four days. Twelve hours.
 - **Day 4** — AI ethics and a final student project.
 
 Simple, practical, and built for students meeting AI for the first time.
+
+## The Classrooms
+
+I personally taught at two schools — Khairatabad G1 and Yakhuthpura G1. And I visited Asifnagar as Head of the program to check on my trainers.
+
+Every school had the same thing nobody expected. Pure energy.
+
+At Khairatabad from day one the classroom felt alive. We started with a drama skit, students acting out the parts of a computer, playing hardware and software, becoming the machine itself just to understand what it means. They laughed. They argued about who gets to be the processor. They remembered every part because they had lived it for ten minutes. We told them real stories of the people who built this technology. Not textbook names. Real humans with real struggles who changed the world from scratch.
+
+At Yakhuthpura the energy was just as high but something felt different in the room. These girls were quieter at first but their thinking went deeper. When they started building their ideas on day three you could see they had been processing everything since day one. Their projects told you that.
+
+Day two at both schools was the same story. Prompting. We divided them into groups, handed out laptops and watched what happened.
+
+They asked ChatGPT about their textbooks. About space. About how the universe was made. One group typed, what will Hyderabad look like in 2040? They were not doing homework. They were thinking about their future out loud.
+
+In the middle of that session questions started flying at me from every direction.
+
+Does AI know what will happen tomorrow? Can it solve my maths problems? Does it understand Telugu? Can it write a story about my village? Does it get tired like humans do?
+
+I answered every single one. And every answer led to three more questions. That is when you know a classroom is alive.
+
+Day three was building. We constructed prompts together, what do you want in a game, what should your website do, what problem do you want to solve. Then we polished those prompts with ChatGPT and pasted them into Lovable, Canva, Bolt.new. Applications appeared on screen in minutes. Games. Websites. Things they described, now real in front of them.
+
+Day four we asked one question to the class, is AI beautiful or not? That opened everything. Where should we use it. How should we use it. Where should we not. These girls who had never touched AI five days ago were now debating its place in the world. Then they went and built their own projects.
+
+At Asifnagar I went as Head of the program to check on my trainers. I spent thirty minutes with the students, asked them questions on what had been covered. They were sharp. On point. They told me everything they had learned and showed me what they had built so far.
+
+I left that school quietly proud of every trainer on my team.
+
+## The Impact
+
+On day four they ran towards me.
+
+Not walked. Ran. Every group wanted to show their idea first, explain the problem they had chosen to solve, tell me what they had built.
+
+I was not ready for what I heard.
+
+From Khairatabad, one group built [Career Compass](https://streamfinder-for-india.lovable.app), a platform to guide students after 10th on which stream to choose based on their interests. They built it because nobody had guided them. They did not want the next student to feel the same confusion.
+
+Another group built [FarmingEasy](https://earth-whisper-plan.lovable.app/), a sustainable farming advisor to help farmers improve crops while protecting the soil. Girls from poor families thinking about the farmers in their villages.
+
+One group built [NoorSeva](https://meal-connect-app.lovable.app), No Food Waste, No Hunger. A platform to connect surplus food with people who need it. They named it NoorSeva. Think about that for a moment.
+
+One group built [Taleem Se Taraqqi](https://taleem-se-taraqqi-hub.lovable.app), a website for their own school. Because they wanted their school to have a presence online.
+
+Two more groups built [Nature Knows](https://nature-knows-app.lovable.app) and [Ready Home Haven](https://ready-home-haven.lovable.app/).
+
+From Yakhuthpura, one group built [StudyBuddy](https://study-buddy-quest-77.lovable.app/), notes and previous year papers with AI summaries for classes 6 to 12. Built for every student like themselves who had no resources.
+
+Another group built [CometoSaveLife](https://vital-peek-demo.lovable.app/), upload your health report and AI explains your deficiencies in plain language. Girls from families where nobody can afford a doctor to explain a blood test. They thought about that problem and built something.
+
+The other groups built [Path Forward](https://path-forward-org.lovable.app), [Green Earth Haven](https://green-earth-haven.lovable.app/), [Safe Haven Guide](https://safe-haven-guide-45.lovable.app/), and a [Canva portfolio](https://mynameraghu.my.canva.site/untitled-app).
+
+The apps were not fully functional. The code was not perfect. But every single idea was real. Every single problem was something they had seen with their own eyes in their own communities.
+
+Farmers. Hunger. Health. Education. Career guidance. Their school.
+
+They did not build games. They did not build entertainment. Their first instinct with technology was to help someone more vulnerable than themselves.
+
+I stood there and could not speak for a moment.
+
+These girls had never touched AI twelve days before this. And in twelve hours of instruction they had identified real problems and built something, however small, to address them.
+
+---
+
+Before the program started we gave every student a baseline test. At the end of day four we gave the same test again.
+
+Average score before: 3.8 out of 10. Average score after: 8.3.
+
+<figure class="my-8">
+  <img
+    src="/images/blog/score-chart.svg"
+    alt="Bar chart showing baseline vs endline scores across 14 schools, and overall improvement from 3.8 to 8.3"
+    style="width:100%;height:auto;border-radius:10px;"
+  />
+</figure>
+
+Twelve hours. That is what access does.
+
+## Gallery
+
+<div style="columns:2;column-gap:8px;margin-top:1rem;">
+  <img src="/images/blog/yakatpura1.jpg"        alt="Group selfie with students at Yakatpura after the session"          style="width:100%;height:auto;display:block;margin-bottom:8px;border-radius:6px;">
+  <img src="/images/blog/classroom1.jpeg"       alt="Students sitting on the floor, looking up with notebooks in hand"   style="width:100%;height:auto;display:block;margin-bottom:8px;border-radius:6px;">
+  <img src="/images/blog/with-students.jpg"     alt="Rocky sitting on the floor with students during a hands-on session" style="width:100%;height:auto;display:block;margin-bottom:8px;border-radius:6px;">
+  <img src="/images/blog/yakatpura2.jpg"        alt="Teaching session — screen reads 'AI is a software that mimics human intelligence'" style="width:100%;height:auto;display:block;margin-bottom:8px;border-radius:6px;">
+  <img src="/images/blog/ail-smile.jpg"         alt="Rocky walking among students during the assessment session"         style="width:100%;height:auto;display:block;margin-bottom:8px;border-radius:6px;">
+  <img src="/images/blog/chocolates-giving.jpg" alt="Giving chocolates to a student at the end of the session"          style="width:100%;height:auto;display:block;margin-bottom:8px;border-radius:6px;">
+  <img src="/images/blog/rocky.jpg"             alt="Rocky presenting at a podium with MacBook"                         style="width:100%;height:auto;display:block;margin-bottom:8px;border-radius:6px;">
+  <img src="/images/blog/desktop.jpeg"          alt="Rocky's desk setup while building the program"                     style="width:100%;height:auto;display:block;margin-bottom:8px;border-radius:6px;">
+</div>
