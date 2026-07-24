@@ -26,5 +26,8 @@ pnpm-debug.log*
 # pagefind
 public/pagefind
 
-# raw source images
-Blog/
+# raw source images (top-level folder only; anchored so it does NOT match src/data/blog on case-insensitive filesystems)
+/Blog/
+
+# supabase local CLI temp files
+supabase/.temp/
