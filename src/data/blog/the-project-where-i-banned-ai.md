@@ -49,7 +49,7 @@ LLMs are probabilistic by construction. Same question today, a slightly differen
 
 ## What I built instead
 
-The unglamorous answer: engines. Plain, deterministic, testable TypeScript.
+The unglamorous answer: engines. Plain, deterministic, testable TypeScript, built as pure functions. Same inputs, same outputs, no hidden state, and no network call anywhere in the path that produces a number. That property is the architecture, not a detail of it, because a pure function is one you can audit by reading it and pin down with a test. The moment an LLM enters that path, both of those guarantees are gone.
 
 A matching engine that scores properties for a client using nine weight matrices, one for each combination of intent and risk appetite, with a five-level relaxation cascade when nothing fits perfectly. A returns model where every input is written down: cash out of pocket as the denominator, amortised interest over full tenure, stamp duty at possession, a post-possession slowdown factor, capital-gains tax at the documented rates. The model's output was verified against a fully worked real case before anything shipped, and that check is only possible because the engine is deterministic. A fixed set of inputs produces exactly one output, so the whole calculation can be pinned in a test that fails loudly the day someone changes a rate by accident. Determinism is not only about trust for the client. It is what makes the thing testable at all.
 
@@ -68,7 +68,7 @@ That last one matters most. The temptation with LLMs is to let them paper over g
 
 People read "banned AI" as anti-AI. It is the opposite. It is the same discipline that makes my AI systems trustworthy.
 
-My clinic bot answers only from verified facts and escalates the rest to humans. Kshetra tags evidence as verified or directional and ships its own dissent. CPA Desk takes the logical next step: where answers must be reproducible and auditable, the right amount of LLM is zero.
+Caira, my clinic receptionist, answers only from verified facts and escalates the rest to humans. Kshetra tags evidence as verified or directional and ships its own dissent. CPA Desk takes the logical next step: where answers must be reproducible and auditable, the right amount of LLM is zero.
 
 One system, three positions on the same dial. The dial is not "how much AI can I add." The dial is "how much unexplainable variance can this decision tolerate." Chat tolerates a lot. Triage tolerates some, behind guardrails. Money tolerates none.
 

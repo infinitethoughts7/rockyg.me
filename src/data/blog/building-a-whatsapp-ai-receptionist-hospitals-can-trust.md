@@ -1,170 +1,208 @@
 ---
-title: "Building a WhatsApp AI Receptionist a Hospital Can Trust"
+title: "Building Caira: a WhatsApp AI Receptionist a Hospital Can Trust"
 author: Rocky G
 pubDatetime: 2026-07-24T00:00:00Z
-description: "ClinicBot answers patients on WhatsApp, books appointments, and knows when to shut up. A visual tour of the six engineering decisions that make an AI agent trustworthy enough for healthcare."
+description: "Caira answers patients on WhatsApp, books appointments, and knows when to say 'let me check.' A plain-English tour of how you make an AI agent trustworthy enough for healthcare: grounding it so it cannot lie, walling off every clinic, and keeping it cheap and alive when the model goes down."
 featured: true
 tags:
   - technical
   - ai-agents
-  - clinicbot
+  - caira
 ---
 
 ## Table of contents
 
 ## The stakes
 
-A clinic's front desk in India misses calls all day. Patients call during lunch, at midnight, on Sundays. They switch to WhatsApp because that is where India actually talks. So we built ClinicBot, a WhatsApp AI receptionist that books appointments, answers questions, and sends reminders. It is in production today with a paying clinic in Hyderabad.
+A clinic's front desk in India misses calls all day. Patients call during lunch, at midnight, on the Sunday a baby's fever spikes. And when nobody picks up, they do the most natural thing in the country. They open WhatsApp and send a message.
 
-Here is the thing nobody tells you about AI in healthcare.
+So we built Caira, a WhatsApp receptionist for clinics. A patient messages the clinic's number, and Caira answers questions, books appointments, sends reminders, and runs the waitlist, with no human picking up. It runs in production for a paying clinic in Hyderabad, on one codebase built to serve many clinics at once.
 
-The hard part is not making the bot answer. Gemini answers anything. The hard part is making it answer like an employee who knows the rules, admits what it does not know, and never, ever invents a consultation fee.
+Here is the thing nobody tells you about putting AI in a hospital.
 
-A chatbot that hallucinates a price in an e-commerce store loses you a sale. A chatbot that hallucinates in a hospital loses you the hospital.
+The hard part is not making the bot answer. Any modern model answers anything, instantly and beautifully. The hard part is making it answer like an employee who knows the rules, admits what she does not know, and never, ever invents a consultation fee.
 
-So this post is not about prompts. It is about the six engineering decisions that make the difference between a demo and a product a clinic pays for.
+A chatbot that makes up a price in an online store costs you a sale. A chatbot that makes up a price in a hospital costs you the hospital.
 
-## The whole system in one picture
+So this post is not really about prompts or models. It is about the boring, careful engineering that turns a clever demo into something a clinic will actually hand its patients. I have kept the code to a minimum, because the ideas are the real story.
 
-Every AI agent, stripped of hype, is a loop: perceive, think, act, check.
+## What Caira is, in one picture
 
-<svg viewBox="0 0 680 150" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;margin:1rem 0">
-  <style>.cbdash{stroke-dasharray:7 5;animation:cbd 1.2s linear infinite}@keyframes cbd{to{stroke-dashoffset:-12}}</style>
-  <g font-family="sans-serif" font-size="12" font-weight="700">
-    <rect x="10" y="50" width="115" height="50" rx="10" fill="#ccfbf1" stroke="#0d9488" stroke-width="2"/>
-    <text x="67" y="72" text-anchor="middle" fill="#115e59">patient msg</text>
-    <text x="67" y="88" text-anchor="middle" fill="#0f766e" font-size="9.5">WhatsApp webhook</text>
-    <line x1="125" y1="75" x2="175" y2="75" stroke="#4f6d68" stroke-width="2" class="cbdash"/>
-    <rect x="180" y="35" width="135" height="80" rx="10" fill="#0d9488"/>
-    <text x="247" y="65" text-anchor="middle" fill="#fff">BOT BRAIN</text>
-    <text x="247" y="82" text-anchor="middle" fill="#ccfbf1" font-size="9.5">guardrails → intent</text>
-    <text x="247" y="96" text-anchor="middle" fill="#ccfbf1" font-size="9.5">→ flows → grounded QA</text>
-    <line x1="315" y1="75" x2="365" y2="75" stroke="#4f6d68" stroke-width="2" class="cbdash"/>
-    <rect x="370" y="50" width="115" height="50" rx="10" fill="#ccfbf1" stroke="#0d9488" stroke-width="2"/>
-    <text x="427" y="72" text-anchor="middle" fill="#115e59">action</text>
-    <text x="427" y="88" text-anchor="middle" fill="#0f766e" font-size="9.5">book · answer · escalate</text>
-    <line x1="485" y1="75" x2="535" y2="75" stroke="#4f6d68" stroke-width="2" class="cbdash"/>
-    <rect x="540" y="50" width="130" height="50" rx="10" fill="#fff" stroke="#134e4a" stroke-width="2"/>
-    <text x="605" y="72" text-anchor="middle" fill="#134e4a">save state</text>
-    <text x="605" y="88" text-anchor="middle" fill="#4f6d68" font-size="9.5">only AFTER send succeeds</text>
+Caira is one system serving many clinics. A patient sends a WhatsApp message to a clinic's number. Caira works out which clinic that is, understands what the patient wants, and either answers from that clinic's real facts or walks them through booking, then sends the reply. Usually in under two seconds.
+
+Under the hood it is deliberately ordinary infrastructure, chosen so the interesting risk lives in the design and not in the plumbing:
+
+- **The channel** is the official WhatsApp Cloud API.
+- **The brain** is Google's Gemini, used carefully and only where it belongs.
+- **The memory** is a Postgres database (on Supabase), the single source of truth.
+- **The speed layer** is a Redis cache (Upstash) for answers that repeat.
+- **The home** is stateless functions on Vercel, so it scales by simply running more copies.
+- Plus translation, payments, and tracing, each of which I will get to.
+
+<svg viewBox="0 0 700 190" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;margin:1rem 0">
+  <g font-family="sans-serif" font-size="11" font-weight="700">
+    <rect x="8" y="70" width="112" height="50" rx="10" fill="#dcfce7" stroke="#16a34a" stroke-width="2"/>
+    <text x="64" y="92" text-anchor="middle" fill="#166534">patient message</text>
+    <text x="64" y="107" text-anchor="middle" fill="#15803d" font-size="9">on WhatsApp</text>
+    <line x1="120" y1="95" x2="150" y2="95" stroke="#4f6d68" stroke-width="2"/>
+    <rect x="152" y="70" width="112" height="50" rx="10" fill="#ccfbf1" stroke="#0d9488" stroke-width="2"/>
+    <text x="208" y="92" text-anchor="middle" fill="#115e59">find the clinic</text>
+    <text x="208" y="107" text-anchor="middle" fill="#0f766e" font-size="9">by its number</text>
+    <line x1="264" y1="95" x2="294" y2="95" stroke="#4f6d68" stroke-width="2"/>
+    <rect x="296" y="70" width="110" height="50" rx="10" fill="#0d9488"/>
+    <text x="351" y="91" text-anchor="middle" fill="#fff">understand</text>
+    <text x="351" y="106" text-anchor="middle" fill="#ccfbf1" font-size="9">what do they want?</text>
+    <line x1="406" y1="88" x2="440" y2="55" stroke="#4f6d68" stroke-width="2"/>
+    <line x1="406" y1="102" x2="440" y2="135" stroke="#4f6d68" stroke-width="2"/>
+    <rect x="442" y="30" width="132" height="46" rx="10" fill="#ccfbf1" stroke="#0d9488" stroke-width="2"/>
+    <text x="508" y="50" text-anchor="middle" fill="#115e59">answer a question</text>
+    <text x="508" y="65" text-anchor="middle" fill="#0f766e" font-size="9">only from clinic facts</text>
+    <rect x="442" y="114" width="132" height="46" rx="10" fill="#fff" stroke="#134e4a" stroke-width="2"/>
+    <text x="508" y="134" text-anchor="middle" fill="#134e4a">book an appointment</text>
+    <text x="508" y="149" text-anchor="middle" fill="#4f6d68" font-size="9">no AI, just the calendar</text>
+    <line x1="574" y1="53" x2="600" y2="88" stroke="#4f6d68" stroke-width="2"/>
+    <line x1="574" y1="137" x2="600" y2="102" stroke="#4f6d68" stroke-width="2"/>
+    <rect x="602" y="70" width="90" height="50" rx="10" fill="#ccfbf1" stroke="#0d9488" stroke-width="2"/>
+    <text x="647" y="98" text-anchor="middle" fill="#115e59">reply sent</text>
   </g>
 </svg>
 
-One conversation flows left to right in about two seconds. Everything interesting in this post lives inside those boxes.
+Everything a patient can do flows through that one trip. The rest of this post opens up each interesting box along the way. A few things to hold onto before we start:
 
-## Decision 1: the bot answers only from facts it was given
+- One codebase, many clinics, each fully walled off from the others.
+- A typical AI answer costs a fraction of a rupee. A repeated one costs nothing.
+- A booking costs zero AI. It is just the calendar and the database.
+- When the model is rate-limited or down, Caira keeps answering anyway.
 
-When a patient asks "what are your timings?", ClinicBot never asks the model to recall anything. Recall is where hallucination lives. Instead it constructs the answer from a small card of verified clinic facts injected into the context at request time, under one hard constraint: answer only from this card, and if the answer is not on it, say so. This is grounding, and it matters more than model size. A grounded small model beats an ungrounded large one on the only axis a clinic cares about, which is whether the sentence it just sent a patient is true. Grounding also keeps facts in data, not in weights. When a clinic changes its consultation fee, we edit one row. Nobody retrains anything.
+## The one hard problem: a receptionist that cannot lie
 
-<svg viewBox="0 0 680 170" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;margin:1rem 0">
-  <g font-family="sans-serif" font-size="12" font-weight="700">
-    <rect x="10" y="60" width="140" height="46" rx="10" fill="#ccfbf1" stroke="#0d9488" stroke-width="2"/>
-    <text x="80" y="80" text-anchor="middle" fill="#115e59">"do you take</text>
-    <text x="80" y="96" text-anchor="middle" fill="#115e59">insurance?"</text>
-    <line x1="150" y1="83" x2="205" y2="83" stroke="#4f6d68" stroke-width="2"/>
-    <rect x="210" y="20" width="230" height="130" rx="12" fill="#fff" stroke="#0d9488" stroke-width="2.5"/>
-    <text x="325" y="42" text-anchor="middle" fill="#134e4a" font-size="11">THE FACTS CARD</text>
-    <g font-size="10.5" font-weight="600" fill="#0f766e">
-      <text x="230" y="64">✓ timings: 9am to 8pm</text>
-      <text x="230" y="82">✓ fee: ₹300</text>
-      <text x="230" y="100">✓ services: general, pediatrics</text>
-      <text x="230" y="118">✗ insurance: not on the card</text>
-    </g>
-    <text x="325" y="142" text-anchor="middle" fill="#4f6d68" font-size="9.5">nothing else is authoritative</text>
-    <line x1="440" y1="60" x2="500" y2="45" stroke="#0d9488" stroke-width="2.5"/>
-    <line x1="440" y1="105" x2="500" y2="125" stroke="#134e4a" stroke-width="2.5"/>
-    <rect x="505" y="22" width="165" height="42" rx="9" fill="#0d9488"/>
-    <text x="587" y="48" text-anchor="middle" fill="#fff" font-size="11">on the card → answer</text>
-    <rect x="505" y="108" width="165" height="42" rx="9" fill="#fff" stroke="#134e4a" stroke-width="2"/>
-    <text x="587" y="127" text-anchor="middle" fill="#134e4a" font-size="11">not on the card →</text>
-    <text x="587" y="141" text-anchor="middle" fill="#134e4a" font-size="11">"let me check with staff"</text>
-  </g>
-</svg>
+This is a healthcare product. If Caira invents a doctor, a fee, or a set of timings, that is not a cute glitch. That is a patient shown wrong medical information under a clinic's name. So the central decision was never which model to use. It was how to make the model structurally unable to answer outside the facts it was handed.
 
-Every reply comes back with a self-reported flag, answered true or false. I treat that flag as a routing signal, not a guarantee, because a model that will hallucinate an answer will just as happily hallucinate its confidence in it. The real safety property sits upstream: the context contains nothing unverified, so the model has nothing false to reach for. A model can only be as wrong as the context you hand it. When the flag comes back false, the bot says "let me check with the clinic and get back to you" and hands the thread to a human. It never bluffs to fill a silence.
+The mental model is a receptionist with a binder. She does not answer from memory, or from something she read on the internet. She answers from the clinic's own binder on the desk, and when the question is not in the binder, she says "let me check and get back to you." Caira works exactly like that.
 
-This reads like a limitation. It is the product. Clinics never asked us for a smarter bot. They asked whether they could trust what it tells their patients, which is a different and much harder specification.
+Three things enforce it, and no single one is trusted on its own.
 
-## Decision 2: emergencies skip everything
+**One: we only hand it the facts.** For every question, Caira is given a small card of that clinic's verified facts (timings, fees, services, doctors) and one hard rule: answer only from this card, nothing else is authoritative. The facts live in the database, not inside the model, so when a clinic changes its fee, someone edits one row and nobody retrains anything.
 
-Before intent detection, before booking flows, before the LLM is even called, one deterministic check runs first: does this message look like an emergency? Chest pain, breathlessness, heavy bleeding. If the triage layer fires, every other feature steps aside, the bot tells the patient to call 108, and the clinic is alerted. No model creativity is welcome in that moment.
-
-Two choices make this real. First, the check is deterministic and sits ahead of the LLM, so nothing the model does, and nothing a patient can type to jailbreak it, can suppress it. A safety layer that lives inside the thing it is guarding against is not a safety layer. Second, it is tuned for recall over precision on purpose. A false positive tells a healthy patient to call an ambulance they did not need. A false negative routes a real emergency into a booking flow. Those two errors are not equal in cost, so the threshold that separates them is not set at the midpoint.
-
-The ordering is the whole point. Safety checks that run after the clever features are decoration. Ours run first, deterministically, on every single message.
-
-## Decision 3: the model fills forms, not essays
-
-When Gemini reads "kal Dr. Rao se milna hai", a code-switched mix of Hindi and English that a rule-based parser would choke on, we do not accept a paragraph back. We force a form:
+**Two: we make it answer on a form, not in a paragraph.** Caira must reply with a small structured object, and the field that matters is a flag: did I actually answer this from the facts, yes or no?
 
 ```json
-{ "intent": "book_appointment", "doctor": "dr_rao", "day": "tomorrow", "time": null, "confidence": 0.93 }
+{ "answered": true,  "reply": "We're open Mon to Sat, 9am to 7pm." }
+{ "answered": false, "reply": "Let me check with the clinic and get back to you." }
 ```
 
-Every model response is validated against a schema (Zod) at the boundary, before a single line of business logic touches it. The schema is a contract: the model is free to be creative inside the fields and forbidden from changing their shape. A response that does not fit is a typed failure, not something we parse hopefully, and a failure does not crash the conversation. It routes to a repair attempt or a clarifying question, never a silent guess.
+When that flag comes back false, Caira does not improvise. It tells the patient a human will check, and hands the conversation to staff. It never bluffs to fill a silence.
 
-Two details in that small object carry real weight. `confidence: 0.93` is a gate, not decoration: a low score routes to a confirming question instead of an action, so the bot asks before it books. And `time: null` is not a gap, it is dialog state. The bot now knows exactly which slot is unfilled, and therefore exactly what to ask next. Structured extraction turns a vague sentence into a checklist that code can finish deterministically.
+**Three: we refuse to trust what comes back.** The model's reply is inspected before anything uses it. It is capped in length, so an injected essay cannot get through, and any web link the model tries to slip in is stripped out. A link in a grounded answer is either a hallucination or an attack, never something the model should be producing. The clinic's real map link is attached afterwards by our own code, not by the model.
 
-Code can trust forms. Code cannot trust essays. Most agent bugs I have seen in the wild are essays being parsed with fingers crossed.
+> **The one guarantee.** Every path that could go wrong ends the same way: "a human will check," never "here is a made-up number." That single property is what a clinic is actually buying. They did not ask us for a smarter bot. They asked whether they can trust what it tells their patients, which is a much harder thing to promise.
 
-## Decision 4: when the brain fails, a smaller brain takes over
+## One bot, many clinics, and never a mix-up
 
-Gemini rate-limits. Gemini times out. Networks flake. Any component you do not control is a component that will be down at the worst possible moment, and a patient mid-booking does not care whose fault it was.
+Caira serves many clinics from one codebase, which raises the scariest question in the whole system. What stops clinic A's data from ever reaching clinic B?
 
-<svg viewBox="0 0 680 160" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;margin:1rem 0">
-  <style>.cbdash2{stroke-dasharray:7 5;animation:cbd2 1.2s linear infinite}@keyframes cbd2{to{stroke-dashoffset:-12}}</style>
-  <g font-family="sans-serif" font-size="12" font-weight="700">
-    <rect x="10" y="55" width="110" height="46" rx="10" fill="#ccfbf1" stroke="#0d9488" stroke-width="2"/>
-    <text x="65" y="82" text-anchor="middle" fill="#115e59">message</text>
-    <line x1="120" y1="78" x2="180" y2="78" stroke="#4f6d68" stroke-width="2" class="cbdash2"/>
-    <rect x="185" y="52" width="110" height="52" rx="10" fill="#fff" stroke="#134e4a" stroke-width="2"/>
-    <text x="240" y="74" text-anchor="middle" fill="#134e4a">ROUTER</text>
-    <text x="240" y="92" text-anchor="middle" fill="#4f6d68" font-size="9.5">one interface</text>
-    <line x1="295" y1="65" x2="360" y2="35" stroke="#0d9488" stroke-width="2.5" class="cbdash2"/>
-    <line x1="295" y1="92" x2="360" y2="122" stroke="#0f766e" stroke-width="2.5" class="cbdash2"/>
-    <rect x="365" y="14" width="150" height="44" rx="9" fill="#0d9488"/>
-    <text x="440" y="34" text-anchor="middle" fill="#fff" font-size="11">Gemini, healthy day</text>
-    <text x="440" y="49" text-anchor="middle" fill="#ccfbf1" font-size="9.5">smart, grounded answers</text>
-    <rect x="365" y="102" width="150" height="44" rx="9" fill="#99f6e4"/>
-    <text x="440" y="122" text-anchor="middle" fill="#134e4a" font-size="11">keyword brain, bad day</text>
-    <text x="440" y="137" text-anchor="middle" fill="#134e4a" font-size="9.5">simpler, free, always alive</text>
-    <text x="595" y="75" text-anchor="middle" fill="#0f766e" font-size="10.5">the clinic</text>
-    <text x="595" y="91" text-anchor="middle" fill="#134e4a" font-size="10.5" font-weight="800">never goes silent</text>
+Two answers, and the second is the one that lets me sleep.
+
+First, Caira works out the clinic from the WhatsApp number the message physically arrived on, never from anything inside the message. A patient cannot pretend to be a different clinic. The worst they can do is message a number that maps to nothing, and get ignored.
+
+Second, and this is the important one, the wall between clinics is enforced by the database itself, not by the bot's code. Every clinic's rows are locked, and each request can unlock only the one clinic it is serving. Engineers call this row-level security. The plain version: even if the bot's code has a bug and forgets to filter, the database still refuses to hand over another clinic's rows.
+
+That is the difference between "we are careful" and "it is impossible." A lock you have to remember to click is not a lock. This one clicks itself, and healthcare needs exactly that.
+
+## The move that makes it fast and almost free
+
+The same handful of questions arrive thousands of times a day. "Timings?" "Where are you?" "How much is the consultation?" Sending every one of those to the AI would be slow and wasteful, because the answer never changes.
+
+So Caira remembers. The first time a question is answered, the answer is saved. The next patient who asks the same thing gets it instantly, for free, with no AI call at all.
+
+The entire risk in a memory like this is one thing: in a multi-tenant system, a careless memory is a data leak between clinics. So how each answer is filed matters enormously. Caira stamps every saved answer with a fingerprint of that clinic's fact sheet:
+
+```txt
+memory key = fingerprint(this clinic's facts) + the cleaned-up question
+```
+
+That one line quietly does two important jobs. Clinic A's facts fingerprint differently from clinic B's, so A's saved answers can never be served to B; the isolation is baked into the key, not left to a rule someone might forget. And the moment a clinic edits a fee or a timing, its fingerprint changes, so every stale answer stops matching and quietly retires itself. Nobody ever has to remember to clear the cache.
+
+One deliberate choice: Caira never saves an "I don't know." If it filed a handoff, then a one-off hiccup with the model would get stuck, and the bot would keep handing off long after the model recovered. Only real, grounded, successful answers are worth remembering.
+
+## What a conversation actually costs
+
+"AI is expensive" is a vibe, not a number. So every model call is metered: tokens counted, time measured, turned into a cost, and tagged so one message's costs group together. Here is the honest economics of a turn, using Gemini's published rates. The token counts are typical estimates, labelled as such.
+
+| What happens | Uses the AI? | Roughly costs |
+|---|---|---|
+| Understanding what the patient wants | yes, briefly | a paisa or two |
+| Answering a question, first time | yes | a fraction of a rupee |
+| Answering a repeat question | no, it is remembered | nothing |
+| Booking an appointment | no AI at all | nothing |
+
+The punchline is the bottom two rows. The expensive, hallucination-prone part, answering a free-text question, is the one part that caches beautifully. And booking, the actual point of the product, uses zero AI. The whole booking form runs on plain database reads, with the model only classifying the single message that opens it. So at steady state, most patient interactions cost a fraction of a rupee, and a large share cost exactly nothing.
+
+## Every supplier is a plug, not a weld
+
+A product like this leans on a lot of outside companies: the AI model, WhatsApp, the database, a payment provider, a translation service. Every one of them can change its prices, break, or need replacing. So the rule in the code is strict. The core of Caira never talks to any of them directly. It talks to a plug, and each vendor sits behind that plug.
+
+<svg viewBox="0 0 700 285" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;margin:1rem 0">
+  <g font-family="sans-serif" font-size="11" font-weight="700">
+    <polygon points="350,92 412,127 412,177 350,212 288,177 288,127" fill="#0d9488"/>
+    <text x="350" y="148" text-anchor="middle" fill="#fff" font-size="13">Caira core</text>
+    <text x="350" y="165" text-anchor="middle" fill="#ccfbf1" font-size="8.5">talks to plugs, not vendors</text>
+    <line x1="288" y1="132" x2="182" y2="92" stroke="#4f6d68" stroke-width="1.5"/>
+    <rect x="60" y="68" width="122" height="46" rx="9" fill="#ccfbf1" stroke="#0d9488" stroke-width="2"/>
+    <text x="121" y="88" text-anchor="middle" fill="#115e59">AI model</text>
+    <text x="121" y="103" text-anchor="middle" fill="#0f766e" font-size="9">Gemini, swappable</text>
+    <line x1="288" y1="172" x2="182" y2="212" stroke="#4f6d68" stroke-width="1.5"/>
+    <rect x="60" y="190" width="122" height="46" rx="9" fill="#ccfbf1" stroke="#0d9488" stroke-width="2"/>
+    <text x="121" y="210" text-anchor="middle" fill="#115e59">database</text>
+    <text x="121" y="225" text-anchor="middle" fill="#0f766e" font-size="9">Postgres, the vault</text>
+    <line x1="412" y1="132" x2="518" y2="92" stroke="#4f6d68" stroke-width="1.5"/>
+    <rect x="518" y="68" width="122" height="46" rx="9" fill="#dcfce7" stroke="#16a34a" stroke-width="2"/>
+    <text x="579" y="88" text-anchor="middle" fill="#166534">WhatsApp</text>
+    <text x="579" y="103" text-anchor="middle" fill="#15803d" font-size="9">the channel</text>
+    <line x1="412" y1="172" x2="518" y2="212" stroke="#4f6d68" stroke-width="1.5"/>
+    <rect x="518" y="190" width="122" height="46" rx="9" fill="#ccfbf1" stroke="#0d9488" stroke-width="2"/>
+    <text x="579" y="210" text-anchor="middle" fill="#115e59">payments</text>
+    <text x="579" y="225" text-anchor="middle" fill="#0f766e" font-size="9">Razorpay, swappable</text>
+    <line x1="350" y1="212" x2="350" y2="242" stroke="#134e4a" stroke-width="1.5"/>
+    <rect x="248" y="242" width="204" height="32" rx="8" fill="#fff" stroke="#134e4a" stroke-width="2"/>
+    <text x="350" y="262" text-anchor="middle" fill="#134e4a" font-size="10">one file picks each plug</text>
   </g>
 </svg>
 
-So the bot runs two brains behind one interface. Primary is Gemini: smart, grounded, expensive. Fallback is a deterministic keyword matcher: simpler, free, and effectively impossible to take down. Both satisfy the same internal contract, so the rest of the system neither knows nor cares which one answered. On a 429 or a timeout, traffic degrades to the keyword brain instead of throwing an error into a patient's chat.
+Engineers call this ports and adapters. The plain version: the AI model is a plug, WhatsApp is a plug, the database is a plug. Swapping Gemini for another model, or Razorpay for another payment provider, means building one new plug and changing one line in the single file that decides which plugs to use. The booking logic never even finds out.
 
-The real move is decoupling availability from intelligence. Most designs bind the two together, so when the smart path is down the whole product is down. Splitting them puts a floor under quality that never falls to zero. The clinic stays open on its worst infrastructure day, just with plainer answers.
+This is not theory. Two of the plugs in the codebase, a different calendar provider and a different dashboard, are built but not switched on, which is the clearest proof that "swap without touching the core" is real and not a nice thing I say in interviews. It is also what makes the whole thing testable: the entire core can run on harmless stand-in plugs with no real accounts and no secrets, so the logic is tested without ever calling a real vendor.
 
-Degrade, do not die. Patients forgive a plain reply. They do not forgive silence.
+## The two bugs that cost me real days
 
-## Decision 5: retries can never double-book
+Anyone can wire an AI to a webhook in an afternoon. The days went into two failures that a happy-path demo never shows, and both taught the same lesson.
 
-WhatsApp delivery is at-least-once by design. If Meta's webhook does not get a fast acknowledgement, it assumes failure and resends the same message. That is correct behavior for a delivery network and a trap for a naive bot, which cheerfully books the appointment twice.
+**The booking form that died on the last screen.** Pick a doctor, and the appointment form instantly showed "Couldn't load content." Only on the slot-picking screen. Only against the real database. The tests were green. The cause was speed wearing a disguise: the screen checked a week of availability one day at a time, in sequence, seven slow trips to the database, and blew past WhatsApp's deadline for that screen. WhatsApp renders a missed deadline as a generic load failure, which is why it looked like a content bug. The fix was to check all seven days at once instead of one after another. The results are identical; it just stopped waiting in line. Six seconds became under two.
 
-You cannot make the channel deliver exactly once. That guarantee does not exist over an unreliable network. So instead you make your own processing idempotent, and two rules do it. First, every Meta message carries a unique id, and we refuse to act on an id we have already seen, so a redelivery becomes a no-op rather than a second booking. Second, we persist conversation state only after a reply has actually been sent, never before. That ordering makes each turn atomic with respect to its side effect: a crash mid-flight leaves the patient exactly where they were, not half-booked in limbo.
+**The reminder job that failed every single night.** Every night, the reminders never went out. The cause, in plain terms, was that a date was handed to the database in a format that one particular query could not read. Booking worked fine, because that path converted the date correctly; this one raw query did not, which is exactly why the stand-in tests passed while the real thing was dead on arrival.
 
-Nobody demos idempotency on a stage. It is also the first thing that breaks in production, the moment real traffic and real retries arrive.
+> **The lesson that changed how I test.** In both bugs, the stand-in passed while the real thing was broken. Tests over stand-ins protect your logic. They do not protect your wiring to the outside world. A thin layer of tests against the real database is not optional. A green test suite is necessary, not sufficient.
 
-## Decision 6: one codebase, every tenant isolated at the database
+## Two patients, one appointment slot
 
-ClinicBot is multi-tenant from the first line, even though one paying clinic is live on it today. That is deliberate. Retrofitting isolation onto a single-tenant system later is a rewrite, so the tenant boundary belongs in the design from the start. Every table carries a clinic id, the tenant is resolved from the incoming WhatsApp number on the way in, and every query runs through Postgres row-level security scoped to that tenant. What matters is where the boundary lives. Isolation is enforced by the database, not by application code, so even a bug in a query cannot leak one clinic's patients into another's. The database itself refuses. Security you can forget to apply is not security, and RLS is the version you cannot forget.
+The moment a system is real, two people tap the last 4pm slot at the same instant. Who gets it?
 
-The system is also built on ports and adapters. The core domain logic never touches Gemini, WhatsApp, or the translation service directly. It talks only to interfaces the domain owns, and each vendor lives behind an adapter that implements one. Every vendor is a plug. Swapping Gemini for another model is a new adapter file and one changed line in the composition root, the single place where concrete implementations get wired in. The booking logic never learns anything changed. That decoupling is also what lets the two-brain fallback from Decision 4 exist at all: the keyword brain is just a second adapter behind the same port.
+The honest answer is that hopeful code inside the bot cannot be trusted to decide this correctly under a race. Only the database can truly settle a tie, so the database is the referee. Every booking carries a key that is unique per doctor-and-time, and if two patients somehow reach the finish line together, the database rejects the second one and Caira tells them to pick another slot. Correctness is defended in the one place that can actually enforce it, not in wishful thinking.
 
-## What I am building next
+## When the AI goes down, the clinic stays open
 
-The system above earns trust by construction. The next layer earns it by measurement, and that work is in progress right now.
+Models get rate-limited. Networks flake. Any company you do not control will be unavailable at the worst possible moment, and a patient mid-booking does not care whose fault it is.
 
-- **Evals.** A versioned test set of real patient questions with known correct answers, scored on every change and wired into CI as a regression gate, so a deploy that makes the bot measurably worse never ships. Prompts are code, and code without tests rots.
-- **Tracing.** Every message gets an x-ray: each step timed, each token counted, cost attributed per conversation. You cannot debug or price a system you cannot see, and a distributed prompt pipeline is exactly the kind of thing that hides its own cost.
-- **Model routing.** Intent detection is a small, cheap job that does not deserve the flagship model. It moves to a smaller model, and the expensive one is reserved for the grounded answers that actually need it. A cascade, rather than one model for everything, is how you keep quality high and cost sane at the same time.
+So Caira runs two brains behind the same plug. The primary is Gemini: smart, grounded, and it costs money. The backup is a simple keyword matcher: plainer, free, and effectively impossible to take down. When the model is rate-limited or times out, traffic quietly drops to the backup. Answers get simpler. The clinic never goes silent.
 
-## What I believe
+That is the whole philosophy in one line: the availability of the product should not depend on the availability of any single vendor. Combined with the memory from earlier, a large share of traffic never needs the model at all.
 
-Everyone is building AI agents this year. Most of them are demos wearing product clothing.
+Degrade, do not die. Patients forgive a plain answer. They do not forgive silence.
 
-The difference is not the model. Everyone has the same models. The difference is the boring machinery around the model: the facts card, the triage gate, the schema, the fallback, the idempotency key, the tenant wall. That machinery is what lets a real clinic hand its front desk to software.
+## What I actually learned
 
-Trust is not a feature you add later. It is the architecture.
+Everyone is building AI agents this year. Most of them are demos wearing a product's clothes.
+
+The model is the easy part, and honestly the swappable part. Everyone has the same models. The engineering that turns one into a product a clinic will trust is all the unglamorous machinery around it: grounding it so it cannot lie, walling off each clinic so it cannot leak, metering it so it cannot surprise you on the bill, and degrading gracefully so the product outlives the vendor.
+
+Trust is not a feature you sprinkle on at the end. It is the architecture. That is the whole job.

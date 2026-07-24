@@ -34,13 +34,13 @@ In my code this became a design rule: deterministic flows wherever the stakes ar
 
 With first-time users there is no benefit of the doubt in the bank. In week one of the program, if ChatGPT had confidently told a student something false about her own textbook, the teachers watching would have written off the whole technology, and forty schools would have heard about it.
 
-That is why my clinic bot is grounded: it answers only from verified clinic facts, and when the answer is not there, it says so and hands off to a human. I used to describe that as a safety feature. The classroom taught me it is an adoption feature. Trust compounds like interest, and a single early hallucination is a withdrawal you cannot afford.
+That is why Caira, my clinic bot, is grounded: it answers only from verified clinic facts, and when the answer is not there, it says so and hands off to a human. I used to describe that as a safety feature. The classroom taught me it is an adoption feature. Trust compounds like interest, and a single early hallucination is a withdrawal you cannot afford.
 
 ## Lesson 3: meet people inside the tools they already know
 
 We did not teach the girls "computer science" and then AI. We put them straight into tools where they could make something real in minutes. The energy came from building, not from theory.
 
-Same reason ClinicBot lives in WhatsApp. Not an app to download, not a portal with a password. The patient already knows how to send a message. The entire learning curve is zero because we borrowed an interface they had already mastered.
+Same reason Caira lives in WhatsApp. Not an app to download, not a portal with a password. The patient already knows how to send a message. The entire learning curve is zero because we borrowed an interface they had already mastered.
 
 If your AI product needs a tutorial, you have already lost the users who matter most.
 

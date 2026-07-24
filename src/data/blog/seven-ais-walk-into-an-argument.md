@@ -72,6 +72,8 @@ Independence is the load-bearing word. The calls run in parallel and never see e
 
 Then a Judge agent reads all seven arguments and writes the verdict: a bold number, a confidence range, the evidence trail behind it, and the part I am proudest of, a dissent log.
 
+Architecturally this is a scatter-gather. The evidence is scattered to seven workers that run concurrently and in isolation, and their outputs are gathered by a single reducer. It is map-reduce, with two twists that matter: the mappers are opinionated on purpose, each carrying a different bias so the map step produces diversity instead of seven copies of one answer, and the reducer is paid to preserve disagreement rather than average it away. Get either twist wrong and the architecture collapses back into an expensive way to run one model.
+
 ## The dissent log is the product
 
 Most AI products hide disagreement. Kshetra publishes it.
@@ -98,6 +100,6 @@ Multi-agent is not a performance trick. Because the seven run in parallel, the l
 
 The judge matters more than the panel. Synthesis is the hard part: weighting a verified-data argument above a vibes argument, and preserving the dissent instead of averaging it away. A judge that simply mean-pools the seven opinions destroys the exact variance the panel was built to produce. The value lives in the disagreement, so the one thing the judge must never do is smooth it out.
 
-And the same principle showed up later in my healthcare work: my WhatsApp clinic bot refuses to answer outside its verified facts. Different domain, same belief. An AI system earns trust by showing its evidence and admitting its doubts, not by sounding sure.
+And the same principle showed up later in my healthcare work: Caira, my WhatsApp clinic receptionist, refuses to answer outside its verified facts. Different domain, same belief. An AI system earns trust by showing its evidence and admitting its doubts, not by sounding sure.
 
 Seven AIs walk into an argument. That is not the setup of a joke. It is the closest thing I have found to honesty at inference time.
