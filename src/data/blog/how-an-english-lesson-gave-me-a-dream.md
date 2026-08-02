@@ -24,7 +24,7 @@ Then, one afternoon, in an English period I was barely awake during, our teacher
 
 I tuned in mostly because the title sounded suspiciously like a motivational poster. The lesson was about a boy who dared to dream beyond his circumstances and pushed himself, almost obsessively, towards getting into the IIT.
 
-Honestly? At first I didn't even know what IIT meant. I assumed it was some abbreviation we'd be tested on later, like LCM or HCF, and I'd hate it equally. But there was something about that one line, *"I will do it"*, that lodged itself somewhere in my brain like a song I didn't ask for.
+Honestly? At first I didn't even know what IIT meant. I assumed it was some abbreviation we'd be tested on later, like LCM or HCF, and I'd hate it equally. But there was something about that one line, _"I will do it"_, that lodged itself somewhere in my brain like a song I didn't ask for.
 
 I went home that day with exactly two thoughts:
 
@@ -45,7 +45,7 @@ I had no idea if I could ever crack it. I wasn't even sure I'd remember to wake 
 
 The funniest part of all of this is what happened to my relationship with math.
 
-I'd never hated math, but I hadn't exactly loved it either. It was just *there*, like background music in a shopping mall. Then, somewhere between trying to understand what IIT was and trying not to flunk class tests, math quietly stopped being a subject and started feeling like a puzzle.
+I'd never hated math, but I hadn't exactly loved it either. It was just _there_, like background music in a shopping mall. Then, somewhere between trying to understand what IIT was and trying not to flunk class tests, math quietly stopped being a subject and started feeling like a puzzle.
 
 Here's the honest part: I wasn't suddenly brilliant. My first attempts at "tough problems" mostly involved staring at them, getting personally offended by them, and then closing the book as if the problem had insulted my entire family.
 
@@ -57,7 +57,7 @@ Nothing dramatic happened on the outside. I didn't wake up one morning as a new 
 
 But on the inside, something rewired.
 
-I started reading more, not because anyone told me to, but because I actually wanted to know things. I started asking more questions in class, the kind that occasionally made teachers raise an eyebrow in a way that felt half-impressed, half-suspicious. I started gravitating towards friends who were also chasing *something*, even if none of us would have said the word "IIT" out loud yet, because it still felt too big for our mouths.
+I started reading more, not because anyone told me to, but because I actually wanted to know things. I started asking more questions in class, the kind that occasionally made teachers raise an eyebrow in a way that felt half-impressed, half-suspicious. I started gravitating towards friends who were also chasing _something_, even if none of us would have said the word "IIT" out loud yet, because it still felt too big for our mouths.
 
 The scattered kid was still there. He just had a tiny compass now.
 
@@ -65,7 +65,7 @@ The scattered kid was still there. He just had a tiny compass now.
 
 I'd love to end this post with some big reveal, a "and then I got in" moment, with confetti and dramatic music. But that's not the truth. I'm still on the road. The dream is still ahead. The work is still happening. The doubts still show up uninvited, like surprise relatives.
 
-What changed for me wasn't the destination. It was the fact that, for the first time in my life, there *was* one.
+What changed for me wasn't the destination. It was the fact that, for the first time in my life, there _was_ one.
 
 If you're reading this and you don't have a dream yet, that's okay. Mine arrived dressed up as an English lesson I almost slept through. Yours might be hiding somewhere just as ridiculous. Don't miss it just because it didn't look important enough.
 

@@ -129,12 +129,12 @@ One deliberate choice: Caira never saves an "I don't know." If it filed a handof
 
 "AI is expensive" is a vibe, not a number. So every model call is metered: tokens counted, time measured, turned into a cost, and tagged so one message's costs group together. Here is the honest economics of a turn, using Gemini's published rates. The token counts are typical estimates, labelled as such.
 
-| What happens | Uses the AI? | Roughly costs |
-|---|---|---|
-| Understanding what the patient wants | yes, briefly | a paisa or two |
-| Answering a question, first time | yes | a fraction of a rupee |
-| Answering a repeat question | no, it is remembered | nothing |
-| Booking an appointment | no AI at all | nothing |
+| What happens                         | Uses the AI?         | Roughly costs         |
+| ------------------------------------ | -------------------- | --------------------- |
+| Understanding what the patient wants | yes, briefly         | a paisa or two        |
+| Answering a question, first time     | yes                  | a fraction of a rupee |
+| Answering a repeat question          | no, it is remembered | nothing               |
+| Booking an appointment               | no AI at all         | nothing               |
 
 The punchline is the bottom two rows. The expensive, hallucination-prone part, answering a free-text question, is the one part that caches beautifully. And booking, the actual point of the product, uses zero AI. The whole booking form runs on plain database reads, with the model only classifying the single message that opens it. So at steady state, most patient interactions cost a fraction of a rupee, and a large share cost exactly nothing.
 
