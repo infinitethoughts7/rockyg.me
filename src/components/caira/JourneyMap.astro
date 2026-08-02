@@ -1,0 +1,113 @@
+<section class="sec reveal" id="s2">
+  <p class="eyebrow"><span class="secnum">02</span>&nbsp;The journey</p>
+  <h2>What actually happens when you text the clinic</h2>
+  <div class="plain">
+    <span class="lbl">One message, nine stops, zero jargon</span>
+    <p>
+      You type <em>"do you treat migraine? and what are your timings"</em> and hit
+      send. Here is everything that happens before the reply lands.
+    </p>
+  </div>
+  <ol class="steps journey">
+    <li>
+      <strong>WhatsApp delivers your message to us.</strong> Not to a phone on a desk.
+      To a small program on a server.
+    </li>
+    <li>
+      <strong>We check it is really from WhatsApp.</strong> The message carries a
+      cryptographic seal and we verify it. Broken seal: thrown away, no exceptions,
+      no hurt feelings.
+    </li>
+    <li>
+      <strong>We work out which clinic you texted.</strong> We look at which of our
+      numbers your message arrived on. We never believe anything inside the message
+      about which clinic it is, because a stranger could lie.
+    </li>
+    <li>
+      <strong
+        >We ask the AI one narrow question: what does this person want?</strong
+      > Not "answer them." Just "sort this into a box." The AI is a receptionist's
+      ears here, not her mouth.
+    </li>
+    <li>
+      <strong>If they want to book, the AI steps aside.</strong> A form opens inside
+      WhatsApp: branch, department, doctor, time. Boring, predictable code reads the
+      real appointment book. No AI touches your booking.
+    </li>
+    <li>
+      <strong>If it is a question, we fetch the facts first.</strong> The clinic wrote
+      down its real answers. We pick the handful most likely to be relevant and hand
+      the AI only those.
+    </li>
+    <li>
+      <strong>The AI must answer from those facts alone.</strong> If the answer is
+      not in what we handed over, she says "let me check with the clinic" instead
+      of guessing.
+    </li>
+    <li>
+      <strong>We check her homework before sending.</strong> The reply is inspected,
+      length-capped, and stripped of any link she tried to sneak in. Then translated
+      into your language and sent.
+    </li>
+    <li>
+      <strong>We remember the answer.</strong> The next patient asking about timings
+      gets the same reply instantly and for free. The same few questions are most
+      of the traffic, so most of the traffic is free.
+    </li>
+  </ol>
+  <div class="callout">
+    <span class="lbl">The thing to notice</span>
+    The AI appears exactly twice, and both times it is doing something small: sorting
+    a message into a box, and writing one paragraph from facts it was handed. It never
+    decides whether a slot is free, never writes to the appointment book, and never
+    has the last word on what gets sent.
+  </div>
+</section>
+
+<style>
+  .journey li {
+    opacity: 0;
+    transform: translateX(-8px);
+    animation: jstep 0.5s ease forwards;
+  }
+  .journey li:nth-child(1) {
+    animation-delay: 0.1s;
+  }
+  .journey li:nth-child(2) {
+    animation-delay: 0.35s;
+  }
+  .journey li:nth-child(3) {
+    animation-delay: 0.6s;
+  }
+  .journey li:nth-child(4) {
+    animation-delay: 0.85s;
+  }
+  .journey li:nth-child(5) {
+    animation-delay: 1.1s;
+  }
+  .journey li:nth-child(6) {
+    animation-delay: 1.35s;
+  }
+  .journey li:nth-child(7) {
+    animation-delay: 1.6s;
+  }
+  .journey li:nth-child(8) {
+    animation-delay: 1.85s;
+  }
+  .journey li:nth-child(9) {
+    animation-delay: 2.1s;
+  }
+  @keyframes jstep {
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .journey li {
+      opacity: 1;
+      transform: none;
+      animation: none;
+    }
+  }
+</style>

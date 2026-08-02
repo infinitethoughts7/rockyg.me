@@ -1,5 +1,7 @@
 ---
 import TraceHero from "@/components/caira/TraceHero.astro";
+import NerdBox from "@/components/caira/NerdBox.astro";
+import JourneyMap from "@/components/caira/JourneyMap.astro";
 // component imports arrive with the tasks that first use them
 ---
 
@@ -1283,6 +1285,77 @@ import TraceHero from "@/components/caira/TraceHero.astro";
       <a class="homelink" href="/">← rockyg.me</a>
       <!-- Task 2+: sections mount here, in order -->
       <TraceHero />
+      <div class="partdiv reveal">
+        <div class="n">Act I</div>
+        <h2>Meet Caira</h2>
+        <p>No jargon yet. Just a receptionist who happens to be software.</p>
+        <div class="rule"></div>
+      </div>
+
+      <section class="sec reveal" id="s1">
+        <p class="eyebrow"><span class="secnum">01</span>&nbsp;What she is</p>
+        <h2>
+          A receptionist who lives inside WhatsApp, for many clinics at once
+        </h2>
+        <div class="plain">
+          <span class="lbl">In plain English</span>
+          <p>
+            Every clinic has the same problem: the phone rings all day. Someone
+            has to answer "what are your timings?" for the fortieth time, write
+            names in a diary, and call people so they actually show up. That
+            person is expensive, goes home at 7 pm, and can hold exactly one
+            conversation at a time.
+          </p>
+          <p>
+            <strong>Caira is that person, living inside WhatsApp.</strong> She answers
+            questions, books appointments, sends reminders, offers freed slots to
+            the waitlist, and checks on you after your visit. In English, Hindi, Telugu
+            or Hinglish. At 3 am. To a hundred people at once. She has never once
+            sighed.
+          </p>
+          <p class="analogy">
+            The important phrase is <strong>"many clinics at once."</strong> One copy
+            of Caira serves every clinic, like one apartment building with many locked
+            flats instead of a new house for every family. That single decision causes
+            almost every hard problem in this story.
+          </p>
+        </div>
+        <div class="stats">
+          <div class="stat">
+            <div class="n">21</div><div class="l">
+              modules, one reason to change each
+            </div>
+          </div>
+          <div class="stat">
+            <div class="n">24</div><div class="l">
+              ports · 43 adapters · 16 fakes
+            </div>
+          </div>
+          <div class="stat">
+            <div class="n amber">$0.0005</div><div class="l">
+              typical cost of one grounded answer
+            </div>
+          </div>
+          <div class="stat">
+            <div class="n amber">~1.6s</div><div class="l">
+              from patient text to confirmed reply
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <NerdBox title="the stack behind the numbers">
+        <p>
+          TypeScript, Next.js App Router on Vercel, Supabase Postgres with RLS,
+          Drizzle, Gemini 2.5 Flash, WhatsApp Cloud API, Upstash Redis, Sarvam
+          for Indic translation, Razorpay for upfront fees, Langfuse for
+          per-call cost and latency traces. Everything patient-facing flows
+          through a handful of thin HTTP routes: an inbound webhook, an
+          encrypted booking Flow endpoint, a payment webhook, and a cron drain.
+        </p>
+      </NerdBox>
+
+      <JourneyMap />
     </div>
     <script is:inline>
       (() => {
