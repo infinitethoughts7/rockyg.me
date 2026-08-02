@@ -2,6 +2,9 @@
 import TraceHero from "@/components/caira/TraceHero.astro";
 import NerdBox from "@/components/caira/NerdBox.astro";
 import JourneyMap from "@/components/caira/JourneyMap.astro";
+import SystemContextMap from "@/components/caira/SystemContextMap.astro";
+import ContainerMap from "@/components/caira/ContainerMap.astro";
+import TenancyLetterbox from "@/components/caira/TenancyLetterbox.astro";
 // component imports arrive with the tasks that first use them
 ---
 
@@ -1356,6 +1359,20 @@ import JourneyMap from "@/components/caira/JourneyMap.astro";
       </NerdBox>
 
       <JourneyMap />
+
+      <div class="partdiv reveal">
+        <div class="n">Act II</div>
+        <h2>The maps</h2>
+        <p>
+          What talks to what, where it runs, and how one building keeps a
+          thousand flats locked.
+        </p>
+        <div class="rule"></div>
+      </div>
+
+      <SystemContextMap />
+      <ContainerMap />
+      <TenancyLetterbox />
     </div>
     <script is:inline>
       (() => {

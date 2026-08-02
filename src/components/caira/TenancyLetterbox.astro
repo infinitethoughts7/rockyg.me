@@ -1,0 +1,179 @@
+---
+import NerdBox from "@/components/caira/NerdBox.astro";
+---
+
+<section class="sec reveal" id="s5">
+  <p class="eyebrow">
+    <span class="secnum">05</span>&nbsp;HLD · the security spine
+  </p>
+  <h2>Trust the letterbox, never the visitor</h2>
+  <div class="plain">
+    <span class="lbl">In plain English</span>
+    <p>
+      The single most dangerous bug imaginable here: clinic A seeing clinic B's
+      patients. In healthcare that is not a bug report, it is a regulatory
+      incident.
+    </p>
+    <p>
+      So how do we know which clinic a message is for? The tempting answer is
+      "the message says so." Wrong answer: whoever sends the message chooses
+      what it says. Instead we use the one thing the sender cannot choose,
+      <strong
+        >which of our phone numbers the message physically arrived on.</strong
+      >
+    </p>
+    <p class="analogy">
+      It is the difference between a visitor telling you which flat they live
+      in, and you noticing which letterbox their post came out of. Only one of
+      those can be faked.
+    </p>
+  </div>
+  <div class="fig">
+    <svg
+      viewBox="0 0 720 250"
+      role="img"
+      aria-label="Tenant resolution: WhatsApp phone_number_id resolves to a clinic_id, which scopes every downstream query"
+    >
+      <defs>
+        <marker
+          id="t-ar"
+          markerWidth="9"
+          markerHeight="9"
+          refX="7"
+          refY="4"
+          orient="auto"
+        >
+          <path d="M0,0 L8,4 L0,8 z" fill="#34E4CE"></path></marker
+        >
+        <marker
+          id="t-arR"
+          markerWidth="9"
+          markerHeight="9"
+          refX="7"
+          refY="4"
+          orient="auto"
+        >
+          <path d="M0,0 L8,4 L0,8 z" fill="#FF6076"></path></marker
+        >
+        <style is:inline>
+          .tb {
+            fill: #141c26;
+            stroke: #2c3a49;
+          }
+          .tg {
+            fill: #0f3b38;
+            stroke: #34e4ce;
+            stroke-width: 1.4;
+          }
+          .tr {
+            fill: #3a1620;
+            stroke: #ff6076;
+            stroke-width: 1.2;
+            stroke-dasharray: 4 3;
+          }
+          .tt2 {
+            font-family: "JetBrains Mono", monospace;
+            font-size: 10px;
+            fill: #dce5ee;
+          }
+          .ts2 {
+            font-family: "JetBrains Mono", monospace;
+            font-size: 8.5px;
+            fill: #8b99a8;
+          }
+          .tl {
+            stroke: #34e4ce;
+            stroke-width: 1.5;
+            fill: none;
+            marker-end: url(#t-ar);
+          }
+          .tlr {
+            stroke: #ff6076;
+            stroke-width: 1.4;
+            fill: none;
+            marker-end: url(#t-arR);
+          }
+          .tlab {
+            font-family: "JetBrains Mono", monospace;
+            font-size: 8px;
+            fill: #5e6c7b;
+          }
+        </style>
+      </defs>
+
+      <rect class="tb" x="10" y="20" width="164" height="56" rx="9"></rect>
+      <text class="tt2" x="22" y="41">inbound payload</text>
+      <text class="ts2" x="22" y="56">metadata.phone_number_id</text>
+      <text class="ts2" x="22" y="69">= 1084…41 ← physical</text>
+
+      <rect class="tr" x="10" y="150" width="164" height="56" rx="9"></rect>
+      <text class="tt2" x="22" y="171" fill="#FF9FAC">anything claiming</text>
+      <text class="ts2" x="22" y="186" fill="#FF9FAC"
+        >"clinic_id": "&lt;other&gt;"</text
+      >
+      <text class="ts2" x="22" y="199" fill="#FF9FAC"
+        >in the body → IGNORED</text
+      >
+
+      <rect class="tg" x="228" y="70" width="200" height="72" rx="11"></rect>
+      <text class="tt2" x="242" y="92" fill="#34E4CE">ClinicResolver</text>
+      <text class="ts2" x="242" y="108">unique index on</text>
+      <text class="ts2" x="242" y="121">clinics.whatsapp_phone_number_id</text>
+      <text class="ts2" x="242" y="135" fill="#F5B54A"
+        >1 indexed lookup · no scan</text
+      >
+
+      <rect class="tb" x="482" y="18" width="228" height="48" rx="9"></rect>
+      <text class="tt2" x="494" y="38">clinic_id (server-derived)</text>
+      <text class="ts2" x="494" y="54"
+        >the only tenant identity that exists</text
+      >
+
+      <rect class="tb" x="482" y="80" width="228" height="52" rx="9"></rect>
+      <text class="tt2" x="494" y="100">runWithClinic(clinic_id, …)</text>
+      <text class="ts2" x="494" y="116"
+        >set_config('app.current_clinic_id', …, true)</text
+      >
+      <text class="ts2" x="494" y="128">→ transaction-scoped, never leaks</text>
+
+      <rect class="tb" x="482" y="146" width="228" height="52" rx="9"></rect>
+      <text class="tt2" x="494" y="166">RLS policy on every tenant table</text>
+      <text class="ts2" x="494" y="182"
+        >clinic_id = app_current_clinic_id()</text
+      >
+      <text class="ts2" x="494" y="194">or is_clinic_member(clinic_id)</text>
+
+      <rect
+        class="tb"
+        x="228"
+        y="176"
+        width="200"
+        height="46"
+        rx="9"
+        stroke-dasharray="3 3"></rect>
+      <text class="tt2" x="240" y="196">unknown number</text>
+      <text class="ts2" x="240" y="211">→ null → message dropped</text>
+
+      <path class="tl" d="M174,48 C200,48 204,88 226,96"></path>
+      <path class="tlr" d="M174,178 C196,178 200,150 210,124 L224,112"></path>
+      <path class="tl" d="M428,92 C452,88 458,52 480,44"></path>
+      <path class="tl" d="M596,66 L596,78"></path>
+      <path class="tl" d="M596,132 L596,144"></path>
+      <path class="tl" d="M328,142 L328,174"></path>
+      <text class="tlab" x="186" y="82">physical arrival</text>
+      <text class="tlab" x="176" y="146">forged claim</text>
+    </svg>
+  </div>
+</section>
+
+<NerdBox title="the three backstops behind the letterbox">
+  <p>
+    Resolving phone_number_id to clinic_id is one indexed lookup, a unique index
+    on clinics.whatsapp_phone_number_id, no table scan. From there every tenant
+    row across all 22 tables carries its own clinic_id, and every repository
+    method takes that clinic_id as its first argument. RLS is the designed
+    backstop: runWithClinic() calls set_config to set a transaction-scoped
+    variable, and Postgres policies read it back and filter rows themselves, in
+    case a developer ever forgets a WHERE clause.
+  </p>
+</NerdBox>
