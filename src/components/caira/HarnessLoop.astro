@@ -1,0 +1,119 @@
+---
+import NerdBox from "@/components/caira/NerdBox.astro";
+---
+
+<section class="sec reveal" id="s6">
+  <p class="eyebrow">
+    <span class="secnum">06</span>&nbsp;Concept 1 · the harness
+  </p>
+  <h2>An AI agent is just a loop</h2>
+  <div class="plain">
+    <span class="lbl">In plain English</span>
+    <p>
+      Strip away the hype and every agent does four things, forever: read what
+      arrived (perceive), decide what is needed (think), do it (act), and
+      confirm it worked (check). The loop, the rules, and the checks around the
+      model are called the <strong>harness</strong>.
+    </p>
+    <p class="analogy">
+      The model is one part in the machine, and not even the biggest part.
+      Caira's harness is the receptionist's training, checklist and manager. The
+      model is just her vocabulary.
+    </p>
+  </div>
+  <div class="fig">
+    <svg
+      viewBox="0 0 420 300"
+      role="img"
+      aria-label="Loop diagram: perceive, think, act and check arranged in a circle and joined by curved arrows, with a small LLM box inside think showing the model is one small part of the loop"
+    >
+      <defs>
+        <marker
+          id="h-ar"
+          markerWidth="8"
+          markerHeight="8"
+          refX="6.5"
+          refY="3.5"
+          orient="auto"
+        >
+          <path d="M0,0 L7,3.5 L0,7 z" fill="#5E6C7B"></path></marker
+        >
+        <style is:inline>
+          .hcirc {
+            fill: #141c26;
+            stroke: #34e4ce;
+            stroke-width: 1.8;
+          }
+          .hlbl {
+            font-family: "JetBrains Mono", monospace;
+            font-size: 12px;
+            font-weight: 700;
+            fill: #dce5ee;
+            text-anchor: middle;
+          }
+          .hsub {
+            font-family: "JetBrains Mono", monospace;
+            font-size: 9.5px;
+            fill: #8b99a8;
+            text-anchor: middle;
+          }
+          .harc {
+            stroke: #5e6c7b;
+            stroke-width: 1.8;
+            fill: none;
+            marker-end: url(#h-ar);
+          }
+          .hchip {
+            fill: #1a2430;
+            stroke: #f5b54a;
+            stroke-width: 1.3;
+          }
+          .hchipt {
+            font-family: "JetBrains Mono", monospace;
+            font-size: 8.5px;
+            font-weight: 700;
+            fill: #f5b54a;
+            text-anchor: middle;
+          }
+        </style>
+      </defs>
+
+      <circle class="hcirc" cx="210" cy="60" r="44"></circle>
+      <text class="hlbl" x="210" y="57">PERCEIVE</text>
+      <text class="hsub" x="210" y="73">read what arrived</text>
+
+      <circle class="hcirc" cx="350" cy="150" r="44"></circle>
+      <text class="hlbl" x="350" y="141">THINK</text>
+      <text class="hsub" x="350" y="156">decide what's needed</text>
+      <rect class="hchip" x="324" y="164" width="52" height="18" rx="4"></rect>
+      <text class="hchipt" x="350" y="176">LLM</text>
+
+      <circle class="hcirc" cx="210" cy="242" r="44"></circle>
+      <text class="hlbl" x="210" y="239">ACT</text>
+      <text class="hsub" x="210" y="255">do it</text>
+
+      <circle class="hcirc" cx="70" cy="150" r="44"></circle>
+      <text class="hlbl" x="70" y="147">CHECK</text>
+      <text class="hsub" x="70" y="163">confirm it worked</text>
+
+      <path class="harc flow-dash" d="M 248 82 Q 320 100 340 108"></path>
+      <path class="harc flow-dash" d="M 330 188 Q 290 225 252 236"></path>
+      <path class="harc flow-dash" d="M 168 230 Q 100 210 82 192"></path>
+      <path class="harc flow-dash" d="M 82 110 Q 120 80 168 68"></path>
+    </svg>
+  </div>
+  <div class="figcap">
+    The whole trick of AI engineering: everyone gets the same models. The
+    harness is where products differ.
+  </div>
+</section>
+
+<NerdBox title="the loop, in real code">
+  <p>
+    bot-brain/handleInboundMessage IS the loop: resolve tenant, detect intent,
+    run the matched flow, and persist state only after a successful send. That
+    last detail is a check most builders forget. 727 lines, no vendor import:
+    every dependency arrives through a port, and the LLM is called from exactly
+    one narrow place inside think.
+  </p>
+</NerdBox>

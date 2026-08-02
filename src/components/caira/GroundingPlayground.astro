@@ -1,0 +1,35 @@
+<div class="play">
+  <div class="play-label">▶ Playground: the librarian</div>
+  <input
+    type="text"
+    id="rag-q"
+    value="is there parking?"
+    placeholder="Try: sunday timings · fever · parking"
+  />
+  <button class="btn primary" id="rag-run" style="margin-top:.7rem">
+    Search the shelf</button
+  >
+  <div id="rag-chunks">
+    <div class="chunk rag-chunk" data-k="open time timings hours sunday monday">
+      🕐 Open Mon to Sat, 9 am to 8 pm. Sunday closed <span class="sc"></span>
+    </div>
+    <div
+      class="chunk rag-chunk"
+      data-k="doctor rao pediatric fever child medicine"
+    >
+      🩺 Dr. Rao: pediatrics, fever and child care <span class="sc"></span>
+    </div>
+    <div class="chunk rag-chunk" data-k="parking car bike vehicle basement">
+      🅿️ Basement parking, free for patients <span class="sc"></span>
+    </div>
+    <div class="chunk rag-chunk" data-k="payment insurance cash upi card">
+      💳 UPI, cards and cash. No insurance yet <span class="sc"></span>
+    </div>
+  </div>
+  <p id="rag-out" style="margin-top:.8rem;font-size:.92rem;font-weight:600"></p>
+</div>
+<p class="tiny">
+  A librarian does not read the whole library to answer you. She finds the one
+  right page. Caira scores every clinic fact against your question and hands the
+  AI only the winners.
+</p>
