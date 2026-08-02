@@ -1,0 +1,11 @@
+---
+interface Props {
+  title?: string;
+}
+const { title = "the detail" } = Astro.props;
+---
+
+<details class="nerdbox">
+  <summary>▸ For engineers: {title}</summary>
+  <div class="nb-body"><slot /></div>
+</details>
