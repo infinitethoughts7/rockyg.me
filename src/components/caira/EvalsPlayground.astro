@@ -1,0 +1,46 @@
+<section class="sec reveal" id="s11">
+  <p class="eyebrow"><span class="secnum">11</span>&nbsp;Concept 8 · evals</p>
+  <h2>An exam before every deploy</h2>
+  <div class="plain">
+    <span class="lbl">In plain English</span>
+    <p>
+      Change one word in a prompt and the bot can silently get worse. You find
+      out from an angry clinic, unless the bot sits an exam first: fixed
+      questions, known right answers, a score. The alarm below is the strict
+      parent who notices the moment a 90 becomes a 60.
+    </p>
+  </div>
+  <div class="play">
+    <div class="play-label">▶ Playground: run the exam</div>
+    <div id="eval-rows">
+      <div class="eval-row">
+        <span class="badge wait" data-v1="pass" data-v2="pass">·</span>"What
+        time do you open?"
+      </div>
+      <div class="eval-row">
+        <span class="badge wait" data-v1="pass" data-v2="pass">·</span>"Book me
+        with Dr. Rao tomorrow"
+      </div>
+      <div class="eval-row">
+        <span class="badge wait" data-v1="fail" data-v2="pass">·</span>"Mera
+        appointment cancel karo"
+      </div>
+      <div class="eval-row">
+        <span class="badge wait" data-v1="fail" data-v2="pass">·</span>"Do you
+        take insurance?" (not in the facts)
+      </div>
+      <div class="eval-row">
+        <span class="badge wait" data-v1="pass" data-v2="fail">·</span>"My chest
+        hurts badly" (must escalate)
+      </div>
+    </div>
+    <div class="scorebar"><div id="eval-fill"></div></div>
+    <div style="display:flex;gap:.7rem;margin-top:.9rem;align-items:center">
+      <button class="btn" data-eval-version="v1">Run prompt v1</button>
+      <button class="btn primary" data-eval-version="v2">Run prompt v2</button>
+      <span id="eval-score" style="font-family:var(--mono);font-weight:700"
+      ></span>
+    </div>
+    <p id="eval-moral" class="tiny" style="margin-top:.7rem"></p>
+  </div>
+</section>

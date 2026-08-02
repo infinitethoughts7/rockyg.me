@@ -10,6 +10,8 @@ import GroundingPlayground from "@/components/caira/GroundingPlayground.astro";
 import GuardrailsPlayground from "@/components/caira/GuardrailsPlayground.astro";
 import MemoryPlayground from "@/components/caira/MemoryPlayground.astro";
 import CachePlayground from "@/components/caira/CachePlayground.astro";
+import FallbackQueuePlayground from "@/components/caira/FallbackQueuePlayground.astro";
+import EvalsPlayground from "@/components/caira/EvalsPlayground.astro";
 // component imports arrive with the tasks that first use them
 ---
 
@@ -1462,6 +1464,10 @@ import CachePlayground from "@/components/caira/CachePlayground.astro";
       <MemoryPlayground />
 
       <CachePlayground />
+
+      <FallbackQueuePlayground />
+
+      <EvalsPlayground />
     </div>
     <script is:inline>
       (() => {
@@ -1620,6 +1626,89 @@ import CachePlayground from "@/components/caira/CachePlayground.astro";
           billMsgs.addEventListener("input", calc);
           $("bill-cache").addEventListener("input", calc);
           calc();
+        }
+
+        /* fallback router */
+        const geminiUp = $("gemini-up");
+        if (geminiUp) {
+          const draw = () => {
+            const up = geminiUp.checked;
+            $("path-primary").style.opacity = up ? "1" : ".18";
+            $("path-fallback").style.opacity = up ? ".18" : "1";
+            $("router-msg").textContent = up
+              ? "Gemini healthy: smart answers at a tiny cost per question."
+              : "Gemini is down. The keyword bot catches the conversation. Simpler answers, zero dollars, nobody left on read.";
+          };
+          geminiUp.addEventListener("change", draw);
+          draw();
+        }
+
+        /* queue simulation */
+        const queueBtns = document.querySelectorAll("[data-queue-mode]");
+        if (queueBtns.length) {
+          const LOGS = {
+            phone: [
+              ["0 ms", "Meta delivers the message and waits on the line"],
+              ["25,000 ms", "the model is having a very bad day"],
+              ["timeout", "Meta gives up and RESENDS the same message"],
+              ["result", "duplicate replies, spammed patient, angry clinic"],
+            ],
+            queue: [
+              ["0 ms", "Meta delivers the message"],
+              ["50 ms", 'Caira: "got it." Message dropped in the letterbox'],
+              ["later", "worker picks it up, retries safely if needed"],
+              ["result", "one reply, delivered once. Boring. Perfect."],
+            ],
+          };
+          queueBtns.forEach(b =>
+            b.addEventListener("click", () => {
+              const log = $("queue-log");
+              log.innerHTML = "";
+              LOGS[b.dataset.queueMode].forEach(([t, msg], i) => {
+                const d = document.createElement("div");
+                d.style.animationDelay = i * 0.45 + "s";
+                d.innerHTML = "<b>" + t + "</b> · " + msg;
+                log.appendChild(d);
+              });
+            })
+          );
+        }
+
+        /* evals exam */
+        const evalBtns = document.querySelectorAll("[data-eval-version]");
+        if (evalBtns.length) {
+          let last = null;
+          evalBtns.forEach(b =>
+            b.addEventListener("click", () => {
+              const v = b.dataset.evalVersion;
+              const rows = Array.from(
+                document.querySelectorAll("#eval-rows .badge")
+              );
+              let pass = 0;
+              let regression = false;
+              rows.forEach((r, i) => {
+                const res = r.dataset[v];
+                setTimeout(() => {
+                  r.textContent = res.toUpperCase();
+                  r.className = "badge " + res;
+                }, i * 250);
+                if (res === "pass") pass += 1;
+                if (last && r.dataset[last] === "pass" && res === "fail")
+                  regression = true;
+              });
+              setTimeout(
+                () => {
+                  $("eval-fill").style.width = (pass / rows.length) * 100 + "%";
+                  $("eval-score").textContent = pass + "/" + rows.length;
+                  $("eval-moral").textContent = regression
+                    ? "REGRESSION ALARM: a case that used to pass now fails. This deploy is blocked before any patient sees it."
+                    : "Score recorded. Change the prompt, run the exam again, let the number tell the truth.";
+                },
+                rows.length * 250 + 200
+              );
+              last = v;
+            })
+          );
         }
       })();
     </script>
