@@ -8,6 +8,8 @@ import TenancyLetterbox from "@/components/caira/TenancyLetterbox.astro";
 import HarnessLoop from "@/components/caira/HarnessLoop.astro";
 import GroundingPlayground from "@/components/caira/GroundingPlayground.astro";
 import GuardrailsPlayground from "@/components/caira/GuardrailsPlayground.astro";
+import MemoryPlayground from "@/components/caira/MemoryPlayground.astro";
+import CachePlayground from "@/components/caira/CachePlayground.astro";
 // component imports arrive with the tasks that first use them
 ---
 
@@ -1456,6 +1458,10 @@ import GuardrailsPlayground from "@/components/caira/GuardrailsPlayground.astro"
         </div>
         <GuardrailsPlayground />
       </section>
+
+      <MemoryPlayground />
+
+      <CachePlayground />
     </div>
     <script is:inline>
       (() => {
@@ -1559,6 +1565,61 @@ import GuardrailsPlayground from "@/components/caira/GuardrailsPlayground.astro"
               ? "Blocked. Nice try. The bouncer has heard that one before."
               : "Looks like a normal guest. In they go.";
           });
+        }
+
+        /* memory toggle */
+        const memToggle = $("mem-toggle");
+        if (memToggle) {
+          const line = $("mem-reply");
+          const render = () => {
+            line.textContent = memToggle.checked
+              ? "Booking you with Dr. Rao again, evening slot as usual. Anything else?"
+              : "Which doctor would you like to see?";
+            line.classList.toggle("mem-smart", memToggle.checked);
+          };
+          memToggle.addEventListener("change", render);
+          render();
+        }
+
+        /* cache: ask twice */
+        const cacheAsk = $("cache-ask");
+        if (cacheAsk) {
+          let asked = false;
+          cacheAsk.addEventListener("click", () => {
+            const row = document.createElement("div");
+            if (!asked) {
+              row.innerHTML =
+                '<b>Patient 1:</b> "what are your timings?" → model thinks ~640 ms → <span class="amber">$0.0005</span> → answer saved';
+              asked = true;
+              cacheAsk.textContent = "Another patient asks the same thing";
+            } else {
+              row.innerHTML =
+                '<b>Patient 2:</b> "timings?" → cache HIT → <span class="teal">0 ms · $0.00</span> → same correct answer, free';
+            }
+            $("cache-log").appendChild(row);
+          });
+        }
+
+        /* cache: bill sliders */
+        const billMsgs = $("bill-msgs");
+        if (billMsgs) {
+          const calc = () => {
+            const msgs = Number(billMsgs.value);
+            const pct = Number($("bill-cache").value);
+            $("bill-msgs-v").textContent = String(msgs);
+            $("bill-cache-v").textContent = pct + "%";
+            const monthNo = msgs * 30 * 0.0005;
+            const monthYes = monthNo * (1 - pct / 100);
+            $("bill-no").textContent = "$" + monthNo.toFixed(2);
+            $("bill-yes").textContent = "$" + monthYes.toFixed(2);
+            $("bill-save").textContent =
+              "Same answers, " +
+              pct +
+              "% smaller AI bill. Modeled at ~$0.0005 per grounded answer.";
+          };
+          billMsgs.addEventListener("input", calc);
+          $("bill-cache").addEventListener("input", calc);
+          calc();
         }
       })();
     </script>
