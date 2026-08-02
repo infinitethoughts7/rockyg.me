@@ -1,4 +1,5 @@
 ---
+import TraceHero from "@/components/caira/TraceHero.astro";
 // component imports arrive with the tasks that first use them
 ---
 
@@ -1281,6 +1282,7 @@
     <div class="wrap">
       <a class="homelink" href="/">← rockyg.me</a>
       <!-- Task 2+: sections mount here, in order -->
+      <TraceHero />
     </div>
     <script is:inline>
       (() => {
@@ -1321,6 +1323,20 @@
         }
 
         /* === PLAYGROUND BLOCKS: tasks 2, 5, 6, 7 append below this line === */
+
+        /* hero runner */
+        const runner = $("trace-runner");
+        const hops = Array.from(document.querySelectorAll(".trace-body .hop"));
+        if (!reduce && runner && hops.length) {
+          let i = 0;
+          runner.style.transition = "top .5s cubic-bezier(.4,0,.2,1)";
+          const step = () => {
+            runner.style.top = hops[i].offsetTop + 8 + "px";
+            i = (i + 1) % hops.length;
+            setTimeout(step, i === 0 ? 1400 : 700);
+          };
+          setTimeout(step, 900);
+        }
       })();
     </script>
   </body>

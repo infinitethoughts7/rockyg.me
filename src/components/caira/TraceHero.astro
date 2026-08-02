@@ -1,0 +1,92 @@
+---
+
+---
+
+<header class="hero">
+  <div class="kicker">Engineering field notes · <b>AI systems</b></div>
+  <h1>One message, fully traced.</h1>
+  <p class="sub">
+    A patient texts a clinic. About 1.6 seconds later they have a confirmed
+    appointment, and the AI that got them there was never allowed to invent a
+    single fact. Meet Caira: the receptionist who never sleeps, never guesses,
+    and never makes up a consultation fee.
+  </p>
+
+  <div class="byline">
+    <span class="chip dot">TypeScript</span>
+    <span class="chip">Next.js on Vercel</span>
+    <span class="chip">Postgres + RLS</span>
+    <span class="chip">Gemini 2.5 Flash</span>
+    <span class="chip">WhatsApp Cloud API</span>
+    <span class="chip">Upstash Redis</span>
+    <span style="margin-left:.4rem">~8 min tour</span>
+  </div>
+
+  <!-- SIGNATURE: the traced message -->
+  <div class="trace">
+    <div class="trace-head">
+      <div class="lights"><i></i><i></i><i></i></div>
+      <span
+        >inbound&nbsp;→&nbsp;grounded&nbsp;→&nbsp;sent&nbsp;&nbsp;·&nbsp;&nbsp;one
+        message, decoded</span
+      >
+    </div>
+
+    <div class="chat">
+      <div class="bubble in">
+        do you treat migraine? and what are your timings
+        <span class="t">11:42</span>
+      </div>
+      <div class="bubble out">
+        Yes, migraine is handled by our Neurology dept. We're open Mon–Sat,
+        9&nbsp;am–7&nbsp;pm. Want me to book you in?<span class="t">11:42</span>
+      </div>
+      <div class="later">40 minutes later, another patient</div>
+      <div class="bubble in">
+        what're the clinic timings?<span class="t">12:24</span>
+      </div>
+      <div class="bubble out">
+        We're open Mon–Sat, 9&nbsp;am–7&nbsp;pm.<span class="t">12:24</span>
+      </div>
+    </div>
+
+    <div class="trace-body">
+      <div class="spine"></div>
+      <div id="trace-runner"></div>
+      <div class="hop">
+        <span class="k">route</span>
+        <b>phone_number_id</b> 1084…41
+        <span class="k">→</span> clinic_id 3f2a…
+        <span class="ms">· 1 indexed lookup</span>
+      </div>
+      <div class="hop">
+        <b>detectIntent</b> → ask_faq <span class="k">·</span> lang=en
+        <span class="k">·</span> conf 0.92 <span class="ms">~190ms</span>
+      </div>
+      <div class="hop">
+        <b>retrieve</b> top-6 of 40 FAQs <span class="k">·</span> keyword rank +2/+1
+      </div>
+      <div class="hop">
+        <b>answerQuestion</b> grounded on 6 facts <span class="k">·</span>
+        answered=true <span class="ms">~640ms</span>
+        <span class="cost">$0.0005</span>
+      </div>
+      <div class="hop">
+        <span class="k">cache.set</span> faq:9f3c…:do-you-treat-migraine…
+      </div>
+      <div class="hop hit">
+        <b>cache HIT</b>
+        <span class="k">·</span> normalized question matched
+        <span class="ms">0ms</span>
+        <span class="cost">$0.00</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="legend">
+    <b><i style="background:var(--wa)"></i>WhatsApp domain (chat)</b>
+    <b><i style="background:var(--teal)"></i>system / AI path</b>
+    <b><i style="background:var(--amber)"></i>cost &amp; latency</b>
+    <b><i style="background:var(--red)"></i>failure / handoff</b>
+  </div>
+</header>
