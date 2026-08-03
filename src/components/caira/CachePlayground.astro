@@ -2,18 +2,7 @@
 import NerdBox from "@/components/caira/NerdBox.astro";
 ---
 
-<section class="sec reveal" id="s9">
-  <p class="eyebrow"><span class="secnum">09</span>&nbsp;Concept 5 · caching</p>
-  <h2>Stop paying for the same answer twice</h2>
-  <div class="plain">
-    <span class="lbl">In plain English</span>
-    <p>
-      Two hundred patients ask "what are your timings?" and a naive bot pays the
-      model two hundred times for one identical sentence. If ten friends ask you
-      the same question, you do not re-think the answer ten times. You remember
-      it.
-    </p>
-  </div>
+<div class="reveal">
   <div class="play">
     <div class="play-label">▶ Playground: ask twice</div>
     <button class="btn primary" id="cache-ask"
@@ -48,18 +37,18 @@ import NerdBox from "@/components/caira/NerdBox.astro";
     <div style="display:flex;gap:2rem;margin-top:1rem">
       <div>
         <div class="tiny">Without cache</div>
-        <div class="bignum" style="color:var(--red)" id="bill-no"></div>
+        <div class="bignum" style="color:var(--cx-red)" id="bill-no"></div>
       </div>
       <div>
         <div class="tiny">With cache</div>
-        <div class="bignum" style="color:var(--teal)" id="bill-yes"></div>
+        <div class="bignum" style="color:var(--cx-teal)" id="bill-yes"></div>
       </div>
     </div>
     <p id="bill-save" class="tiny" style="margin-top:.5rem"></p>
   </div>
   <NerdBox>
     answers cached in Upstash Redis keyed on clinic + normalized question, 1
-    hour TTL; a cache hit is 0 ms of model time and $0.00; the hero trace shows
-    one happening
+    hour TTL; a cache hit is 0 ms of model time and $0.00; the trace window at
+    the top of this post shows one happening
   </NerdBox>
-</section>
+</div>
