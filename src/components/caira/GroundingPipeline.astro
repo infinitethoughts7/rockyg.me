@@ -2,127 +2,133 @@
 import NerdBox from "@/components/caira/NerdBox.astro";
 ---
 
-<div class="fig">
-  <svg
-    viewBox="0 0 720 200"
-    role="img"
-    aria-label="Grounding pipeline: facts in, model writes, shape check, sanitizer, send, five stations left to right, with a red branch from shape check and sanitizer dropping to a bin labelled let me check with the clinic"
-  >
-    <defs>
-      <marker
-        id="gp-ar"
-        markerWidth="8"
-        markerHeight="8"
-        refX="6.5"
-        refY="3.5"
-        orient="auto"
+<div class="reveal">
+  <div class="fig">
+    <svg
+      viewBox="0 0 720 200"
+      role="img"
+      aria-label="Grounding pipeline: facts in, model writes, shape check, sanitizer, send, five stations left to right, with a red branch from shape check and sanitizer dropping to a bin labelled let me check with the clinic"
+    >
+      <defs>
+        <marker
+          id="gp-ar"
+          markerWidth="8"
+          markerHeight="8"
+          refX="6.5"
+          refY="3.5"
+          orient="auto"
+        >
+          <path d="M0,0 L7,3.5 L0,7 z" style="fill:var(--cx-teal)"></path>
+        </marker>
+        <marker
+          id="gp-arR"
+          markerWidth="8"
+          markerHeight="8"
+          refX="6.5"
+          refY="3.5"
+          orient="auto"
+        >
+          <path d="M0,0 L7,3.5 L0,7 z" style="fill:var(--cx-red)"></path>
+        </marker>
+        <style is:inline>
+          .gpbox {
+            fill: var(--cx-ink3);
+            stroke: var(--cx-line2);
+            stroke-width: 1;
+          }
+          .gplbl {
+            font-family: var(--cx-mono);
+            font-size: 10px;
+            font-weight: 700;
+            fill: var(--cx-text);
+            text-anchor: middle;
+          }
+          .gpsub {
+            font-family: var(--cx-mono);
+            font-size: 7.5px;
+            fill: var(--cx-muted);
+            text-anchor: middle;
+          }
+          .gpline {
+            stroke: var(--cx-teal);
+            stroke-width: 1.6;
+            fill: none;
+            marker-end: url(#gp-ar);
+          }
+          .gpred {
+            stroke: var(--cx-red);
+            stroke-width: 1.5;
+            fill: none;
+            marker-end: url(#gp-arR);
+          }
+          .gpbin {
+            fill: var(--cx-ink4);
+            stroke: var(--cx-red);
+            stroke-width: 1.4;
+          }
+          .gpbinlbl {
+            font-family: var(--cx-mono);
+            font-size: 8.5px;
+            fill: var(--cx-red-soft);
+            text-anchor: middle;
+          }
+        </style>
+      </defs>
+
+      <rect class="gpbox" x="14" y="40" width="120" height="50" rx="9"></rect>
+      <text class="gplbl" x="74" y="61">facts in</text>
+      <text class="gpsub" x="74" y="76">fenced markers</text>
+
+      <rect class="gpbox" x="158" y="40" width="120" height="50" rx="9"></rect>
+      <text class="gplbl" x="218" y="61">model writes</text>
+      <text class="gpsub" x="218" y="76">JSON only</text>
+
+      <rect class="gpbox" x="302" y="40" width="120" height="50" rx="9"></rect>
+      <text class="gplbl" x="362" y="61">shape check</text>
+      <text class="gpsub" x="362" y="76">Zod schema</text>
+
+      <rect class="gpbox" x="446" y="40" width="120" height="50" rx="9"></rect>
+      <text class="gplbl" x="506" y="58">sanitizer</text>
+      <text class="gpsub" x="506" y="71">links stripped</text>
+      <text class="gpsub" x="506" y="82">length capped</text>
+
+      <rect class="gpbox" x="590" y="40" width="116" height="50" rx="9"></rect>
+      <text class="gplbl" x="648" y="61">send</text>
+      <text class="gpsub" x="648" y="76">to the patient</text>
+
+      <line class="gpline flow-dash" x1="134" y1="65" x2="156" y2="65"></line>
+      <line class="gpline flow-dash" x1="278" y1="65" x2="300" y2="65"></line>
+      <line class="gpline flow-dash" x1="422" y1="65" x2="444" y2="65"></line>
+      <line class="gpline flow-dash" x1="566" y1="65" x2="588" y2="65"></line>
+
+      <rect class="gpbin" x="290" y="152" width="220" height="38" rx="9"></rect>
+      <text class="gpbinlbl" x="400" y="175"
+        >"let me check with the clinic"</text
       >
-        <path d="M0,0 L7,3.5 L0,7 z" fill="#34E4CE"></path></marker
-      >
-      <marker
-        id="gp-arR"
-        markerWidth="8"
-        markerHeight="8"
-        refX="6.5"
-        refY="3.5"
-        orient="auto"
-      >
-        <path d="M0,0 L7,3.5 L0,7 z" fill="#FF6076"></path></marker
-      >
-      <style is:inline>
-        .gpbox {
-          fill: #141c26;
-          stroke: #2c3a49;
-          stroke-width: 1;
-        }
-        .gplbl {
-          font-family: "JetBrains Mono", monospace;
-          font-size: 10px;
-          font-weight: 700;
-          fill: #dce5ee;
-          text-anchor: middle;
-        }
-        .gpsub {
-          font-family: "JetBrains Mono", monospace;
-          font-size: 7.5px;
-          fill: #8b99a8;
-          text-anchor: middle;
-        }
-        .gpline {
-          stroke: var(--teal);
-          stroke-width: 1.6;
-          fill: none;
-          marker-end: url(#gp-ar);
-        }
-        .gpred {
-          stroke: var(--red);
-          stroke-width: 1.5;
-          fill: none;
-          marker-end: url(#gp-arR);
-        }
-        .gpbin {
-          fill: #1a2430;
-          stroke: var(--red);
-          stroke-width: 1.4;
-        }
-        .gpbinlbl {
-          font-family: "JetBrains Mono", monospace;
-          font-size: 8.5px;
-          fill: #ff9aa8;
-          text-anchor: middle;
-        }
-      </style>
-    </defs>
 
-    <rect class="gpbox" x="14" y="40" width="120" height="50" rx="9"></rect>
-    <text class="gplbl" x="74" y="61">facts in</text>
-    <text class="gpsub" x="74" y="76">fenced markers</text>
-
-    <rect class="gpbox" x="158" y="40" width="120" height="50" rx="9"></rect>
-    <text class="gplbl" x="218" y="61">model writes</text>
-    <text class="gpsub" x="218" y="76">JSON only</text>
-
-    <rect class="gpbox" x="302" y="40" width="120" height="50" rx="9"></rect>
-    <text class="gplbl" x="362" y="61">shape check</text>
-    <text class="gpsub" x="362" y="76">Zod schema</text>
-
-    <rect class="gpbox" x="446" y="40" width="120" height="50" rx="9"></rect>
-    <text class="gplbl" x="506" y="58">sanitizer</text>
-    <text class="gpsub" x="506" y="71">links stripped</text>
-    <text class="gpsub" x="506" y="82">length capped</text>
-
-    <rect class="gpbox" x="590" y="40" width="116" height="50" rx="9"></rect>
-    <text class="gplbl" x="648" y="61">send</text>
-    <text class="gpsub" x="648" y="76">to the patient</text>
-
-    <line class="gpline flow-dash" x1="134" y1="65" x2="156" y2="65"></line>
-    <line class="gpline flow-dash" x1="278" y1="65" x2="300" y2="65"></line>
-    <line class="gpline flow-dash" x1="422" y1="65" x2="444" y2="65"></line>
-    <line class="gpline flow-dash" x1="566" y1="65" x2="588" y2="65"></line>
-
-    <rect class="gpbin" x="290" y="152" width="220" height="38" rx="9"></rect>
-    <text class="gpbinlbl" x="400" y="175">"let me check with the clinic"</text>
-
-    <path class="gpred flow-dash" d="M362,90 L362,120 L400,120 L400,150"></path>
-    <path class="gpred flow-dash" d="M506,90 L506,130 L400,130 L400,150"></path>
-  </svg>
-  <div class="figcap">
-    Teal: the happy path, five stations, one direction. Red: anything shape
-    check or the sanitizer rejects falls straight to the same safe sentence,
-    never back into the model for a retry.
+      <path class="gpred flow-dash" d="M362,90 L362,120 L400,120 L400,150"
+      ></path>
+      <path class="gpred flow-dash" d="M506,90 L506,130 L400,130 L400,150"
+      ></path>
+    </svg>
+    <div class="figcap">
+      Teal: the happy path, five stations, one direction. Red: anything shape
+      check or the sanitizer rejects falls straight to the same safe sentence,
+      never back into the model for a retry.
+    </div>
   </div>
-</div>
 
-<NerdBox title="the three walls, in code">
-  <p>
-    The prompt fences the clinic's facts between explicit markers and asks for
-    JSON only, a request the model can ignore. The response is checked against a
-    Zod schema, and the sanitizer strips every link and caps the reply length,
-    an actual guarantee. The provider stack itself is a decorator chain, cache
-    then fallback then metering then vendor, so a slow or dead model degrades
-    instead of taking the feature down. Feed her a prompt injection and the
-    classifier tags it, grounding still checks it against the clinic's real
-    facts, finds nothing there, and the whole thing falls back to the same
-    polite handoff a real failure would produce.
-  </p>
-</NerdBox>
+  <NerdBox title="the three walls, in code">
+    <p>
+      The prompt fences the clinic's facts between explicit markers and asks for
+      JSON only, a request the model can ignore. The response is checked against
+      a Zod schema, and the sanitizer strips every link and caps the reply
+      length, an actual guarantee. The provider stack itself is a decorator
+      chain, cache then fallback then metering then vendor, so a slow or dead
+      model degrades instead of taking the feature down. Feed her a prompt
+      injection and the classifier tags it, grounding still checks it against
+      the clinic's real facts, finds nothing there, and the whole thing falls
+      back to the same polite handoff a real failure would produce.
+    </p>
+  </NerdBox>
+</div>
