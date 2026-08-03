@@ -44,6 +44,10 @@ const sections = headings.filter(
 
 <script is:inline data-astro-rerun>
   function initTOC() {
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", initTOC, { once: true });
+      return;
+    }
     const links = Array.from(document.querySelectorAll("[data-toc-link]"));
     if (!links.length) return;
 
