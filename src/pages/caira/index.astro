@@ -14,6 +14,8 @@ import FallbackQueuePlayground from "@/components/caira/FallbackQueuePlayground.
 import EvalsPlayground from "@/components/caira/EvalsPlayground.astro";
 import StateMachine from "@/components/caira/StateMachine.astro";
 import GroundingPipeline from "@/components/caira/GroundingPipeline.astro";
+import LatencyBudget from "@/components/caira/LatencyBudget.astro";
+import ScalingLadder from "@/components/caira/ScalingLadder.astro";
 // component imports arrive with the tasks that first use them
 ---
 
@@ -1510,6 +1512,94 @@ import GroundingPipeline from "@/components/caira/GroundingPipeline.astro";
         </div>
         <GroundingPipeline />
       </section>
+
+      <div class="partdiv reveal">
+        <div class="n">Act V</div>
+        <h2>Scale, and the punchline</h2>
+        <p>
+          What actually breaks first, and why it is not the thing you think.
+        </p>
+        <div class="rule"></div>
+      </div>
+
+      <section class="sec reveal" id="s13">
+        <p class="eyebrow">
+          <span class="secnum">13</span>&nbsp;Scale, for humans
+        </p>
+        <h2>The AI is not the expensive part</h2>
+        <div class="plain">
+          <span class="lbl">In plain English</span>
+          <p>
+            "Does it scale?" almost never means what people think. Computers are
+            cheap and Caira is stateless, so more traffic just means more
+            copies. The real question: as this grows from one clinic to a
+            thousand, which single thing bends first, and did we leave ourselves
+            a lever?
+          </p>
+          <p class="analogy">
+            And the punchline most people get backwards: at realistic volumes,
+            sending WhatsApp reminders costs more than running the AI. The robot
+            brain is cheaper than the postage.
+          </p>
+        </div>
+        <LatencyBudget />
+        <ScalingLadder />
+      </section>
+
+      <section class="sec reveal">
+        <p class="eyebrow"><span class="secnum">14</span>&nbsp;The point</p>
+        <h2>Everyone can build the demo</h2>
+        <div class="plain">
+          <span class="lbl">If you remember one thing</span>
+          <p>
+            A weekend and a model API gets anyone a chatbot that books
+            appointments. The distance between that demo and something a
+            hospital trusts with real patients is everything you just scrolled
+            through: grounding so she cannot lie, isolation so clinics cannot
+            leak into each other, metering so costs cannot surprise anyone, and
+            graceful degradation so the product outlives the vendor.
+          </p>
+          <p class="analogy">
+            The AI is the easy, swappable part. The building around her is the
+            product.
+          </p>
+        </div>
+        <div class="stats">
+          <div class="stat">
+            <div class="n">21</div>
+            <div class="l">modules · 24 ports · 43 adapters</div>
+          </div>
+          <div class="stat">
+            <div class="n">118</div>
+            <div class="l">test files, zero secrets needed</div>
+          </div>
+          <div class="stat">
+            <div class="n amber">22</div>
+            <div class="l">tables · every row carries clinic_id</div>
+          </div>
+          <div class="stat">
+            <div class="n amber">3</div>
+            <div class="l">patient-facing routes, 31 to 88 lines each</div>
+          </div>
+        </div>
+        <p style="margin-top:1.6rem">
+          <a href="/posts/">← Back to all posts</a>
+        </p>
+      </section>
+
+      <footer>
+        <p class="mono">
+          Caira · multi-tenant WhatsApp AI receptionist · TypeScript / Next.js /
+          Postgres + RLS / Gemini 2.5 Flash / WhatsApp Cloud API / Upstash
+        </p>
+        <p style="margin:.4rem 0 0">
+          Client details anonymized. Architecture, counts and constants are
+          drawn from the production codebase. Cost figures use published Gemini
+          rates; token counts and traffic volumes are modeled estimates and are
+          labelled
+          <span class="estimate">estimate</span> wherever they appear.
+        </p>
+      </footer>
     </div>
     <script is:inline>
       (() => {
