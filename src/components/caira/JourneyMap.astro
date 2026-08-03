@@ -1,13 +1,8 @@
-<section class="sec reveal" id="s2">
-  <p class="eyebrow"><span class="secnum">02</span>&nbsp;The journey</p>
-  <h2>What actually happens when you text the clinic</h2>
-  <div class="plain">
-    <span class="lbl">One message, nine stops, zero jargon</span>
-    <p>
-      You type <em>"do you treat migraine? and what are your timings"</em> and hit
-      send. Here is everything that happens before the reply lands.
-    </p>
-  </div>
+---
+
+---
+
+<div class="reveal jm">
   <ol class="steps journey">
     <li>
       <strong>WhatsApp delivers your message to us.</strong> Not to a phone on a desk.
@@ -62,14 +57,14 @@
     decides whether a slot is free, never writes to the appointment book, and never
     has the last word on what gets sent.
   </div>
-</section>
+</div>
 
 <style>
   .journey li {
     opacity: 0;
     transform: translateX(-8px);
   }
-  :global(.sec.in) .journey li {
+  .jm:global(.in) .journey li {
     animation: jstep 0.5s ease forwards;
   }
   .journey li:nth-child(1) {
@@ -107,7 +102,7 @@
   }
   @media (prefers-reduced-motion: reduce) {
     .journey li,
-    :global(.sec.in) .journey li {
+    .jm:global(.in) .journey li {
       opacity: 1;
       transform: none;
       animation: none;
