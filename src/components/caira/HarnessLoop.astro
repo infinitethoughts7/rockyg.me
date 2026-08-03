@@ -2,25 +2,7 @@
 import NerdBox from "@/components/caira/NerdBox.astro";
 ---
 
-<section class="sec reveal" id="s6">
-  <p class="eyebrow">
-    <span class="secnum">06</span>&nbsp;Concept 1 · the harness
-  </p>
-  <h2>An AI agent is just a loop</h2>
-  <div class="plain">
-    <span class="lbl">In plain English</span>
-    <p>
-      Strip away the hype and every agent does four things, forever: read what
-      arrived (perceive), decide what is needed (think), do it (act), and
-      confirm it worked (check). The loop, the rules, and the checks around the
-      model are called the <strong>harness</strong>.
-    </p>
-    <p class="analogy">
-      The model is one part in the machine, and not even the biggest part.
-      Caira's harness is the receptionist's training, checklist and manager. The
-      model is just her vocabulary.
-    </p>
-  </div>
+<div class="reveal">
   <div class="fig">
     <svg
       viewBox="0 0 420 300"
@@ -36,43 +18,43 @@ import NerdBox from "@/components/caira/NerdBox.astro";
           refY="3.5"
           orient="auto"
         >
-          <path d="M0,0 L7,3.5 L0,7 z" fill="#5E6C7B"></path></marker
-        >
+          <path d="M0,0 L7,3.5 L0,7 z" style="fill:var(--cx-faint)"></path>
+        </marker>
         <style is:inline>
           .hcirc {
-            fill: #141c26;
-            stroke: #34e4ce;
+            fill: var(--cx-ink3);
+            stroke: var(--cx-teal);
             stroke-width: 1.8;
           }
           .hlbl {
-            font-family: "JetBrains Mono", monospace;
+            font-family: var(--cx-mono);
             font-size: 12px;
             font-weight: 700;
-            fill: #dce5ee;
+            fill: var(--cx-text);
             text-anchor: middle;
           }
           .hsub {
-            font-family: "JetBrains Mono", monospace;
+            font-family: var(--cx-mono);
             font-size: 9.5px;
-            fill: #8b99a8;
+            fill: var(--cx-muted);
             text-anchor: middle;
           }
           .harc {
-            stroke: #5e6c7b;
+            stroke: var(--cx-faint);
             stroke-width: 1.8;
             fill: none;
             marker-end: url(#h-ar);
           }
           .hchip {
-            fill: #1a2430;
-            stroke: #f5b54a;
+            fill: var(--cx-ink4);
+            stroke: var(--cx-amber);
             stroke-width: 1.3;
           }
           .hchipt {
-            font-family: "JetBrains Mono", monospace;
+            font-family: var(--cx-mono);
             font-size: 8.5px;
             font-weight: 700;
-            fill: #f5b54a;
+            fill: var(--cx-amber);
             text-anchor: middle;
           }
         </style>
@@ -101,19 +83,19 @@ import NerdBox from "@/components/caira/NerdBox.astro";
       <path class="harc flow-dash" d="M 168 230 Q 100 210 82 192"></path>
       <path class="harc flow-dash" d="M 82 110 Q 120 80 168 68"></path>
     </svg>
+    <div class="figcap">
+      The whole trick of AI engineering: everyone gets the same models. The
+      harness is where products differ.
+    </div>
   </div>
-  <div class="figcap">
-    The whole trick of AI engineering: everyone gets the same models. The
-    harness is where products differ.
-  </div>
-</section>
 
-<NerdBox title="the loop, in real code">
-  <p>
-    bot-brain/handleInboundMessage IS the loop: resolve tenant, detect intent,
-    run the matched flow, and persist state only after a successful send. That
-    last detail is a check most builders forget. 727 lines, no vendor import:
-    every dependency arrives through a port, and the LLM is called from exactly
-    one narrow place inside think.
-  </p>
-</NerdBox>
+  <NerdBox title="the loop, in real code">
+    <p>
+      bot-brain/handleInboundMessage IS the loop: resolve tenant, detect intent,
+      run the matched flow, and persist state only after a successful send. That
+      last detail is a check most builders forget. 727 lines, no vendor import:
+      every dependency arrives through a port, and the LLM is called from
+      exactly one narrow place inside think.
+    </p>
+  </NerdBox>
+</div>
