@@ -1,0 +1,290 @@
+---
+title: "Building Caira: a WhatsApp AI Receptionist a Hospital Can Trust"
+author: Rocky G
+pubDatetime: 2026-07-24T00:00:00Z
+modDatetime: 2026-08-03T00:00:00Z
+description: "The full story of how I built Caira, a multi-tenant WhatsApp AI receptionist: animated architecture maps, guardrails you can try to break, and seven playgrounds, told the way it actually happened."
+featured: true
+tags:
+  - technical
+  - ai-agents
+  - caira
+---
+
+import CairaKit from "@/components/caira/CairaKit.astro";
+import TraceHero from "@/components/caira/TraceHero.astro";
+import NerdBox from "@/components/caira/NerdBox.astro";
+import StatsMeet from "@/components/caira/StatsMeet.astro";
+import StatsPoint from "@/components/caira/StatsPoint.astro";
+import JourneyMap from "@/components/caira/JourneyMap.astro";
+import SystemContextMap from "@/components/caira/SystemContextMap.astro";
+import ContainerMap from "@/components/caira/ContainerMap.astro";
+import TenancyLetterbox from "@/components/caira/TenancyLetterbox.astro";
+import HarnessLoop from "@/components/caira/HarnessLoop.astro";
+import GroundingPlayground from "@/components/caira/GroundingPlayground.astro";
+import GroundingWalls from "@/components/caira/GroundingWalls.astro";
+import GuardrailsPlayground from "@/components/caira/GuardrailsPlayground.astro";
+import MemoryPlayground from "@/components/caira/MemoryPlayground.astro";
+import CachePlayground from "@/components/caira/CachePlayground.astro";
+import FallbackPlayground from "@/components/caira/FallbackPlayground.astro";
+import QueueLetterbox from "@/components/caira/QueueLetterbox.astro";
+import EvalsPlayground from "@/components/caira/EvalsPlayground.astro";
+import StateMachine from "@/components/caira/StateMachine.astro";
+import GroundingPipeline from "@/components/caira/GroundingPipeline.astro";
+import LatencyBudget from "@/components/caira/LatencyBudget.astro";
+import ScalingLadder from "@/components/caira/ScalingLadder.astro";
+
+<CairaKit />
+
+On paper, Caira is a WhatsApp receptionist for clinics. In practice she is
+the most patient colleague I have ever had: answers in English, Hindi, Telugu
+or Hinglish, at 3 am, to a hundred people at once, and she has never once
+sighed.
+
+This is the story of how I built her, told the way I actually experienced it.
+Less "here is my architecture", more "here is the thing that scared me, and
+here is the trick that made it boring". The hard part was never getting a bot
+to answer. Any modern model answers anything, instantly and beautifully. The
+hard part was making it answer like an employee who knows the rules, admits
+what she does not know, and never, ever invents a consultation fee.
+
+Before any theory, watch one real message go through the machine. A patient
+asks about migraine and timings. About 1.6 seconds later they have an answer
+the AI was never allowed to make up.
+
+<TraceHero />
+
+One request before we start: everything below is animated and every
+playground actually works, so press things. Break things. That is what they
+are for. If you are an engineer, the "For engineers" boxes carry the deep
+cuts. If you are not, skip every one of them and you will still get the whole
+story.
+
+## Meet Caira
+
+Every clinic has the same problem. The phone rings all day, someone has to
+answer "what are your timings?" for the fortieth time, write names in a
+diary, and call people so they actually show up. That person is expensive,
+goes home at 7 pm, and can hold exactly one conversation at a time.
+
+So I built that person as software, living inside WhatsApp. She answers
+questions, books appointments, sends reminders, offers freed slots to the
+waitlist, and checks on you after your visit.
+
+The decision that shaped everything came right at the start: **one copy of
+Caira serves every clinic.** One apartment building with many locked flats,
+instead of a new house for every family. It looks like a cost decision on a
+slide. In reality it is the decision that caused almost every hard problem in
+this story, and honestly, most of the fun ones too.
+
+<StatsMeet />
+
+<NerdBox title="the stack behind the numbers">
+  <p>
+    TypeScript, Next.js App Router on Vercel, Supabase Postgres with RLS,
+    Drizzle, Gemini 2.5 Flash, WhatsApp Cloud API, Upstash Redis, Sarvam for
+    Indic translation, Razorpay for upfront fees, Langfuse for per-call cost and
+    latency traces. Everything patient-facing flows through a handful of thin
+    HTTP routes: an inbound webhook, an encrypted booking Flow endpoint, a
+    payment webhook, and a cron drain.
+  </p>
+</NerdBox>
+
+## What happens when you text her
+
+You type _"do you treat migraine? and what are your timings"_ and hit send.
+Here is everything that happens before the reply lands, and I promise none of
+it is magic.
+
+<JourneyMap />
+
+## Who talks to Caira
+
+When I sat down to draw the system, the first map had three kinds of humans
+on it: patients (WhatsApp only, they never see a website), clinic staff (a
+dashboard), and doctors (their own day view). Everything on the right side is
+a company I rent something from.
+
+The rule I refused to break: every rented service sits behind a plug socket
+of my own design. If Google doubles Gemini's price tomorrow, I change the
+plug, not the house.
+
+<SystemContextMap />
+
+## A building with three unlocked doors
+
+Zoom in one level and Caira's building has only three doors that matter: one
+where WhatsApp messages arrive, one where the booking form talks to us, and
+one where a timer knocks to say "send today's reminders". Plus a small
+payment door round the back.
+
+I kept the doors deliberately dumb. They check ID and hand you to the rooms
+inside. All the thinking happens in rooms that have no idea they are inside a
+building, which is why I can test every room without ever building a door.
+
+<ContainerMap />
+
+## Trust the letterbox, never the visitor
+
+Here is the bug that actually kept me careful: clinic A seeing clinic B's
+patients. In healthcare that is not a bug report, it is a regulatory
+incident.
+
+So how do I know which clinic a message is for? The tempting answer is "the
+message says so". Wrong answer. Whoever sends a message chooses what it says.
+Instead I use the one thing a sender cannot choose: **which of our phone
+numbers the message physically arrived on.**
+
+> It is the difference between a visitor telling you which flat they live in,
+> and you noticing which letterbox their post came out of. Only one of those
+> can be faked.
+
+<TenancyLetterbox />
+
+## Every AI agent is secretly just a loop
+
+Now the AI concepts, and I will let you in on the industry's best-kept boring
+secret. Strip away the hype and every agent does four things, forever: read
+what arrived (perceive), decide what is needed (think), do it (act), and
+confirm it worked (check). The loop, the rules and the checks around the
+model are called the **harness**.
+
+> The model is one part in the machine, and not even the biggest part.
+> Caira's harness is the receptionist's training, checklist and manager. The
+> model is just her vocabulary.
+
+<HarnessLoop />
+
+## She is not allowed to make things up
+
+Language models are fluent guessers. In most products a wrong guess is a
+quirk. Here, if Caira invents a consultation fee, a real patient brings 500
+rupees to a 900 rupee visit, under a clinic's name. So my central question
+was never "which model". It was: how do I make her **structurally incapable**
+of answering outside the facts she was handed?
+
+Step one, she only ever sees the right page, never the whole library:
+
+<GroundingPlayground />
+
+Step two, I built three walls around whatever she writes:
+
+<GroundingWalls />
+
+And because the internet is the internet, people will absolutely try to talk
+her out of the rules. Go ahead, you try:
+
+<GuardrailsPlayground />
+
+## What should she remember?
+
+Memory sounds warm and fuzzy until you have to design it. Remember too little
+and "book me with the same doctor as last time" gets a blank stare. Remember
+too much and every message costs more and leaks privacy. There are two kinds
+of memory here, and most builders mix them up.
+
+> Your school keeps two things about you: a timetable (exact, which class you
+> are in right now) and a report card (a short summary of who you are). Caira
+> needs both. Timetable = state. Report card = recall.
+
+<MemoryPlayground />
+
+## Stop paying for the same answer twice
+
+Two hundred patients ask "what are your timings?" and a naive bot pays the
+model two hundred times for one identical sentence. If ten friends ask you
+the same question, you do not re-think the answer ten times. You remember it.
+So does she.
+
+<CachePlayground />
+
+## The day Gemini has a bad minute
+
+Some day Gemini will have a bad minute. Every vendor does. In most products
+the AI feature just dies and takes the user experience with it. I decided
+early that a vendor outage is not allowed to become Caira's outage: she
+downgrades to a simple keyword matcher and keeps answering. Simpler replies,
+zero cost, nobody left on read.
+
+> If the head chef is sick, the restaurant does not close. The sous-chef
+> cooks a simpler menu.
+
+<FallbackPlayground />
+
+The second half of surviving bad days is the letterbox. A phone call needs
+both people free at the same moment. A letter does not: drop it in the box,
+get your receipt instantly, the postman delivers when ready and retries if
+you are not home. All slow work goes through the letterbox, so WhatsApp never
+waits on a slow model.
+
+<QueueLetterbox />
+
+## The exam before every deploy
+
+Change one word in a prompt and a bot can silently get worse. Without a
+safety net you find out from an angry clinic. So Caira sits an exam before
+every deploy: fixed questions, known right answers, a score. The alarm below
+is the strict parent who notices the moment a 90 becomes a 60.
+
+<EvalsPlayground />
+
+## The conversation is a board game, not a chat
+
+My favorite piece of low-level design. Caira never "remembers the vibe" of a
+conversation. She knows exactly which square you are standing on: browsing,
+booking, confirming, cancelled. Every message either moves you along a
+printed arrow or does nothing. There is no square called "improvise".
+
+<StateMachine />
+
+And every AI answer rides a conveyor belt: facts go in, the model writes, the
+shape gets checked, links get stripped, length gets capped. Anything weird
+falls off the belt into the safest sentence in the product: "let me check
+with the clinic and get back to you."
+
+> The worst thing Caira can do is ask a human. She is never able to be
+> confident and wrong. That guarantee is what most of the engineering is for.
+
+<GroundingPipeline />
+
+## The AI is not the expensive part
+
+"Does it scale?" almost never means what people think it means. Computers are
+cheap and Caira is stateless, so more traffic just means more copies of her.
+The real question I kept asking myself: as this grows from one clinic to a
+thousand, which single thing bends first, and did I leave myself a lever?
+
+Here is where the 1.6 seconds actually goes:
+
+<LatencyBudget />
+
+And here is the honest ladder, rung by rung, of what bends on the way up:
+
+<ScalingLadder />
+
+The punchline most people get backwards: at realistic volumes, sending
+WhatsApp reminders costs more than running the AI. The robot brain is cheaper
+than the postage.
+
+## Everyone can build the demo
+
+If you remember one thing from this whole page, make it this. A weekend and a
+model API gets anyone a chatbot that books appointments. The distance between
+that demo and something a hospital trusts with real patients is everything
+you just scrolled through: grounding so she cannot lie, isolation so clinics
+cannot leak into each other, metering so costs cannot surprise anyone, and
+graceful degradation so the product outlives the vendor.
+
+> The AI is the easy, swappable part. The building around her is the product.
+
+<StatsPoint />
+
+Thanks for scrolling this far. If you pressed at least one button on the way
+down, we are officially friends.
+
+<small>
+  Client details anonymized. Architecture, counts and constants are drawn from
+  the production codebase. Cost figures use published Gemini rates; token counts
+  and traffic volumes are modeled estimates and are labelled
+  <span class="estimate">estimate</span> wherever they appear.
+</small>
