@@ -2,32 +2,7 @@
 import NerdBox from "@/components/caira/NerdBox.astro";
 ---
 
-<section class="sec reveal" id="s5">
-  <p class="eyebrow">
-    <span class="secnum">05</span>&nbsp;HLD · the security spine
-  </p>
-  <h2>Trust the letterbox, never the visitor</h2>
-  <div class="plain">
-    <span class="lbl">In plain English</span>
-    <p>
-      The single most dangerous bug imaginable here: clinic A seeing clinic B's
-      patients. In healthcare that is not a bug report, it is a regulatory
-      incident.
-    </p>
-    <p>
-      So how do we know which clinic a message is for? The tempting answer is
-      "the message says so." Wrong answer: whoever sends the message chooses
-      what it says. Instead we use the one thing the sender cannot choose,
-      <strong
-        >which of our phone numbers the message physically arrived on.</strong
-      >
-    </p>
-    <p class="analogy">
-      It is the difference between a visitor telling you which flat they live
-      in, and you noticing which letterbox their post came out of. Only one of
-      those can be faked.
-    </p>
-  </div>
+<div class="reveal">
   <div class="fig">
     <svg
       viewBox="0 0 720 250"
@@ -43,8 +18,8 @@ import NerdBox from "@/components/caira/NerdBox.astro";
           refY="4"
           orient="auto"
         >
-          <path d="M0,0 L8,4 L0,8 z" fill="#34E4CE"></path></marker
-        >
+          <path d="M0,0 L8,4 L0,8 z" style="fill:var(--cx-teal)"></path>
+        </marker>
         <marker
           id="t-arR"
           markerWidth="9"
@@ -53,50 +28,50 @@ import NerdBox from "@/components/caira/NerdBox.astro";
           refY="4"
           orient="auto"
         >
-          <path d="M0,0 L8,4 L0,8 z" fill="#FF6076"></path></marker
-        >
+          <path d="M0,0 L8,4 L0,8 z" style="fill:var(--cx-red)"></path>
+        </marker>
         <style is:inline>
           .tb {
-            fill: #141c26;
-            stroke: #2c3a49;
+            fill: var(--cx-ink3);
+            stroke: var(--cx-line2);
           }
           .tg {
-            fill: #0f3b38;
-            stroke: #34e4ce;
+            fill: var(--cx-teal-dim);
+            stroke: var(--cx-teal);
             stroke-width: 1.4;
           }
           .tr {
-            fill: #3a1620;
-            stroke: #ff6076;
+            fill: var(--cx-red-dim);
+            stroke: var(--cx-red);
             stroke-width: 1.2;
             stroke-dasharray: 4 3;
           }
           .tt2 {
-            font-family: "JetBrains Mono", monospace;
+            font-family: var(--cx-mono);
             font-size: 10px;
-            fill: #dce5ee;
+            fill: var(--cx-text);
           }
           .ts2 {
-            font-family: "JetBrains Mono", monospace;
+            font-family: var(--cx-mono);
             font-size: 8.5px;
-            fill: #8b99a8;
+            fill: var(--cx-muted);
           }
           .tl {
-            stroke: #34e4ce;
+            stroke: var(--cx-teal);
             stroke-width: 1.5;
             fill: none;
             marker-end: url(#t-ar);
           }
           .tlr {
-            stroke: #ff6076;
+            stroke: var(--cx-red);
             stroke-width: 1.4;
             fill: none;
             marker-end: url(#t-arR);
           }
           .tlab {
-            font-family: "JetBrains Mono", monospace;
+            font-family: var(--cx-mono);
             font-size: 8px;
-            fill: #5e6c7b;
+            fill: var(--cx-faint);
           }
         </style>
       </defs>
@@ -107,19 +82,23 @@ import NerdBox from "@/components/caira/NerdBox.astro";
       <text class="ts2" x="22" y="69">= 1084…41 ← physical</text>
 
       <rect class="tr" x="10" y="150" width="164" height="56" rx="9"></rect>
-      <text class="tt2" x="22" y="171" fill="#FF9FAC">anything claiming</text>
-      <text class="ts2" x="22" y="186" fill="#FF9FAC"
+      <text class="tt2" x="22" y="171" style="fill:var(--cx-red-soft)"
+        >anything claiming</text
+      >
+      <text class="ts2" x="22" y="186" style="fill:var(--cx-red-soft)"
         >"clinic_id": "&lt;other&gt;"</text
       >
-      <text class="ts2" x="22" y="199" fill="#FF9FAC"
+      <text class="ts2" x="22" y="199" style="fill:var(--cx-red-soft)"
         >in the body → IGNORED</text
       >
 
       <rect class="tg" x="228" y="70" width="200" height="72" rx="11"></rect>
-      <text class="tt2" x="242" y="92" fill="#34E4CE">ClinicResolver</text>
+      <text class="tt2" x="242" y="92" style="fill:var(--cx-teal)"
+        >ClinicResolver</text
+      >
       <text class="ts2" x="242" y="108">unique index on</text>
       <text class="ts2" x="242" y="121">clinics.whatsapp_phone_number_id</text>
-      <text class="ts2" x="242" y="135" fill="#F5B54A"
+      <text class="ts2" x="242" y="135" style="fill:var(--cx-amber)"
         >1 indexed lookup · no scan</text
       >
 
@@ -164,21 +143,21 @@ import NerdBox from "@/components/caira/NerdBox.astro";
       <text class="tlab" x="186" y="82">physical arrival</text>
       <text class="tlab" x="176" y="146">forged claim</text>
     </svg>
+    <div class="figcap">
+      Green solid: identity derived from the letterbox, trusted. Red dashed:
+      whatever the visitor claims, ignored.
+    </div>
   </div>
-  <div class="figcap">
-    Green solid: identity derived from the letterbox, trusted. Red dashed:
-    whatever the visitor claims, ignored.
-  </div>
-</section>
 
-<NerdBox title="the three backstops behind the letterbox">
-  <p>
-    Resolving phone_number_id to clinic_id is one indexed lookup, a unique index
-    on clinics.whatsapp_phone_number_id, no table scan. From there every tenant
-    row across all 22 tables carries its own clinic_id, and every repository
-    method takes that clinic_id as its first argument. RLS is the designed
-    backstop: runWithClinic() calls set_config to set a transaction-scoped
-    variable, and Postgres policies read it back and filter rows themselves, in
-    case a developer ever forgets a WHERE clause.
-  </p>
-</NerdBox>
+  <NerdBox title="the three backstops behind the letterbox">
+    <p>
+      Resolving phone_number_id to clinic_id is one indexed lookup, a unique
+      index on clinics.whatsapp_phone_number_id, no table scan. From there every
+      tenant row across all 22 tables carries its own clinic_id, and every
+      repository method takes that clinic_id as its first argument. RLS is the
+      designed backstop: runWithClinic() calls set_config to set a
+      transaction-scoped variable, and Postgres policies read it back and filter
+      rows themselves, in case a developer ever forgets a WHERE clause.
+    </p>
+  </NerdBox>
+</div>
