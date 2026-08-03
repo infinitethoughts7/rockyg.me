@@ -1,0 +1,115 @@
+---
+import NerdBox from "@/components/caira/NerdBox.astro";
+---
+
+<div class="reveal">
+  <div class="fig">
+    <svg
+      viewBox="0 0 460 160"
+      role="img"
+      aria-label="Queue diagram: a webhook replies instantly and hands the message to a queue with four pulsing dots, a worker then drains the queue and does the slow work safely"
+    >
+      <defs>
+        <marker
+          id="q-ar"
+          markerWidth="9"
+          markerHeight="9"
+          refX="7"
+          refY="4"
+          orient="auto"
+        >
+          <path d="M0,0 L8,4 L0,8 z" style="fill:var(--cx-teal)"></path>
+        </marker>
+        <style is:inline>
+          .qbx {
+            fill: var(--cx-ink3);
+            stroke: var(--cx-line2);
+            stroke-width: 1;
+          }
+          .qq {
+            fill: var(--cx-ink3);
+            stroke: var(--cx-teal);
+            stroke-width: 1.6;
+          }
+          .qt {
+            font-family: var(--cx-mono);
+            font-size: 11px;
+            font-weight: 700;
+            fill: var(--cx-text);
+          }
+          .qs {
+            font-family: var(--cx-mono);
+            font-size: 9px;
+            fill: var(--cx-muted);
+          }
+          .ql {
+            stroke: var(--cx-faint);
+            stroke-width: 1.6;
+            fill: none;
+            marker-end: url(#q-ar);
+          }
+          .qdot {
+            fill: var(--cx-teal);
+          }
+        </style>
+      </defs>
+
+      <rect class="qbx" x="10" y="55" width="95" height="50" rx="10"></rect>
+      <text class="qt" x="57" y="77" text-anchor="middle">webhook</text>
+      <text class="qs" x="57" y="92" text-anchor="middle">"got it" in 50ms</text
+      >
+
+      <line class="ql flow-dash" x1="105" y1="80" x2="160" y2="80"></line>
+
+      <rect class="qq" x="165" y="50" width="130" height="60" rx="10"></rect>
+      <text
+        class="qt"
+        x="230"
+        y="72"
+        text-anchor="middle"
+        style="fill:var(--cx-teal)">QUEUE 📬</text
+      >
+      <circle class="qdot pulse" cx="195" cy="92" r="6"></circle>
+      <circle
+        class="qdot pulse"
+        cx="218"
+        cy="92"
+        r="6"
+        style="animation-delay:.3s"></circle>
+      <circle
+        class="qdot pulse"
+        cx="241"
+        cy="92"
+        r="6"
+        style="animation-delay:.6s"></circle>
+      <circle
+        class="qdot pulse"
+        cx="264"
+        cy="92"
+        r="6"
+        style="animation-delay:.9s"></circle>
+
+      <line class="ql flow-dash" x1="295" y1="80" x2="350" y2="80"></line>
+
+      <rect class="qbx" x="355" y="55" width="95" height="50" rx="10"></rect>
+      <text class="qt" x="402" y="77" text-anchor="middle">worker</text>
+      <text class="qs" x="402" y="92" text-anchor="middle">retried safely</text>
+    </svg>
+  </div>
+  <div class="play">
+    <div class="play-label">▶ Playground: the model has a 25 second day</div>
+    <div style="display:flex;gap:.7rem;flex-wrap:wrap">
+      <button class="btn" data-queue-mode="phone">📞 Phone-call mode</button>
+      <button class="btn primary" data-queue-mode="queue"
+        >📬 Letterbox mode</button
+      >
+    </div>
+    <div class="playlog" id="queue-log">…</div>
+  </div>
+  <NerdBox>
+    fallback is a decorator on the LlmProvider port (429/timeout → keyword
+    matcher); jobs are Postgres rows drained by cron with SKIP LOCKED, claim
+    100, dead-letter after 5 attempts; message-id idempotency makes Meta retries
+    harmless
+  </NerdBox>
+</div>
