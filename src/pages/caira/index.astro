@@ -16,7 +16,6 @@ import StateMachine from "@/components/caira/StateMachine.astro";
 import GroundingPipeline from "@/components/caira/GroundingPipeline.astro";
 import LatencyBudget from "@/components/caira/LatencyBudget.astro";
 import ScalingLadder from "@/components/caira/ScalingLadder.astro";
-// component imports arrive with the tasks that first use them
 ---
 
 <html lang="en">
@@ -28,6 +27,32 @@ import ScalingLadder from "@/components/caira/ScalingLadder.astro";
       name="description"
       content="A patient texts a clinic and has a confirmed appointment about 1.6 seconds later, and the AI was never allowed to invent a fact. The animated tour of Caira, a WhatsApp AI receptionist a hospital can trust."
     />
+    <link rel="canonical" href="https://rockyg.me/caira/" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta
+      property="og:title"
+      content="Caira: one message, fully traced | Rocky G"
+    />
+    <meta
+      property="og:description"
+      content="A patient texts a clinic and has a confirmed appointment about 1.6 seconds later, and the AI was never allowed to invent a fact. The animated tour of Caira, a WhatsApp AI receptionist a hospital can trust."
+    />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://rockyg.me/caira/" />
+    <meta property="og:image" content="https://rockyg.me/astropaper-og.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <noscript
+      ><style>
+        .reveal {
+          opacity: 1 !important;
+          transform: none !important;
+        }
+        .journey li {
+          opacity: 1 !important;
+          transform: none !important;
+        }
+      </style></noscript
+    >
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -404,6 +429,11 @@ import ScalingLadder from "@/components/caira/ScalingLadder.astro";
         font-size: 0.72rem;
         color: var(--faint);
         margin-left: 0.3rem;
+      }
+      .trace-head .estimate {
+        margin-left: auto;
+        color: var(--amber);
+        font-size: 0.62rem;
       }
       .chat {
         padding: 1.3rem 1.15rem;
@@ -1041,9 +1071,6 @@ import ScalingLadder from "@/components/caira/ScalingLadder.astro";
           border-right: none;
           border-bottom: 1px solid var(--line);
         }
-        nav.toc ol {
-          grid-template-columns: 1fr;
-        }
         header.hero {
           padding: 2.4rem 0 1.6rem;
         }
@@ -1052,9 +1079,6 @@ import ScalingLadder from "@/components/caira/ScalingLadder.astro";
         }
         .rung {
           grid-template-columns: 1fr;
-        }
-        .modebar .hint {
-          display: none;
         }
       }
       @media (prefers-reduced-motion: reduce) {
@@ -1297,7 +1321,6 @@ import ScalingLadder from "@/components/caira/ScalingLadder.astro";
     <div id="caira-progress"></div>
     <div class="wrap">
       <a class="homelink" href="/">← rockyg.me</a>
-      <!-- Task 2+: sections mount here, in order -->
       <TraceHero />
       <div class="partdiv reveal">
         <div class="n">Act I</div>
@@ -1389,7 +1412,7 @@ import ScalingLadder from "@/components/caira/ScalingLadder.astro";
         <div class="n">Act III</div>
         <h2>The AI concepts, as toys</h2>
         <p>
-          Seven ideas every AI agent needs. Press the buttons. Break things.
+          Eight ideas every AI agent needs. Press the buttons. Break things.
           That is what they are for.
         </p>
         <div class="rule"></div>
@@ -1638,8 +1661,6 @@ import ScalingLadder from "@/components/caira/ScalingLadder.astro";
         } else {
           revealEls.forEach(el => el.classList.add("in"));
         }
-
-        /* === PLAYGROUND BLOCKS: tasks 2, 5, 6, 7 append below this line === */
 
         /* hero runner */
         const runner = $("trace-runner");

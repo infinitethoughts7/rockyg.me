@@ -68,6 +68,8 @@
   .journey li {
     opacity: 0;
     transform: translateX(-8px);
+  }
+  :global(.sec.in) .journey li {
     animation: jstep 0.5s ease forwards;
   }
   .journey li:nth-child(1) {
@@ -104,7 +106,8 @@
     }
   }
   @media (prefers-reduced-motion: reduce) {
-    .journey li {
+    .journey li,
+    :global(.sec.in) .journey li {
       opacity: 1;
       transform: none;
       animation: none;
