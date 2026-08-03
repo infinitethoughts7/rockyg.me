@@ -1,0 +1,48 @@
+---
+
+---
+
+<div class="reveal grid2">
+  <div class="card">
+    <h4 style="color:var(--cx-violet)">Wall 1: the briefing</h4>
+    <p>
+      The AI is handed the clinic's real facts inside clear markers and told:
+      answer using only these; if it is not here, say you will check with the
+      clinic; never invent a price, service or time.
+    </p>
+    <p class="tiny">
+      Cheap, and it works most of the time. But it is a request.
+    </p>
+  </div>
+  <div class="card">
+    <h4 style="color:var(--cx-violet)">Wall 2: the inspection</h4>
+    <p>
+      Whatever comes back is treated as untrusted input from a stranger. It must
+      be the exact shape we asked for, under a length limit, and any web link it
+      tried to sneak in is deleted.
+    </p>
+    <p class="tiny">This is the wall that catches a model going off-script.</p>
+  </div>
+  <div class="card">
+    <h4 style="color:var(--cx-violet)">Wall 3: the fallback</h4>
+    <p>
+      If the AI is slow, broken, out of quota, or returns nonsense, we do not
+      retry into a guess. We send "let me check with the clinic and get back to
+      you."
+    </p>
+    <p class="tiny">
+      Every failure becomes a human handoff, never a made-up number.
+    </p>
+  </div>
+  <div class="card">
+    <h4 style="color:var(--cx-amber)">The subtle one</h4>
+    <p>
+      The clinic's map link is not written by the AI. The AI can only raise a
+      flag that says "they want the location." Our code attaches the real link.
+    </p>
+    <p class="tiny">
+      Which is why <em>any</em> link the AI produces is treated as an anomaly and
+      deleted.
+    </p>
+  </div>
+</div>
