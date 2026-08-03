@@ -12,6 +12,8 @@ import MemoryPlayground from "@/components/caira/MemoryPlayground.astro";
 import CachePlayground from "@/components/caira/CachePlayground.astro";
 import FallbackQueuePlayground from "@/components/caira/FallbackQueuePlayground.astro";
 import EvalsPlayground from "@/components/caira/EvalsPlayground.astro";
+import StateMachine from "@/components/caira/StateMachine.astro";
+import GroundingPipeline from "@/components/caira/GroundingPipeline.astro";
 // component imports arrive with the tasks that first use them
 ---
 
@@ -1468,6 +1470,46 @@ import EvalsPlayground from "@/components/caira/EvalsPlayground.astro";
       <FallbackQueuePlayground />
 
       <EvalsPlayground />
+
+      <div class="partdiv reveal">
+        <div class="n">Act IV</div>
+        <h2>Under the floorboards</h2>
+        <p>Two pieces of low-level design worth seeing with your own eyes.</p>
+        <div class="rule"></div>
+      </div>
+
+      <section class="sec reveal" id="s12">
+        <p class="eyebrow">
+          <span class="secnum">12</span>&nbsp;LLD · two favorites
+        </p>
+        <h2>The conversation is a board game, not a chat</h2>
+        <div class="plain">
+          <span class="lbl">In plain English</span>
+          <p>
+            Caira never "remembers the vibe" of a conversation. She knows
+            exactly which square you are standing on: browsing, booking,
+            confirming, cancelled. Every message either moves you along a
+            printed arrow or does nothing. There is no square called
+            "improvise."
+          </p>
+        </div>
+        <StateMachine />
+        <div class="plain">
+          <span class="lbl">And the conveyor belt</span>
+          <p>
+            Every AI answer rides a conveyor: facts go in, the model writes, the
+            shape gets checked, links get stripped, length gets capped. Anything
+            weird falls off the belt into the safest sentence in the product:
+            "let me check with the clinic and get back to you."
+          </p>
+          <p class="analogy">
+            The worst thing Caira can do is ask a human. She is never able to be
+            confident and wrong. That guarantee is what most of the engineering
+            is for.
+          </p>
+        </div>
+        <GroundingPipeline />
+      </section>
     </div>
     <script is:inline>
       (() => {
