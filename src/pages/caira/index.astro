@@ -1688,10 +1688,13 @@ import EvalsPlayground from "@/components/caira/EvalsPlayground.astro";
               let regression = false;
               rows.forEach((r, i) => {
                 const res = r.dataset[v];
-                setTimeout(() => {
-                  r.textContent = res.toUpperCase();
-                  r.className = "badge " + res;
-                }, i * 250);
+                setTimeout(
+                  () => {
+                    r.textContent = res.toUpperCase();
+                    r.className = "badge " + res;
+                  },
+                  reduce ? 0 : i * 250
+                );
                 if (res === "pass") pass += 1;
                 if (last && r.dataset[last] === "pass" && res === "fail")
                   regression = true;
@@ -1704,7 +1707,7 @@ import EvalsPlayground from "@/components/caira/EvalsPlayground.astro";
                     ? "REGRESSION ALARM: a case that used to pass now fails. This deploy is blocked before any patient sees it."
                     : "Score recorded. Change the prompt, run the exam again, let the number tell the truth.";
                 },
-                rows.length * 250 + 200
+                reduce ? 0 : rows.length * 250 + 200
               );
               last = v;
             })
