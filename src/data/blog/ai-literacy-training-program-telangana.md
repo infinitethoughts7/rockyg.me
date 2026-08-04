@@ -115,8 +115,6 @@ The program isn't done. This was Phase 1. But what we saw in these 40 schools, t
 
 ![Students showing their work on a laptop](./images/students-showing-laptop.jpg)
 
-![Presenting to a packed hall of students](./images/ai-literacy-rocky-presenting.jpg)
-
 ![Students working on laptops together](./images/students-with-laptop-2.jpg)
 
 ![Teaching AI concepts at Yakatpura](./images/ai-literacy-yakatpura-teaching.jpeg)
