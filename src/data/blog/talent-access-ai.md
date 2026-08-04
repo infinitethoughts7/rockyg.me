@@ -147,14 +147,23 @@ Twelve hours. That is what access does.
 ## Gallery
 
 <div style="columns:2;column-gap:8px;margin-top:1rem;">
-  <img src="/images/blog/yakatpura1.jpg"        alt="Group selfie with students at Yakatpura after the session"          style="width:100%;height:auto;display:block;margin-bottom:8px;border-radius:6px;">
-  <img src="/images/blog/classroom1.jpeg"       alt="Students sitting on the floor, looking up with notebooks in hand"   style="width:100%;height:auto;display:block;margin-bottom:8px;border-radius:6px;">
-  <img src="/images/blog/with-students.jpg"     alt="Rocky sitting on the floor with students during a hands-on session" style="width:100%;height:auto;display:block;margin-bottom:8px;border-radius:6px;">
-  <img src="/images/blog/yakatpura2.jpg"        alt="Teaching session, screen reads 'AI is a software that mimics human intelligence'" style="width:100%;height:auto;display:block;margin-bottom:8px;border-radius:6px;">
-  <img src="/images/blog/ail-smile.jpg"         alt="Rocky walking among students during the assessment session"         style="width:100%;height:auto;display:block;margin-bottom:8px;border-radius:6px;">
-  <img src="/images/blog/chocolates-giving.jpg" alt="Giving chocolates to a student at the end of the session"          style="width:100%;height:auto;display:block;margin-bottom:8px;border-radius:6px;">
-  <img src="/images/blog/rocky.jpg"             alt="Rocky presenting at a podium with MacBook"                         style="width:100%;height:auto;display:block;margin-bottom:8px;border-radius:6px;">
-  <img src="/images/blog/desktop.jpeg"          alt="Rocky's desk setup while building the program"                     style="width:100%;height:auto;display:block;margin-bottom:8px;border-radius:6px;">
+
+![Group selfie with students at Yakatpura after the session](./images/yakatpura1.jpg)
+
+![Students sitting on the floor, looking up with notebooks in hand](./images/classroom1.jpeg)
+
+![Rocky sitting on the floor with students during a hands-on session](./images/with-students.jpg)
+
+![Teaching session, screen reads 'AI is a software that mimics human intelligence'](./images/yakatpura2.jpg)
+
+![Rocky walking among students during the assessment session](./images/ail-smile.jpg)
+
+![Giving chocolates to a student at the end of the session](./images/chocolates-giving.jpg)
+
+![Rocky presenting at a podium with MacBook](./images/rocky.jpg)
+
+![Rocky's desk setup while building the program](./images/desktop.jpeg)
+
 </div>
 
 ## What This Taught Me
