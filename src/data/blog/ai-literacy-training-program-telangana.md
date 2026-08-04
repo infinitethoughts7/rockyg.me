@@ -99,41 +99,17 @@ The program isn't done. This was Phase 1. But what we saw in these 40 schools, t
 
 ![Student working on an assessment](./images/student-writing-assessment.jpg)
 
-![Yakatpura school session](./images/yakatpura1.jpg)
-
 ![Student writing during the program](./images/student-writing-2.jpg)
 
-![Walking among students during a session](./images/ai-literacy-walking-among-students.jpg)
-
-![With students after the session](./images/with-students.jpg)
-
-![Sitting with students on the floor](./images/rocky-with-students-floor.jpg)
-
 ![Coordinating with teachers](./images/teacher-coordination.jpg)
-
-![Teaching students closely, one on one](./images/ai-literacy-teaching-closely.jpg)
 
 ![Students showing their work on a laptop](./images/students-showing-laptop.jpg)
 
 ![Students working on laptops together](./images/students-with-laptop-2.jpg)
 
-![Teaching AI concepts at Yakatpura](./images/ai-literacy-yakatpura-teaching.jpeg)
-
 ![Another moment from the Yakatpura session](./images/yakatpura2.jpg)
 
 ![Class giving thumbs up after the session](./images/class-thumbs-up.jpg)
-
-![Smiling students at the AI literacy session](./images/ail-smile.jpg)
-
-![Group selfie with the class](./images/rocky-selfie-with-class.jpg)
-
-![Selfie with students after the Yakatpura session](./images/ai-literacy-yakatpura-selfie.jpeg)
-
-![Giving chocolates to students after the session](./images/chocolates-giving.jpg)
-
-![Handing out chocolates to excited students](./images/chocolates-giving-2.jpg)
-
-![A student receiving chocolates after the AI session](./images/ai-literacy-chocolates-giving.jpg)
 
 </div>
 
