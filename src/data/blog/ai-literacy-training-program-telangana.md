@@ -93,8 +93,6 @@ The program isn't done. This was Phase 1. But what we saw in these 40 schools, t
 
 <div style="columns:2;column-gap:8px;margin-top:1rem;">
 
-![Rocky G at the AI literacy program](./images/rocky.jpg)
-
 ![Students gathered in the classroom](./images/classroom1.jpeg)
 
 ![Students using computers during the session](./images/students-at-computers.jpg)
@@ -114,8 +112,6 @@ The program isn't done. This was Phase 1. But what we saw in these 40 schools, t
 ![Coordinating with teachers](./images/teacher-coordination.jpg)
 
 ![Teaching students closely, one on one](./images/ai-literacy-teaching-closely.jpg)
-
-![Session setup at the school](./images/desktop.jpeg)
 
 ![Students showing their work on a laptop](./images/students-showing-laptop.jpg)
 
