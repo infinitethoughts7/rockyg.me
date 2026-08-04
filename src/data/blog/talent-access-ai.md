@@ -160,10 +160,6 @@ Twelve hours. That is what access does.
 
 ![Giving chocolates to a student at the end of the session](./images/chocolates-giving.jpg)
 
-![Rocky presenting at a podium with MacBook](./images/rocky.jpg)
-
-![Rocky's desk setup while building the program](./images/desktop.jpeg)
-
 </div>
 
 ## What This Taught Me
