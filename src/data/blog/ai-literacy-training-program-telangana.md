@@ -67,8 +67,6 @@ The best part was sitting down with the students after the presentation. Not sta
 
 That's where the real teaching happened. Not from the slides. From the floor. When a student can point at the screen and ask "but how does it know?" That's when you know they're actually learning.
 
-![Presenting to a packed hall of students during the AI literacy program](./images/ai-literacy-rocky-presenting.jpg)
-
 At the end of some sessions, we gave out chocolates. Small thing. But the way those kids reacted, you'd think we gave them the world.
 
 ![Giving chocolates to a student after the session, with a teacher looking on](./images/ai-literacy-chocolates-giving.jpg)
