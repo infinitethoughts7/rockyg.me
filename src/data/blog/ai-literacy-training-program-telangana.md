@@ -93,53 +93,53 @@ The program isn't done. This was Phase 1. But what we saw in these 40 schools, t
 
 <div style="columns:2;column-gap:8px;margin-top:1rem;">
 
-<img src="./images/rocky.jpg" alt="Rocky G at the AI literacy program" style="width:100%;height:auto;display:block;margin-bottom:8px;">
+![Rocky G at the AI literacy program](./images/rocky.jpg)
 
-<img src="./images/classroom1.jpeg" alt="Students gathered in the classroom" style="width:100%;height:auto;display:block;margin-bottom:8px;">
+![Students gathered in the classroom](./images/classroom1.jpeg)
 
-<img src="./images/students-at-computers.jpg" alt="Students using computers during the session" style="width:100%;height:auto;display:block;margin-bottom:8px;">
+![Students using computers during the session](./images/students-at-computers.jpg)
 
-<img src="./images/student-writing-assessment.jpg" alt="Student working on an assessment" style="width:100%;height:auto;display:block;margin-bottom:8px;">
+![Student working on an assessment](./images/student-writing-assessment.jpg)
 
-<img src="./images/yakatpura1.jpg" alt="Yakatpura school session" style="width:100%;height:auto;display:block;margin-bottom:8px;">
+![Yakatpura school session](./images/yakatpura1.jpg)
 
-<img src="./images/student-writing-2.jpg" alt="Student writing during the program" style="width:100%;height:auto;display:block;margin-bottom:8px;">
+![Student writing during the program](./images/student-writing-2.jpg)
 
-<img src="./images/ai-literacy-walking-among-students.jpg" alt="Walking among students during a session" style="width:100%;height:auto;display:block;margin-bottom:8px;">
+![Walking among students during a session](./images/ai-literacy-walking-among-students.jpg)
 
-<img src="./images/with-students.jpg" alt="With students after the session" style="width:100%;height:auto;display:block;margin-bottom:8px;">
+![With students after the session](./images/with-students.jpg)
 
-<img src="./images/rocky-with-students-floor.jpg" alt="Sitting with students on the floor" style="width:100%;height:auto;display:block;margin-bottom:8px;">
+![Sitting with students on the floor](./images/rocky-with-students-floor.jpg)
 
-<img src="./images/teacher-coordination.jpg" alt="Coordinating with teachers" style="width:100%;height:auto;display:block;margin-bottom:8px;">
+![Coordinating with teachers](./images/teacher-coordination.jpg)
 
-<img src="./images/ai-literacy-teaching-closely.jpg" alt="Teaching students closely, one on one" style="width:100%;height:auto;display:block;margin-bottom:8px;">
+![Teaching students closely, one on one](./images/ai-literacy-teaching-closely.jpg)
 
-<img src="./images/desktop.jpeg" alt="Session setup at the school" style="width:100%;height:auto;display:block;margin-bottom:8px;">
+![Session setup at the school](./images/desktop.jpeg)
 
-<img src="./images/students-showing-laptop.jpg" alt="Students showing their work on a laptop" style="width:100%;height:auto;display:block;margin-bottom:8px;">
+![Students showing their work on a laptop](./images/students-showing-laptop.jpg)
 
-<img src="./images/ai-literacy-rocky-presenting.jpg" alt="Presenting to a packed hall of students" style="width:100%;height:auto;display:block;margin-bottom:8px;">
+![Presenting to a packed hall of students](./images/ai-literacy-rocky-presenting.jpg)
 
-<img src="./images/students-with-laptop-2.jpg" alt="Students working on laptops together" style="width:100%;height:auto;display:block;margin-bottom:8px;">
+![Students working on laptops together](./images/students-with-laptop-2.jpg)
 
-<img src="./images/ai-literacy-yakatpura-teaching.jpeg" alt="Teaching AI concepts at Yakatpura" style="width:100%;height:auto;display:block;margin-bottom:8px;">
+![Teaching AI concepts at Yakatpura](./images/ai-literacy-yakatpura-teaching.jpeg)
 
-<img src="./images/yakatpura2.jpg" alt="Another moment from the Yakatpura session" style="width:100%;height:auto;display:block;margin-bottom:8px;">
+![Another moment from the Yakatpura session](./images/yakatpura2.jpg)
 
-<img src="./images/class-thumbs-up.jpg" alt="Class giving thumbs up after the session" style="width:100%;height:auto;display:block;margin-bottom:8px;">
+![Class giving thumbs up after the session](./images/class-thumbs-up.jpg)
 
-<img src="./images/ail-smile.jpg" alt="Smiling students at the AI literacy session" style="width:100%;height:auto;display:block;margin-bottom:8px;">
+![Smiling students at the AI literacy session](./images/ail-smile.jpg)
 
-<img src="./images/rocky-selfie-with-class.jpg" alt="Group selfie with the class" style="width:100%;height:auto;display:block;margin-bottom:8px;">
+![Group selfie with the class](./images/rocky-selfie-with-class.jpg)
 
-<img src="./images/ai-literacy-yakatpura-selfie.jpeg" alt="Selfie with students after the Yakatpura session" style="width:100%;height:auto;display:block;margin-bottom:8px;">
+![Selfie with students after the Yakatpura session](./images/ai-literacy-yakatpura-selfie.jpeg)
 
-<img src="./images/chocolates-giving.jpg" alt="Giving chocolates to students after the session" style="width:100%;height:auto;display:block;margin-bottom:8px;">
+![Giving chocolates to students after the session](./images/chocolates-giving.jpg)
 
-<img src="./images/chocolates-giving-2.jpg" alt="Handing out chocolates to excited students" style="width:100%;height:auto;display:block;margin-bottom:8px;">
+![Handing out chocolates to excited students](./images/chocolates-giving-2.jpg)
 
-<img src="./images/ai-literacy-chocolates-giving.jpg" alt="A student receiving chocolates after the AI session" style="width:100%;height:auto;display:block;margin-bottom:8px;">
+![A student receiving chocolates after the AI session](./images/ai-literacy-chocolates-giving.jpg)
 
 </div>
 
