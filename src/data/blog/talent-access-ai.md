@@ -154,6 +154,22 @@ Twelve hours. That is what access does.
 
 ![Giving chocolates to a student at the end of the session](./images/ai-literacy/chocolates-giving.jpg)
 
+![Student working on an assessment](./images/ai-literacy/student-writing-assessment.jpg)
+
+![Students using computers during the session](./images/ai-literacy/students-at-computers.jpg)
+
+![Coordinating with teachers](./images/ai-literacy/teacher-coordination.jpg)
+
+![Students showing their work on a laptop](./images/ai-literacy/students-showing-laptop.jpg)
+
+![Student writing during the program](./images/ai-literacy/student-writing-2.jpg)
+
+![Students working on laptops together](./images/ai-literacy/students-with-laptop-2.jpg)
+
+![Class giving thumbs up after the session](./images/ai-literacy/class-thumbs-up.jpg)
+
+![The whole school together on the steps, thumbs up after the program](./images/ai-literacy/school-group.jpg)
+
 </div>
 
 ## What This Taught Me
