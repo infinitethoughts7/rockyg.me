@@ -56,7 +56,7 @@ And there was a promise. If you cleared IIT from there, they would give you a la
 
 It was a two stage exam, prelims and mains. I passed both. That is how I reached TSWR COE Karimnagar, where I met my guru, Devendar Reddy sir.
 
-## I prepared for maths. The exam had three subjects.
+## A love story with mathematics
 
 At Karimnagar I met the most beautiful books of my life. Integral calculus. Differential calculus. I went all the way to Koti in Hyderabad and bought HC Verma. These books were my whole world. I read them the way other people watch movies.
 
