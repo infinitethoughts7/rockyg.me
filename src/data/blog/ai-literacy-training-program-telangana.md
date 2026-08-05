@@ -109,6 +109,8 @@ The program isn't done. This was Phase 1. But what we saw in these 40 schools, t
 
 ![Class giving thumbs up after the session](./images/ai-literacy/class-thumbs-up.jpg)
 
+![The whole school together on the steps, thumbs up after the program](./images/ai-literacy/school-group.jpg)
+
 </div>
 
 ## What This Taught Me
