@@ -93,15 +93,15 @@ The program isn't done. This was Phase 1. But what we saw in these 40 schools, t
 
 ![Students gathered in the classroom](./images/ai-literacy/classroom1.jpeg)
 
-![Students using computers during the session](./images/ai-literacy/students-at-computers.jpg)
-
 ![Student working on an assessment](./images/ai-literacy/student-writing-assessment.jpg)
 
-![Student writing during the program](./images/ai-literacy/student-writing-2.jpg)
+![Students using computers during the session](./images/ai-literacy/students-at-computers.jpg)
 
 ![Coordinating with teachers](./images/ai-literacy/teacher-coordination.jpg)
 
 ![Students showing their work on a laptop](./images/ai-literacy/students-showing-laptop.jpg)
+
+![Student writing during the program](./images/ai-literacy/student-writing-2.jpg)
 
 ![Students working on laptops together](./images/ai-literacy/students-with-laptop-2.jpg)
 
