@@ -13,11 +13,11 @@ tags:
 
 ## The Question That Stopped Me
 
-<img
-  src="/images/blog/ai-literacy-yakatpura-teaching.jpeg"
-  alt="Teaching AI concepts at Yakatpura"
-  class="post-aside post-aside-right"
-/>
+<div class="post-aside post-aside-right">
+
+![Teaching AI concepts at Yakatpura](./images/ai-literacy-yakatpura-teaching.jpeg)
+
+</div>
 
 Her name was Ameena.
 
@@ -41,11 +41,11 @@ That is when I knew this program was working.
 
 ## How the Program Started
 
-<img
-  src="/images/blog/how-it-started.jpeg"
-  alt="How the AI literacy program started"
-  class="post-aside post-aside-right"
-/>
+<div class="post-aside post-aside-right">
+
+![How the AI literacy program started](./images/how-it-started.jpeg)
+
+</div>
 
 This started with a phone call from Sathish sir, my mentor. He has trained thousands of IT professionals and watched technology access change lives.
 
@@ -134,13 +134,7 @@ Before the program started we gave every student a baseline test. At the end of 
 
 Average score before: 3.8 out of 10. Average score after: 8.3.
 
-<figure class="my-8">
-  <img
-    src="/images/blog/score-chart.svg"
-    alt="Bar chart showing baseline vs endline scores across 14 schools, and overall improvement from 3.8 to 8.3"
-    style="width:100%;height:auto;border-radius:10px;"
-  />
-</figure>
+![Bar chart showing baseline vs endline scores across 14 schools, and overall improvement from 3.8 to 8.3](./images/score-chart.svg)
 
 Twelve hours. That is what access does.
 
