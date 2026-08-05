@@ -1,7 +1,7 @@
 ---
 title: "How an English Lesson Accidentally Gave Me a Dream"
 pubDatetime: 2026-04-25T10:00:00.000Z
-description: "The unlikely story of how a textbook chapter called 'I Will Do It' nudged a scattered, curious kid towards a dream he'd never even heard of."
+description: "The true story of a Telugu medium kid from a village who heard the word IIT for the first time in a 10th class English lesson, forgot about it, and reached IIT Madras anyway."
 featured: true
 tags:
   - personal
@@ -10,67 +10,100 @@ tags:
   - iit
 ---
 
-## The kid before the dream
+## Where I come from
 
-I was that kid who could spend three hours reading about Egyptian pyramids on the internet, and then forget where my own school bag was. I had ten hobbies on Monday and zero on Friday. One week I wanted to be a cricketer. The next week, an astronaut. The week after, "rich, somehow."
+I grew up in Akshanpally, a small village in Sangareddy district, Telangana. Let me set the scene properly. No internet. No mobile phones. Nothing. The first time I used the internet in my life was in my B.Tech. So no, I was not the kid googling colleges at night. There was nothing to google with.
 
-There was no plan. There wasn't even a Plan B for me to compare an actual plan to. School was just this place I went to because everyone else did, and I drifted through subjects the way you scroll through someone's Instagram, mildly interested, mostly distracted.
+I studied in the government school there, in Telugu medium. My mother worked as a maid. We did not have much. But school had one thing that always made sense to me: mathematics. Every other subject felt like work. Maths felt like a game someone had hidden inside a textbook by mistake.
 
-Looking back, I wasn't lazy. I was just unfocused, which is basically the same thing wearing slightly nicer clothes.
+## The watchman who changed my school
 
-## An English lesson that wasn't supposed to matter
+Next to our house lived an uncle who worked as a watchman. He knew my mother, he knew me, and he did one small thing that changed my whole life. He helped me join Government High School, Ramayampet, in 8th class, along with his son. There was a government boys hostel nearby, so I stayed there.
 
-Then, one afternoon, in an English period I was barely awake during, our teacher started reading out a chapter titled **"I Will Do It."**
+He was not doing some big planned favour. He just took a village kid along with his son. That is it. Half my story exists because a watchman uncle said, come, you also join.
 
-I tuned in mostly because the title sounded suspiciously like a motivational poster. The lesson was about a boy who dared to dream beyond his circumstances and pushed himself, almost obsessively, towards getting into the IIT.
+## Shilpa madam and the borrowed books
 
-Honestly? At first I didn't even know what IIT meant. I assumed it was some abbreviation we'd be tested on later, like LCM or HCF, and I'd hate it equally. But there was something about that one line, _"I will do it"_, that lodged itself somewhere in my brain like a song I didn't ask for.
+At Ramayampet, also a Telugu medium school, I met my maths teacher, Shilpa madam.
 
-I went home that day with exactly two thoughts:
+My routine was simple. I finished our class maths textbook in two or three months. Then I picked up the next class book and started solving that. In 8th class I was solving 10th class problems. During hostel study hours I used to teach my seniors from 10th class. Imagine a 10th class boy getting maths doubts cleared by an 8th class kid. My seniors were sporting about it. Mostly.
 
-1. I should probably pay attention in English more often.
-2. What on earth is an IIT?
+Whatever class the doubt came from, Shilpa madam cleared it. She never once said, this is not your syllabus, go away. Instead she went home and brought me her son's Olympiad maths books. I still have them.
 
-## Three letters: I-I-T
+Then our headmaster, Vishnu Vardhan Reddy sir, joined in. His daughter had IIT coaching books, 8th, 9th and 10th class material. He collected them all and handed them to me. Read these, he said.
 
-The googling started that night.
+I will be honest. Those books were overwhelming. Some pages I would stare at for a long time and understand nothing. But it was the kind of tough that pulls you in instead of pushing you away. I kept going back to them.
 
-I don't know what I was expecting. A college, maybe, with cool buildings and good Wi-Fi. What I found instead felt like discovering there's an Olympics for being smart. Pictures of campuses. Stories of students. Past papers that looked like they were written in cursed runes.
+And here is the funny part. I was working through IIT coaching books before I knew what IIT was. If you had asked me what IIT stands for, I would have given you a confident wrong answer. Confidence was never my problem. Please remember this line. It comes back later.
 
-I should have been intimidated. I was, actually. But I was also the kind of curious kid who, instead of running away from something scary, leans in a little closer to see how it works. So I kept reading. And then I kept reading some more. The kind of late-night Wikipedia spirals where you start at "JEE" and somehow end up watching a documentary about black holes at 2 AM, wondering how you got there.
+## The English lesson
 
-I had no idea if I could ever crack it. I wasn't even sure I'd remember to wake up for school the next morning. But for the first time, the loose, scattered curiosity I'd been carrying around in my pockets felt like it was finally pointing in a direction.
+10th class. English period. A lesson called "I Will Do It". It was the story of Narayana Murthy, the founder of Infosys. Somewhere in that lesson, I met a word I had never heard in my life: IIT.
 
-## When numbers stopped being scary
+I was very inspired. And I did what I always did with inspiration. I ran to Shilpa madam and announced my new life plan. Madam, I will join IIT.
 
-The funniest part of all of this is what happened to my relationship with math.
+Some background is needed here. A few weeks before this, she had shown me success stories of IAS officers. My reaction then was, madam, I will become an IAS officer too. That was my system. Any great thing I heard about, I would declare it as my future. New dream every week. Free of cost.
 
-I'd never hated math, but I hadn't exactly loved it either. It was just _there_, like background music in a shopping mall. Then, somewhere between trying to understand what IIT was and trying not to flunk class tests, math quietly stopped being a subject and started feeling like a puzzle.
+So when I said IIT, her first reaction was basically, oh, come on. Then she said okay, okay, okay, sat me down, and explained how hard that road really is.
 
-Here's the honest part: I wasn't suddenly brilliant. My first attempts at "tough problems" mostly involved staring at them, getting personally offended by them, and then closing the book as if the problem had insulted my entire family.
+And then, exactly as expected, I forgot about IIT completely. My goals changed daily. Only one goal was permanent: become rich. How? No idea. Details were for later.
 
-But every now and then, something would click. A formula would suddenly make sense. A geometry problem would unfold like origami in reverse. And I'd get this small, ridiculous high, the kind that makes you secretly look forward to the next math class without ever admitting it out loud. Science came along for the ride too, especially physics, which I quickly realised was just math in a costume.
+## A newspaper in a hostel
 
-## The quiet rewiring
+In the hostel we got newspapers every day, and we actually read them. One day, in the middle of my 10th class exam preparation, I saw a notification. Telangana Social Welfare Residential Schools were taking admissions into their junior colleges. One line caught my eye: IIT coaching will be provided.
 
-Nothing dramatic happened on the outside. I didn't wake up one morning as a new person. There was no makeover montage, no inspirational soundtrack, no slow-motion shot of me walking into school with a calculator in one hand and destiny in the other.
+And there was a promise. If you cleared IIT from there, they would give you a laptop and some money. A laptop. And money. My friend and I applied immediately.
 
-But on the inside, something rewired.
+It was a two stage exam, prelims and mains. I passed both. That is how I reached TSWR COE Karimnagar, where I met my guru, Devendar Reddy sir.
 
-I started reading more, not because anyone told me to, but because I actually wanted to know things. I started asking more questions in class, the kind that occasionally made teachers raise an eyebrow in a way that felt half-impressed, half-suspicious. I started gravitating towards friends who were also chasing _something_, even if none of us would have said the word "IIT" out loud yet, because it still felt too big for our mouths.
+## I prepared for maths. The exam had three subjects.
 
-The scattered kid was still there. He just had a tiny compass now.
+At Karimnagar I met the most beautiful books of my life. Integral calculus. Differential calculus. I went all the way to Koti in Hyderabad and bought HC Verma. These books were my whole world. I read them the way other people watch movies.
 
-## Still on the road
+And yes, I knew the exam had three papers. Maths, physics and chemistry. Everybody knew. Knowing was never the problem. The problem was that I loved maths too much. When you love one subject that much, the other two start looking like side characters. So I did maths all day. Not for rank, not for marks. Just because I loved it.
 
-I'd love to end this post with some big reveal, a "and then I got in" moment, with confetti and dramatic music. But that's not the truth. I'm still on the road. The dream is still ahead. The work is still happening. The doubts still show up uninvited, like surprise relatives.
+In every test, I solved the full maths section, attempted two or three physics theory questions for entertainment, and submitted the paper. I never checked my scores. Why would I? I was clearly a genius. Checking scores is for people who have doubts about themselves.
 
-What changed for me wasn't the destination. It was the fact that, for the first time in my life, there _was_ one.
+Chemistry, I ignored completely. Except organic chemistry, because Karunakar Reddy sir taught it, and he was fabulous. His organic classes were the only classes I attended with my full brain. In the rest of the classes, my body was present and my mind was solving an integral. Everything else I studied on my own. That was my way from the beginning.
 
-If you're reading this and you don't have a dream yet, that's okay. Mine arrived dressed up as an English lesson I almost slept through. Yours might be hiding somewhere just as ridiculous. Don't miss it just because it didn't look important enough.
+## First attempt
 
-And if it ever does show up, do me one small favour:
+I cleared JEE Mains. Then I walked into JEE Advanced with full overconfidence and one and a half subjects.
 
-read the next line of the chapter.
+Maths went great. Physics went okay. Chemistry and I met in that exam hall as strangers, and we left as strangers.
 
-You never know which one is quietly going to ruin your old life in the best possible way.
+I did not qualify.
+
+That day, a deep truth finally entered my head. Being a genius in maths and treating chemistry as an optional hobby has a result, and the result is called "not qualified". It turns out the exam does not give you a seat for love. It wants marks. In all three subjects. Shocking.
+
+## The counselling I never attended
+
+There is a part here I have not told many people.
+
+Along with JEE, I had also written EAMCET, and I got a good rank. Good enough for a proper engineering seat. And with our economic condition, the sensible path was very clear. Attend the counselling, take the seat, join a local college, start earning as early as possible.
+
+I did not go to the counselling.
+
+Not because I forgot the date. I skipped it on purpose. I had lost IIT because of one subject, and I could not digest it. I was depressed. And I was stubborn. The only line running in my head was, I wanted IIT and chemistry took it from me. So I sat at home and let a good EAMCET rank expire, knowingly. Was it sensible? No. But stubbornness has never asked me for permission.
+
+My family did not know what to do with me. Finally, my sister picked up the phone and called the one person who always understood me. Shilpa madam. My maths madam from Ramayampet, still clearing my doubts years later, just bigger ones this time.
+
+She talked to me, stood by my decision, and helped me join a training centre for a second attempt.
+
+## Second attempt
+
+I will not lie, I did not enjoy that training centre. It ran like a pressure cooker. Tension everywhere, ranks everywhere, everyone running. That was never how I studied.
+
+So inside all that noise, I did what I had always done. I studied my own way. I forcefully read chemistry. There is no nicer way to say it. We did not fall in love. We came to an agreement. I kept maths and physics sharp, and this time all three subjects got a seat in my preparation.
+
+And that is how I got into IIT Madras.
+
+## About that laptop
+
+It never came. I am still waiting. If anyone from the department is reading this, you know where to find me.
+
+But here is the part I actually think about. A kid from Akshanpally. Telugu medium. Government schools all the way. Mother working as a maid. No internet until B.Tech. And then a watchman uncle, a maths madam, a headmaster, one English lesson, a newspaper in a hostel, and a sister who knew exactly whom to call. Remove any one of them and this story ends somewhere else.
+
+The lesson was called "I Will Do It". When I read it in 10th class, I said it too, with zero information and full overconfidence.
+
+Turns out I actually did it.
