@@ -140,7 +140,7 @@ Twelve hours. That is what access does.
 
 ## Gallery
 
-<div style="columns:2;column-gap:8px;margin-top:1rem;">
+<div class="photo-gallery">
 
 ![Group selfie with students at Yakatpura after the session](./images/ai-literacy/yakatpura1.jpg)
 

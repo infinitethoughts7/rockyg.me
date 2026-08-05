@@ -55,6 +55,26 @@
       width: min(21rem, 45%);
     }
 
+    /* Two-column photo wall for post galleries. Uniform 0.5rem gutters
+       in both axes; break-inside keeps a photo from splitting across
+       columns. */
+    .photo-gallery {
+      columns: 2;
+      column-gap: 0.5rem;
+      margin-top: 1.5rem;
+    }
+
+    .photo-gallery p {
+      break-inside: avoid;
+      margin: 0 0 0.5rem;
+    }
+
+    .photo-gallery img {
+      border-radius: 8px;
+      margin: 0;
+      width: 100%;
+    }
+
     /* Markdown images inside a .post-aside wrapper div: the wrapper
        carries the frame, so strip the inner image's own border/margins. */
     .post-aside p {

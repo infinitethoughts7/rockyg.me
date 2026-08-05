@@ -89,7 +89,7 @@ The program isn't done. This was Phase 1. But what we saw in these 40 schools, t
 
 ## Photo Gallery
 
-<div style="columns:2;column-gap:8px;margin-top:1rem;">
+<div class="photo-gallery">
 
 ![Students gathered in the classroom](./images/ai-literacy/classroom1.jpeg)
 
