@@ -1,7 +1,7 @@
 ---
-title: "What 2,051 First-Time Users Taught Me About Building AI Products"
+title: "What First-Time Users Taught Me About Building AI Products"
 author: Rocky G
-pubDatetime: 2026-07-23T00:00:00Z
+pubDatetime: 2026-05-15T00:00:00Z
 description: "I taught AI to school girls who had never touched a laptop, and I ship AI products to clinic staff who never asked for AI. Same users, same lessons. The classroom turned out to be my best product research."
 featured: false
 tags:
