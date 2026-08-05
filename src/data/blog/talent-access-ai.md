@@ -1,7 +1,7 @@
 ---
 title: "Talent was never India's problem. Access was. AI is changing that."
 author: Rocky G
-pubDatetime: 2026-05-05T00:00:00Z
+pubDatetime: 2026-03-27T00:00:00Z
 description: "How I led an AI literacy program across 40 minority schools in Telangana, trained 60 trainers, reached 2051 students, and what a 9th standard girl named Ameena taught me about the future."
 featured: true
 draft: false
