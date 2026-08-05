@@ -18,7 +18,7 @@ Personal blog for Rocky G (rockyg.me) built with Astro 5 and the AstroPaper them
 
 - **Site config**: `src/config.ts` — title, author, URL, pagination, OG settings
 - **Blog content**: `src/data/blog/*.md` — Markdown posts with Zod-validated frontmatter (schema in `src/content.config.ts`)
-- **Images**: `src/assets/images/posts/YYYY-MM/` — organized by year/month, referenced with relative paths from posts
+- **Images**: `src/data/blog/images/<topic>/` — one folder per post/topic (e.g. `ai-literacy/`, `talent-access/`). Reference from posts with markdown syntax and relative paths (`![alt](./images/<topic>/photo.jpg)`) so Astro optimizes them; never raw `<img>` tags with relative paths. For images needing CSS classes, wrap a markdown image in a styled div (see `.post-aside` in typography.css). Site-wide images (About photo, OG default) live in `public/`. One file per photo: checksum before adding, and always commit image files or they 404 in production
 - **OG image generation**: `src/pages/og.png.ts` and `src/pages/posts/[...slug]/index.png.ts` use Satori + sharp; templates in `src/utils/og-templates/`
 - **Social links**: `src/constants.ts` — SOCIALS and SHARE_LINKS arrays with SVG icons from `src/assets/icons/`
 - **Path alias**: `@/*` maps to `./src/*` (configured in tsconfig.json)
