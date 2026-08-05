@@ -8,7 +8,7 @@ tags:
   - ai-literacy
   - education
   - community
-ogImage: ./images/ai-literacy-yakatpura-selfie.jpeg
+ogImage: ./images/ai-literacy/ai-literacy-yakatpura-selfie.jpeg
 description: "How I led the AI Literacy Training Program across 40 minority schools in Telangana, Phase 1, training 2,051 students in computer basics, AI, and hands-on AI tools."
 ---
 
@@ -22,7 +22,7 @@ I managed the entire program. I coordinated the trainers, designed the curriculu
 
 2,051 students. That's how many we reached in Phase 1.
 
-![Walking among students during a session, checking their understanding](./images/ai-literacy-walking-among-students.jpg)
+![Walking among students during a session, checking their understanding](./images/ai-literacy/ai-literacy-walking-among-students.jpg)
 
 ## Why These Schools
 
@@ -43,7 +43,7 @@ Here's what the curriculum covered:
 - **Prompting.** This is where it got exciting. We taught students how to write prompts to generate images, videos, and songs using AI tools. The concept that you could type a sentence and get an image back, that blew their minds.
 - **Hands-on with AI Tools.** Students didn't just watch. They used AI tools themselves to create real things.
 
-![Teaching AI concepts at Yakatpura, the screen reads "AI is a software that mimics the Human Intelligence"](./images/ai-literacy-yakatpura-teaching.jpeg)
+![Teaching AI concepts at Yakatpura, the screen reads "AI is a software that mimics the Human Intelligence"](./images/ai-literacy/ai-literacy-yakatpura-teaching.jpeg)
 
 ## What the Students Built
 
@@ -63,13 +63,13 @@ Out of the 40 schools, I personally taught at three. The photos here are from th
 
 The best part was sitting down with the students after the presentation. Not standing at the front, actually sitting on the floor with them, going through things one-on-one.
 
-![Sitting with students on the floor, teaching AI concepts up close](./images/ai-literacy-teaching-closely.jpg)
+![Sitting with students on the floor, teaching AI concepts up close](./images/ai-literacy/ai-literacy-teaching-closely.jpg)
 
 That's where the real teaching happened. Not from the slides. From the floor. When a student can point at the screen and ask "but how does it know?" That's when you know they're actually learning.
 
 At the end of some sessions, we gave out chocolates. Small thing. But the way those kids reacted, you'd think we gave them the world.
 
-![Giving chocolates to a student after the session, with a teacher looking on](./images/ai-literacy-chocolates-giving.jpg)
+![Giving chocolates to a student after the session, with a teacher looking on](./images/ai-literacy/ai-literacy-chocolates-giving.jpg)
 
 ## The Yakatpura Session
 
@@ -77,7 +77,7 @@ One of the most memorable sessions was at Yakatpura. The classroom was packed. T
 
 After the session, they all wanted a selfie. Every single one of them crowded in. That photo is one of my favorites from the entire program.
 
-![Selfie with students after the AI literacy session at Yakatpura](./images/ai-literacy-yakatpura-selfie.jpeg)
+![Selfie with students after the AI literacy session at Yakatpura](./images/ai-literacy/ai-literacy-yakatpura-selfie.jpeg)
 
 ## 2,051 Students Later
 
@@ -91,23 +91,23 @@ The program isn't done. This was Phase 1. But what we saw in these 40 schools, t
 
 <div style="columns:2;column-gap:8px;margin-top:1rem;">
 
-![Students gathered in the classroom](./images/classroom1.jpeg)
+![Students gathered in the classroom](./images/ai-literacy/classroom1.jpeg)
 
-![Students using computers during the session](./images/students-at-computers.jpg)
+![Students using computers during the session](./images/ai-literacy/students-at-computers.jpg)
 
-![Student working on an assessment](./images/student-writing-assessment.jpg)
+![Student working on an assessment](./images/ai-literacy/student-writing-assessment.jpg)
 
-![Student writing during the program](./images/student-writing-2.jpg)
+![Student writing during the program](./images/ai-literacy/student-writing-2.jpg)
 
-![Coordinating with teachers](./images/teacher-coordination.jpg)
+![Coordinating with teachers](./images/ai-literacy/teacher-coordination.jpg)
 
-![Students showing their work on a laptop](./images/students-showing-laptop.jpg)
+![Students showing their work on a laptop](./images/ai-literacy/students-showing-laptop.jpg)
 
-![Students working on laptops together](./images/students-with-laptop-2.jpg)
+![Students working on laptops together](./images/ai-literacy/students-with-laptop-2.jpg)
 
-![Another moment from the Yakatpura session](./images/yakatpura2.jpg)
+![Another moment from the Yakatpura session](./images/ai-literacy/yakatpura2.jpg)
 
-![Class giving thumbs up after the session](./images/class-thumbs-up.jpg)
+![Class giving thumbs up after the session](./images/ai-literacy/class-thumbs-up.jpg)
 
 </div>
 

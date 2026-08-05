@@ -5,7 +5,7 @@ pubDatetime: 2026-05-05T00:00:00Z
 description: "How I led an AI literacy program across 40 minority schools in Telangana, trained 60 trainers, reached 2051 students, and what a 9th standard girl named Ameena taught me about the future."
 featured: true
 draft: false
-ogImage: ./images/ai-literacy-yakatpura-selfie.jpeg
+ogImage: ./images/ai-literacy/ai-literacy-yakatpura-selfie.jpeg
 tags:
   - technical
   - ai-literacy
@@ -15,7 +15,7 @@ tags:
 
 <div class="post-aside post-aside-right">
 
-![Teaching AI concepts at Yakatpura](./images/ai-literacy-yakatpura-teaching.jpeg)
+![Teaching AI concepts at Yakatpura](./images/ai-literacy/ai-literacy-yakatpura-teaching.jpeg)
 
 </div>
 
@@ -43,7 +43,7 @@ That is when I knew this program was working.
 
 <div class="post-aside post-aside-right">
 
-![How the AI literacy program started](./images/how-it-started.jpeg)
+![How the AI literacy program started](./images/talent-access/how-it-started.jpeg)
 
 </div>
 
@@ -134,7 +134,7 @@ Before the program started we gave every student a baseline test. At the end of 
 
 Average score before: 3.8 out of 10. Average score after: 8.3.
 
-![Bar chart showing baseline vs endline scores across 14 schools, and overall improvement from 3.8 to 8.3](./images/score-chart.svg)
+![Bar chart showing baseline vs endline scores across 14 schools, and overall improvement from 3.8 to 8.3](./images/talent-access/score-chart.svg)
 
 Twelve hours. That is what access does.
 
@@ -142,17 +142,17 @@ Twelve hours. That is what access does.
 
 <div style="columns:2;column-gap:8px;margin-top:1rem;">
 
-![Group selfie with students at Yakatpura after the session](./images/yakatpura1.jpg)
+![Group selfie with students at Yakatpura after the session](./images/ai-literacy/yakatpura1.jpg)
 
-![Students sitting on the floor, looking up with notebooks in hand](./images/classroom1.jpeg)
+![Students sitting on the floor, looking up with notebooks in hand](./images/ai-literacy/classroom1.jpeg)
 
-![Rocky sitting on the floor with students during a hands-on session](./images/with-students.jpg)
+![Rocky sitting on the floor with students during a hands-on session](./images/ai-literacy/with-students.jpg)
 
-![Teaching session, screen reads 'AI is a software that mimics human intelligence'](./images/yakatpura2.jpg)
+![Teaching session, screen reads 'AI is a software that mimics human intelligence'](./images/ai-literacy/yakatpura2.jpg)
 
-![Rocky walking among students during the assessment session](./images/ail-smile.jpg)
+![Rocky walking among students during the assessment session](./images/ai-literacy/ail-smile.jpg)
 
-![Giving chocolates to a student at the end of the session](./images/chocolates-giving.jpg)
+![Giving chocolates to a student at the end of the session](./images/ai-literacy/chocolates-giving.jpg)
 
 </div>
 
