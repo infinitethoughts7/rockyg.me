@@ -55,6 +55,19 @@
       width: min(21rem, 45%);
     }
 
+    /* Markdown images inside a .post-aside wrapper div: the wrapper
+       carries the frame, so strip the inner image's own border/margins. */
+    .post-aside p {
+      margin: 0;
+    }
+
+    .post-aside img {
+      border: 0;
+      border-radius: 13px;
+      margin: 0;
+      width: 100%;
+    }
+
     .post-aside-right {
       float: right;
       margin: 0.25rem 0 1rem 1.5rem;
