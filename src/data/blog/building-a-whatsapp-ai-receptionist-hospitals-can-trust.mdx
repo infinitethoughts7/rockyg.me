@@ -36,7 +36,7 @@ import ScalingLadder from "@/components/caira/ScalingLadder.astro";
 
 <CairaKit />
 
-On paper, Caira is a WhatsApp receptionist for clinics. In practice she is
+On paper, Caira is a WhatsApp receptionist for hospitals and clinics. In practice she is
 the most patient colleague I have ever had: answers in English, Hindi, Telugu
 or Hinglish, at 3 am, to a hundred people at once, and she has never once
 sighed.
@@ -62,7 +62,7 @@ story.
 
 ## Meet Caira
 
-Every clinic has the same problem. The phone rings all day, someone has to
+Every hospital and clinic has the same problem. The phone rings all day, someone has to
 answer "what are your timings?" for the fortieth time, write names in a
 diary, and call people so they actually show up. That person is expensive,
 goes home at 7 pm, and can hold exactly one conversation at a time.
@@ -71,8 +71,12 @@ So I built that person as software, living inside WhatsApp. She answers
 questions, books appointments, sends reminders, offers freed slots to the
 waitlist, and checks on you after your visit.
 
+And her first client is not a small shop. It is a big hospital: departments,
+many doctors, a front desk that never goes quiet. That scale is baked into
+every decision below.
+
 The decision that shaped everything came right at the start: **one copy of
-Caira serves every clinic.** One apartment building with many locked flats,
+Caira serves every hospital and clinic.** One apartment building with many locked flats,
 instead of a new house for every family. It looks like a cost decision on a
 slide. In reality it is the decision that caused almost every hard problem in
 this story, and honestly, most of the fun ones too.
@@ -160,7 +164,7 @@ model are called the **harness**.
 
 Language models are fluent guessers. In most products a wrong guess is a
 quirk. Here, if Caira invents a consultation fee, a real patient brings 500
-rupees to a 900 rupee visit, under a clinic's name. So my central question
+rupees to a 900 rupee visit, under a hospital's name. So my central question
 was never "which model". It was: how do I make her **structurally incapable**
 of answering outside the facts she was handed?
 
@@ -223,7 +227,7 @@ waits on a slow model.
 ## How I test the bot: an exam before every deploy
 
 Change one word in a prompt and a bot can silently get worse. Without a
-safety net you find out from an angry clinic. So Caira sits an exam before
+safety net you find out from an angry hospital. So Caira sits an exam before
 every deploy: fixed questions, known right answers, a score. The alarm below
 is the strict parent who notices the moment a 90 becomes a 60.
 
@@ -252,8 +256,9 @@ with the clinic and get back to you."
 
 "Does it scale?" almost never means what people think it means. Computers are
 cheap and Caira is stateless, so more traffic just means more copies of her.
-The real question I kept asking myself: as this grows from one clinic to a
-thousand, which single thing bends first, and did I leave myself a lever?
+The real question I kept asking myself: as this grows from one big hospital
+to a thousand clinics, which single thing bends first, and did I leave myself
+a lever?
 
 Here is where the 1.6 seconds actually goes:
 
