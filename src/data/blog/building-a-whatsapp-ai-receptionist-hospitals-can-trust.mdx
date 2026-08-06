@@ -91,7 +91,7 @@ this story, and honestly, most of the fun ones too.
   </p>
 </NerdBox>
 
-## What happens when you text her
+## How a message flows through the system
 
 You type _"do you treat migraine? and what are your timings"_ and hit send.
 Here is everything that happens before the reply lands, and I promise none of
@@ -99,7 +99,7 @@ it is magic.
 
 <JourneyMap />
 
-## Who talks to Caira
+## The system map: who talks to what
 
 When I sat down to draw the system, the first map had three kinds of humans
 on it: patients (WhatsApp only, they never see a website), clinic staff (a
@@ -112,7 +112,7 @@ plug, not the house.
 
 <SystemContextMap />
 
-## A building with three unlocked doors
+## How I structured the entry points
 
 Zoom in one level and Caira's building has only three doors that matter: one
 where WhatsApp messages arrive, one where the booking form talks to us, and
@@ -125,7 +125,7 @@ building, which is why I can test every room without ever building a door.
 
 <ContainerMap />
 
-## Trust the letterbox, never the visitor
+## How I keep clinics isolated from each other
 
 Here is the bug that actually kept me careful: clinic A seeing clinic B's
 patients. In healthcare that is not a bug report, it is a regulatory
@@ -156,7 +156,7 @@ model are called the **harness**.
 
 <HarnessLoop />
 
-## She is not allowed to make things up
+## How I stopped the model from making things up
 
 Language models are fluent guessers. In most products a wrong guess is a
 quirk. Here, if Caira invents a consultation fee, a real patient brings 500
@@ -177,7 +177,7 @@ her out of the rules. Go ahead, you try:
 
 <GuardrailsPlayground />
 
-## What should she remember?
+## How I designed memory: state vs recall
 
 Memory sounds warm and fuzzy until you have to design it. Remember too little
 and "book me with the same doctor as last time" gets a blank stare. Remember
@@ -190,7 +190,7 @@ of memory here, and most builders mix them up.
 
 <MemoryPlayground />
 
-## Stop paying for the same answer twice
+## How I cut the LLM bill with caching
 
 Two hundred patients ask "what are your timings?" and a naive bot pays the
 model two hundred times for one identical sentence. If ten friends ask you
@@ -199,7 +199,7 @@ So does she.
 
 <CachePlayground />
 
-## The day Gemini has a bad minute
+## How I handle vendor outages
 
 Some day Gemini will have a bad minute. Every vendor does. In most products
 the AI feature just dies and takes the user experience with it. I decided
@@ -220,7 +220,7 @@ waits on a slow model.
 
 <QueueLetterbox />
 
-## The exam before every deploy
+## How I test the bot: an exam before every deploy
 
 Change one word in a prompt and a bot can silently get worse. Without a
 safety net you find out from an angry clinic. So Caira sits an exam before
@@ -229,7 +229,7 @@ is the strict parent who notices the moment a 90 becomes a 60.
 
 <EvalsPlayground />
 
-## The conversation is a board game, not a chat
+## How I model conversations: a state machine, not vibes
 
 My favorite piece of low-level design. Caira never "remembers the vibe" of a
 conversation. She knows exactly which square you are standing on: browsing,
@@ -248,7 +248,7 @@ with the clinic and get back to you."
 
 <GroundingPipeline />
 
-## The AI is not the expensive part
+## What actually costs money at scale
 
 "Does it scale?" almost never means what people think it means. Computers are
 cheap and Caira is stateless, so more traffic just means more copies of her.
@@ -267,7 +267,7 @@ The punchline most people get backwards: at realistic volumes, sending
 WhatsApp reminders costs more than running the AI. The robot brain is cheaper
 than the postage.
 
-## Everyone can build the demo
+## The demo is easy. The product is everything else.
 
 If you remember one thing from this whole page, make it this. A weekend and a
 model API gets anyone a chatbot that books appointments. The distance between
