@@ -85,7 +85,7 @@ import NerdBox from "@/components/caira/NerdBox.astro";
 
       <rect class="gpbox" x="302" y="40" width="120" height="50" rx="9"></rect>
       <text class="gplbl" x="362" y="61">shape check</text>
-      <text class="gpsub" x="362" y="76">Zod schema</text>
+      <text class="gpsub" x="362" y="76">strict schema</text>
 
       <rect class="gpbox" x="446" y="40" width="120" height="50" rx="9"></rect>
       <text class="gplbl" x="506" y="58">sanitizer</text>
@@ -122,7 +122,7 @@ import NerdBox from "@/components/caira/NerdBox.astro";
     <p>
       The prompt fences the clinic's facts between explicit markers and asks for
       JSON only, a request the model can ignore. The response is checked against
-      a Zod schema, and the sanitizer strips every link and caps the reply
+      a strict schema, and the sanitizer strips every link and caps the reply
       length, an actual guarantee. The provider stack itself is a decorator
       chain, cache then fallback then metering then vendor, so a slow or dead
       model degrades instead of taking the feature down. Feed her a prompt

@@ -41,23 +41,23 @@
       <div class="hop">
         <span class="k">route</span>
         <b>phone_number_id</b> 1084…41
-        <span class="k">→</span> clinic_id 3f2a…
+        <span class="k">→</span> clinic resolved
         <span class="ms">· 1 indexed lookup</span>
       </div>
       <div class="hop">
-        <b>detectIntent</b> → ask_faq <span class="k">·</span> lang=en
+        <b>intent</b> → faq question <span class="k">·</span> lang=en
         <span class="k">·</span> conf 0.92 <span class="ms">~190ms</span>
       </div>
       <div class="hop">
-        <b>retrieve</b> top-6 of 40 FAQs <span class="k">·</span> keyword rank +2/+1
+        <b>retrieve</b> the 6 most relevant of the clinic's FAQs
       </div>
       <div class="hop">
-        <b>answerQuestion</b> grounded on 6 facts <span class="k">·</span>
+        <b>grounded answer</b> from those 6 facts <span class="k">·</span>
         answered=true <span class="ms">~640ms</span>
         <span class="cost">$0.0005</span>
       </div>
       <div class="hop">
-        <span class="k">cache.set</span> faq:9f3c…:do-you-treat-migraine…
+        <span class="k">cache</span> answer saved for the next patient who asks
       </div>
       <div class="hop hit">
         <b>cache HIT</b>

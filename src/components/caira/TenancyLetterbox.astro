@@ -94,10 +94,10 @@ import NerdBox from "@/components/caira/NerdBox.astro";
 
       <rect class="tg" x="228" y="70" width="200" height="72" rx="11"></rect>
       <text class="tt2" x="242" y="92" style="fill:var(--cx-teal)"
-        >ClinicResolver</text
+        >clinic resolver</text
       >
-      <text class="ts2" x="242" y="108">unique index on</text>
-      <text class="ts2" x="242" y="121">clinics.whatsapp_phone_number_id</text>
+      <text class="ts2" x="242" y="108">one receiving number maps</text>
+      <text class="ts2" x="242" y="121">to exactly one clinic</text>
       <text class="ts2" x="242" y="135" style="fill:var(--cx-amber)"
         >1 indexed lookup · no scan</text
       >
@@ -109,18 +109,18 @@ import NerdBox from "@/components/caira/NerdBox.astro";
       >
 
       <rect class="tb" x="482" y="80" width="228" height="52" rx="9"></rect>
-      <text class="tt2" x="494" y="100">runWithClinic(clinic_id, …)</text>
+      <text class="tt2" x="494" y="100">tenant wrapper</text>
       <text class="ts2" x="494" y="116"
-        >set_config('app.current_clinic_id', …, true)</text
+        >pins the clinic onto the transaction</text
       >
       <text class="ts2" x="494" y="128">→ transaction-scoped, never leaks</text>
 
       <rect class="tb" x="482" y="146" width="228" height="52" rx="9"></rect>
       <text class="tt2" x="494" y="166">RLS policy on every tenant table</text>
       <text class="ts2" x="494" y="182"
-        >clinic_id = app_current_clinic_id()</text
+        >rows visible only to their own clinic</text
       >
-      <text class="ts2" x="494" y="194">or is_clinic_member(clinic_id)</text>
+      <text class="ts2" x="494" y="194">enforced by the database itself</text>
 
       <rect
         class="tb"
@@ -151,13 +151,13 @@ import NerdBox from "@/components/caira/NerdBox.astro";
 
   <NerdBox title="the three backstops behind the letterbox">
     <p>
-      Resolving phone_number_id to clinic_id is one indexed lookup, a unique
-      index on clinics.whatsapp_phone_number_id, no table scan. From there every
-      tenant row across all 22 tables carries its own clinic_id, and every
-      repository method takes that clinic_id as its first argument. RLS is the
-      designed backstop: runWithClinic() calls set_config to set a
-      transaction-scoped variable, and Postgres policies read it back and filter
-      rows themselves, in case a developer ever forgets a WHERE clause.
+      Resolving the receiving number to a clinic is one indexed lookup against
+      a unique index, no table scan. From there every tenant row in the
+      database carries its own clinic id, and every repository call takes that
+      clinic id explicitly. Row-level security is the designed backstop: a
+      small wrapper pins the current clinic onto the database transaction, and
+      policies on the rows themselves refuse to serve another clinic's data,
+      in case a developer ever forgets a WHERE clause.
     </p>
   </NerdBox>
 </div>

@@ -123,7 +123,7 @@ import NerdBox from "@/components/caira/NerdBox.astro";
 
       <rect class="cactor" x="16" y="186" width="148" height="54" rx="9"></rect>
       <text class="ct" x="30" y="207">Clinic staff</text>
-      <text class="cs" x="30" y="223">web dashboard · Supabase auth</text>
+      <text class="cs" x="30" y="223">web dashboard · authenticated</text>
 
       <rect class="cactor" x="16" y="266" width="148" height="54" rx="9"></rect>
       <text class="ct" x="30" y="287">Doctor</text>
@@ -137,7 +137,7 @@ import NerdBox from "@/components/caira/NerdBox.astro";
         height="50"
         rx="9"
         stroke-dasharray="3 3"></rect>
-      <text class="ct" x="30" y="402">Vercel Cron</text>
+      <text class="ct" x="30" y="402">Cron timer</text>
       <text class="cs" x="30" y="418">wakes the queue drain</text>
 
       <!-- the system -->
@@ -145,7 +145,7 @@ import NerdBox from "@/components/caira/NerdBox.astro";
       ></rect>
       <text class="ch" x="336" y="176">Caira</text>
       <text class="chs" x="336" y="196">multi-tenant · stateless</text>
-      <text class="chs" x="336" y="210">Next.js on Vercel</text>
+      <text class="chs" x="336" y="210">one serverless app</text>
       <text class="chs" x="336" y="232" style="fill:var(--cx-amber)"
         >21 modules · 24 ports</text
       >
@@ -160,23 +160,23 @@ import NerdBox from "@/components/caira/NerdBox.astro";
       <text class="cs" x="524" y="112">intent + grounded answers</text>
 
       <rect class="cbx" x="512" y="132" width="192" height="42" rx="8"></rect>
-      <text class="ct" x="524" y="150">Sarvam</text>
+      <text class="ct" x="524" y="150">Indic translation API</text>
       <text class="cs" x="524" y="164">Indic translation</text>
 
       <rect class="cbx" x="512" y="184" width="192" height="42" rx="8"></rect>
-      <text class="ct" x="524" y="202">Supabase Postgres</text>
-      <text class="cs" x="524" y="216">22 tables · RLS · auth</text>
+      <text class="ct" x="524" y="202">Postgres</text>
+      <text class="cs" x="524" y="216">tenant rows · RLS · auth</text>
 
       <rect class="cbx" x="512" y="236" width="192" height="42" rx="8"></rect>
-      <text class="ct" x="524" y="254">Upstash Redis</text>
+      <text class="ct" x="524" y="254">Redis</text>
       <text class="cs" x="524" y="268">shared answer cache</text>
 
       <rect class="cbx" x="512" y="288" width="192" height="42" rx="8"></rect>
-      <text class="ct" x="524" y="306">Razorpay</text>
+      <text class="ct" x="524" y="306">Payments provider</text>
       <text class="cs" x="524" y="320">upfront-fee payment links</text>
 
       <rect class="cbx" x="512" y="340" width="192" height="42" rx="8"></rect>
-      <text class="ct" x="524" y="358">Langfuse</text>
+      <text class="ct" x="524" y="358">LLM trace store</text>
       <text class="cs" x="524" y="372">per-call cost + latency traces</text>
 
       <!-- patient path via Meta (green) -->
@@ -191,17 +191,17 @@ import NerdBox from "@/components/caira/NerdBox.astro";
 
       <!-- system to externals -->
       <path class="cl" d="M434,168 C470,168 476,104 508,101"></path>
-      <text class="cport" x="446" y="126">LlmProvider</text>
+      <text class="cport" x="446" y="126">model port</text>
       <path class="cl" d="M434,186 C470,186 480,154 508,153"></path>
-      <text class="cport" x="446" y="176">TranslationProvider</text>
+      <text class="cport" x="446" y="176">translation port</text>
       <path class="cl" d="M434,204 C470,204 480,205 508,205"></path>
-      <text class="cport" x="446" y="200">~15 repositories</text>
+      <text class="cport" x="446" y="200">repositories</text>
       <path class="cl" d="M434,222 C470,222 480,256 508,257"></path>
-      <text class="cport" x="446" y="238">Cache&lt;V&gt;</text>
+      <text class="cport" x="446" y="238">cache port</text>
       <path class="cl" d="M434,240 C470,240 478,308 508,309"></path>
-      <text class="cport" x="446" y="272">PaymentProvider</text>
+      <text class="cport" x="446" y="272">payments port</text>
       <path class="cl" d="M434,256 C468,256 476,360 508,361"></path>
-      <text class="cport" x="446" y="300">LlmMetricsSink</text>
+      <text class="cport" x="446" y="300">metrics port</text>
 
       <!-- razorpay webhook back -->
       <path class="cla" d="M512,320 C470,330 440,300 436,264"></path>
@@ -217,9 +217,9 @@ import NerdBox from "@/components/caira/NerdBox.astro";
     <p>
       A patient has no direct edge to the system: every inbound byte arrives via
       Meta, signed, which is what makes the tenant router trustworthy. And every
-      outward edge is labelled with a port name (LlmProvider,
-      TranslationProvider, Cache, PaymentProvider, LlmMetricsSink, ~15
-      repositories), not a vendor name. The vendor is resolved in one file, the
+      outward edge is labelled with a port name (a model provider, a translation
+      provider, a cache, a payments provider, a metrics sink, a stack of
+      repositories), not a vendor name. The vendor is resolved in one place, the
       composition root.
     </p>
   </NerdBox>

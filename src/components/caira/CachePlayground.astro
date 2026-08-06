@@ -47,8 +47,8 @@ import NerdBox from "@/components/caira/NerdBox.astro";
     <p id="bill-save" class="tiny" style="margin-top:.5rem"></p>
   </div>
   <NerdBox>
-    answers cached in Upstash Redis keyed on clinic + normalized question, 1
-    hour TTL; a cache hit is 0 ms of model time and $0.00; the trace window at
-    the top of this post shows one happening
+    answers cached per clinic, keyed on the normalized question, and dropped
+    the moment the clinic edits its facts; a cache hit is 0 ms of model time
+    and $0.00; the trace window at the top of this post shows one happening
   </NerdBox>
 </div>

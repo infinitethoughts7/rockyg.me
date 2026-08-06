@@ -21,8 +21,8 @@
       <div class="bd">
         The first real technical change, and it is a two-line one. Multiple
         function instances mean the per-instance cache stops hitting: the same
-        question paid for repeatedly across instances. Add the Upstash
-        credentials and <code>RedisCache</code> takes over behind the same port.
+        question paid for repeatedly across instances. One config flip and a
+        shared Redis cache takes over behind the same port.
         <span class="breaks"
           >Bends: cache hit rate → fix is config, not code. Also: template
           approval becomes recurring ops work.</span
@@ -49,7 +49,7 @@
       <div class="bd">
         Now the architecture is genuinely tested. One Postgres holding every
         tenant is the ceiling. Read replicas for dashboard queries buy time,
-        then sharding by <code>clinic_id</code> is the real answer, and it is
+        then sharding by clinic is the real answer, and it is
         <em>possible</em> only because every table already carries that column and
         no query crosses tenants. The 100-job batch needs raising or more concurrent
         drainers. Slot recompute becomes a hot path. Noisy-neighbor isolation and

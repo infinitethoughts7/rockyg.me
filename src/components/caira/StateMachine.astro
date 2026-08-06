@@ -195,14 +195,14 @@
     <text class="smsl" x="560" y="140">every terminal state → idle</text>
 
     <text class="smsg" x="14" y="342"
-      >STORED AS: conversations.state (text) + conversations.state_data (jsonb)</text
+      >STORED AS: TWO SMALL COLUMNS ON THE CONVERSATION ROW, NOTHING ELSE</text
     >
     <text class="smsg" x="14" y="358" style="fill:var(--cx-amber)"
       >NO IN-MEMORY SESSION · A REDEPLOY MID-BOOKING LOSES NOTHING</text
     >
     <text class="smsg" x="14" y="374"
-      >17 STATES · UNIQUE (clinic_id, patient_id): ONE LIVE CONVERSATION PER
-      PATIENT PER CLINIC</text
+      >ONE LIVE CONVERSATION PER PATIENT PER CLINIC, ENFORCED BY THE
+      DATABASE ITSELF</text
     >
   </svg>
   <div class="figcap">

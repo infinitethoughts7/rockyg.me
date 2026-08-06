@@ -91,11 +91,11 @@ import NerdBox from "@/components/caira/NerdBox.astro";
 
   <NerdBox title="the loop, in real code">
     <p>
-      bot-brain/handleInboundMessage IS the loop: resolve tenant, detect intent,
-      run the matched flow, and persist state only after a successful send. That
-      last detail is a check most builders forget. 727 lines, no vendor import:
-      every dependency arrives through a port, and the LLM is called from
-      exactly one narrow place inside think.
+      One function IS the loop: resolve tenant, detect intent, run the matched
+      flow, and persist state only after a successful send. That last detail is
+      a check most builders forget. Not a single vendor import inside it: every
+      dependency arrives through a port, and the LLM is called from exactly one
+      narrow place inside think.
     </p>
   </NerdBox>
 </div>
