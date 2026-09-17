@@ -4,7 +4,7 @@ This file provides guidance to Codex (Codex.ai/code) when working with code in t
 
 ## Overview
 
-Personal blog for Rocky G (rockyg.me) built with Astro 5 and the AstroPaper theme. Uses Tailwind CSS v4, TypeScript, and deploys to Vercel.
+Personal blog for Rocky G (rockyg.me) built with Astro 5 and the AstroPaper theme. Uses Tailwind CSS v4, TypeScript, and deploys to GitHub Pages (custom domain rockyg.me) via `.github/workflows/deploy.yml` on every push to `main`.
 
 ## Commands
 
@@ -31,6 +31,7 @@ Required fields: `pubDatetime`, `title`, `description`, `tags`. Optional: `featu
 
 - Posts with `draft: true` are excluded from production builds
 - Posts with `featured: true` appear pinned on the homepage
+- The Life and Technical nav sections list posts tagged `life` and `technical`; a post with neither tag only shows under All Posts and tags
 - Markdown supports remark-toc (auto table of contents) and remark-collapse
 - Code blocks use Shiki with diff notation, line highlighting, word highlighting, and file name transformers
 - Pagefind provides client-side search (index built during `npm run build`, output in `public/pagefind/`)
