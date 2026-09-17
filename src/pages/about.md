@@ -23,8 +23,8 @@ title: "About"
 
 ## Start here
 
-- [The boy who told his maths teacher he would get into IIT](/posts/the-boy-who-told-his-maths-teacher/)
-- [Talent was never India's problem. Access was.](/posts/talent-was-never-indias-problem/)
+- [How an English lesson accidentally gave me a dream](/posts/how-an-english-lesson-gave-me-a-dream/)
+- [Talent was never India's problem. Access was.](/posts/talent-access-ai/)
 
 ## Currently building
 
