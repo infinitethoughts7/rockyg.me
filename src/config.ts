@@ -4,7 +4,6 @@ export const SITE = {
   profile: "https://rockyg.me/",
   desc: "Personal blog by Rocky G — developer writing about code, tools, and ideas",
   title: "Rocky G",
-  ogImage: "astropaper-og.jpg",
   lightAndDarkMode: true,
   postPerIndex: 4,
   postPerPage: 4,
