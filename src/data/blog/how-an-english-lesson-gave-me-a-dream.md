@@ -4,6 +4,7 @@ pubDatetime: 2023-07-30T10:00:00.000Z
 description: "The true story of a Telugu medium kid from a village who heard the word IIT for the first time in a 10th class English lesson, forgot about it, and reached IIT Madras anyway."
 featured: true
 tags:
+  - life
   - personal
   - school
   - journey
