@@ -107,9 +107,9 @@ import NerdBox from "@/components/caira/NerdBox.astro";
     <div class="playlog" id="queue-log">…</div>
   </div>
   <NerdBox>
-    fallback is a decorator on the model port (429/timeout → keyword
-    matcher); jobs are Postgres rows drained by cron with SKIP LOCKED, claim
-    100, dead-letter after 5 attempts; message-id idempotency makes Meta retries
+    fallback is a decorator on the model port (429/timeout → keyword matcher);
+    jobs are Postgres rows drained by cron with SKIP LOCKED, claim 100,
+    dead-letter after 5 attempts; message-id idempotency makes Meta retries
     harmless
   </NerdBox>
 </div>

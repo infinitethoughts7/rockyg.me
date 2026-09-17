@@ -151,13 +151,13 @@ import NerdBox from "@/components/caira/NerdBox.astro";
 
   <NerdBox title="the three backstops behind the letterbox">
     <p>
-      Resolving the receiving number to a clinic is one indexed lookup against
-      a unique index, no table scan. From there every tenant row in the
-      database carries its own clinic id, and every repository call takes that
-      clinic id explicitly. Row-level security is the designed backstop: a
-      small wrapper pins the current clinic onto the database transaction, and
-      policies on the rows themselves refuse to serve another clinic's data,
-      in case a developer ever forgets a WHERE clause.
+      Resolving the receiving number to a clinic is one indexed lookup against a
+      unique index, no table scan. From there every tenant row in the database
+      carries its own clinic id, and every repository call takes that clinic id
+      explicitly. Row-level security is the designed backstop: a small wrapper
+      pins the current clinic onto the database transaction, and policies on the
+      rows themselves refuse to serve another clinic's data, in case a developer
+      ever forgets a WHERE clause.
     </p>
   </NerdBox>
 </div>
