@@ -2,7 +2,7 @@ export const SITE = {
   website: "https://rockyg.me/",
   author: "Rocky G",
   profile: "https://rockyg.me/",
-  desc: "Personal blog by Rocky G — developer writing about code, tools, and ideas",
+  desc: "Rocky G builds AI products in Hyderabad and teaches AI/ML. Notes on building, teaching, and exploring.",
   title: "Rocky G",
   lightAndDarkMode: true,
   postPerIndex: 4,
