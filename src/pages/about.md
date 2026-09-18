@@ -30,8 +30,6 @@ title: "About"
 
 **Caira**, a multi-tenant WhatsApp AI receptionist that hospitals can trust. It answers patient questions and books appointments on the chat app people already use.
 
-Read the full build story, with animated architecture and playgrounds you can poke at: [Building Caira](/posts/building-a-whatsapp-ai-receptionist-hospitals-can-trust/).
-
 ## Get in touch
 
 Find my pencil work at [@rockyarts_7](https://www.instagram.com/rockyarts_7/), and everything else right here at [rockyg.me](https://rockyg.me).
