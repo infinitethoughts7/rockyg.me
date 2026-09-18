@@ -4,7 +4,6 @@ author: Rocky G
 pubDatetime: 2026-07-20T00:00:00Z
 description: "I build LLM agents for a living. On CPA Desk, a money-advisory tool for real-estate partners, I made the opposite call: zero AI in the trust path. Knowing when not to use AI is also an AI skill."
 featured: false
-draft: true
 tags:
   - technical
   - engineering-judgment
