@@ -21,9 +21,6 @@ export default defineConfig({
       filter: page => SITE.showArchives || !page.endsWith("/archives"),
     }),
   ],
-  redirects: {
-    "/caira": "/posts/building-a-whatsapp-ai-receptionist-hospitals-can-trust",
-  },
   markdown: {
     remarkPlugins: [remarkToc, [remarkCollapse, { test: "Table of contents" }]],
     shikiConfig: {
