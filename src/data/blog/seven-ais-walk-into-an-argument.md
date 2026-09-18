@@ -4,6 +4,7 @@ author: Rocky G
 pubDatetime: 2026-06-10T00:00:00Z
 description: "One model gives you an opinion. I needed a forecast a real-estate broker could defend to a buyer. So I made seven AI personas debate over evidence, and a judge write the verdict, dissent included."
 featured: false
+draft: true
 tags:
   - technical
   - ai-agents
