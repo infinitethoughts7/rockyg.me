@@ -1,4 +1,4 @@
-# rockyg.me
+# rocky.is-a.dev
 
 Personal blog by Rocky G — built with [Astro](https://astro.build) and the [AstroPaper](https://github.com/satnaing/astro-paper) theme.
 
@@ -68,13 +68,9 @@ vercel.json          # Vercel deployment config
 
 ## Deployment
 
-This site is deployed to **Vercel** with the custom domain `rockyg.me`.
+This site is deployed to **GitHub Pages** with the custom domain `rocky.is-a.dev`.
 
-To deploy:
-
-1. Push to GitHub
-2. Connect the repo to Vercel
-3. Vercel auto-detects Astro and deploys on every push to `main`
+`.github/workflows/deploy.yml` builds and deploys on every push to `main`. The subdomain is registered through [is-a.dev](https://github.com/is-a-dev/register) as a CNAME to `infinitethoughts7.github.io`.
 
 ## License
 
