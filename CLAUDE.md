@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Overview
 
-Personal blog for Rocky G (rockyg.me) built with Astro 5 and the AstroPaper theme. Uses Tailwind CSS v4, TypeScript, and deploys to GitHub Pages (custom domain rockyg.me) via `.github/workflows/deploy.yml` on every push to `main`.
+Personal blog for Rocky G (rocky.is-a.dev) built with Astro 5 and the AstroPaper theme. Uses Tailwind CSS v4, TypeScript, and deploys to GitHub Pages (custom domain rocky.is-a.dev) via `.github/workflows/deploy.yml` on every push to `main`.
 
 ## Commands
 
