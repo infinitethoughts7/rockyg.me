@@ -1,7 +1,7 @@
 export const SITE = {
-  website: "https://rockyg.me/",
+  website: "https://rocky.is-a.dev/",
   author: "Rocky G",
-  profile: "https://rockyg.me/",
+  profile: "https://rocky.is-a.dev/",
   desc: "Rocky G builds AI products in Hyderabad and teaches AI and ML. Notes on building, teaching, and exploring.",
   title: "Rocky G",
   lightAndDarkMode: true,

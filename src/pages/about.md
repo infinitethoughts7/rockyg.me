@@ -34,4 +34,4 @@ Read the full build story, with animated architecture and playgrounds you can po
 
 ## Get in touch
 
-Find my pencil work at [@rockyarts_7](https://www.instagram.com/rockyarts_7/), and everything else right here at [rockyg.me](https://rockyg.me).
+Find my pencil work at [@rockyarts_7](https://www.instagram.com/rockyarts_7/), and everything else right here at [rocky.is-a.dev](https://rocky.is-a.dev).
