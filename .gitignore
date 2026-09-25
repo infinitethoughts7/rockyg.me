@@ -31,3 +31,4 @@ public/pagefind
 
 # supabase local CLI temp files
 supabase/.temp/
+.vercel
